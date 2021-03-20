@@ -1,0 +1,40 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.394
+So, here's the answer. Let me just re-transform this as it's done over here.
+
+00:00:04.394 --> 00:00:08.029
+X1 minus x2 is now plus four,
+
+00:00:08.029 --> 00:00:11.084
+and x2 minus x1 is minus four.
+
+00:00:11.085 --> 00:00:14.295
+So, I have to add plus one over here,
+
+00:00:14.294 --> 00:00:15.859
+minus one over there,
+
+00:00:15.859 --> 00:00:18.504
+plus one in this diagonal element over here,
+
+00:00:18.504 --> 00:00:21.554
+and minus one over here. Let me just do this.
+
+00:00:21.554 --> 00:00:25.269
+These numbers L, the end transform the first number over here to two.
+
+00:00:25.269 --> 00:00:29.289
+We get a minus one for the off-diagonal elements, and a one over here.
+
+00:00:29.289 --> 00:00:31.489
+Now, we add four to the five,
+
+00:00:31.489 --> 00:00:36.655
+which gives us a nine, and a minus four to the zero gives minus four.
+
+00:00:36.655 --> 00:00:39.320
+So, this is where we are now.
+

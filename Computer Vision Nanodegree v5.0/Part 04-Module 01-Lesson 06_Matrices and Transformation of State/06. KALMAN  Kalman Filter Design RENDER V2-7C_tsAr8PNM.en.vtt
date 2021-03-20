@@ -1,0 +1,148 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.134
+So, when you design a Kalman Filter,
+
+00:00:03.134 --> 00:00:05.674
+you need effectively two things.
+
+00:00:05.674 --> 00:00:10.289
+For the state, you need a state-transition function,
+
+00:00:10.289 --> 00:00:12.285
+and that's usually a matrix.
+
+00:00:12.285 --> 00:00:14.210
+So, we're now in the world of linear algebra.
+
+00:00:14.210 --> 00:00:17.330
+For the measurements, you need a measurement function.
+
+00:00:17.329 --> 00:00:24.049
+So, let me give you those for our example of the 1D motion of an object.
+
+00:00:24.050 --> 00:00:32.219
+We know that new location is the old location plus velocity to in this new this matrix.
+
+00:00:32.219 --> 00:00:35.390
+You have a 1 over here, and a 1 over here.
+
+00:00:35.390 --> 00:00:37.600
+The new velocity should just be
+
+00:00:37.600 --> 00:00:41.635
+the old velocity because the 0 over here, and a 1 over here.
+
+00:00:41.634 --> 00:00:44.039
+If you multiply this matrix with this vector,
+
+00:00:44.039 --> 00:00:46.210
+this is exactly what you're getting.
+
+00:00:46.210 --> 00:00:50.829
+For the measurement, you only observe the first component of the place not the velocity,
+
+00:00:50.829 --> 00:00:54.405
+and that uses a vector or matrix like this.
+
+00:00:54.405 --> 00:00:57.719
+So, this matrix will be called F,
+
+00:00:57.719 --> 00:01:07.084
+and this H. The actual update equations for Kalman Filter are involved.
+
+00:01:07.084 --> 00:01:09.044
+I give them to you,
+
+00:01:09.045 --> 00:01:14.109
+but please don't memorize them and I won't prove them for you,
+
+00:01:14.109 --> 00:01:16.060
+even the prove is very involved.
+
+00:01:16.060 --> 00:01:19.390
+Every time I use images, look them up.
+
+00:01:19.700 --> 00:01:24.480
+There's a prediction step where I take my best estimate
+
+00:01:24.480 --> 00:01:31.130
+x multiplied with the state transition matrix F,
+
+00:01:31.129 --> 00:01:36.125
+and I add whatever motion I know, u.
+
+00:01:36.125 --> 00:01:42.805
+That gives me my new x. I also have a covariance that characters my uncertainty.
+
+00:01:42.805 --> 00:01:45.255
+That is updated as follows,
+
+00:01:45.254 --> 00:01:47.829
+where T is the transpose.
+
+00:01:47.829 --> 00:01:52.825
+There's also a measurement update step where we use the measurement z.
+
+00:01:52.825 --> 00:01:57.730
+We compare the measurement with our prediction where
+
+00:01:57.730 --> 00:02:03.355
+H is the measurement function that maps the state to measurements.
+
+00:02:03.355 --> 00:02:06.975
+We call this the error.
+
+00:02:06.974 --> 00:02:12.639
+The error is mapped into a matrix S which is obtained by
+
+00:02:12.639 --> 00:02:15.549
+projecting the system uncertainty into
+
+00:02:15.550 --> 00:02:19.035
+the measurement space using the measurement function protection,
+
+00:02:19.034 --> 00:02:22.564
+plus a matrix R, the character is a measurement noise.
+
+00:02:22.564 --> 00:02:27.050
+This is then mapped into a variable called K which is often called the common gain,
+
+00:02:27.050 --> 00:02:30.525
+where we invert the matrix S. Then finally,
+
+00:02:30.525 --> 00:02:34.659
+we actually update our estimate and
+
+00:02:34.659 --> 00:02:37.240
+our uncertainty using what ought to be
+
+00:02:37.240 --> 00:02:40.870
+the most cryptic equation that you've seen in a long time.
+
+00:02:40.870 --> 00:02:44.830
+Now, vote this down so that you have a complete definition,
+
+00:02:44.830 --> 00:02:48.210
+but this is something you should not memorize.
+
+00:02:48.210 --> 00:02:50.245
+If you really wish to understand,
+
+00:02:50.245 --> 00:02:52.719
+this math happens to be
+
+00:02:52.719 --> 00:02:56.895
+just a generalization of the math I gave you to higher dimensional spaces.
+
+00:02:56.895 --> 00:02:59.844
+But I would recommend just not to worry about this.
+
+00:02:59.844 --> 00:03:03.669
+There's a set of linear algebraic equations
+
+00:03:03.669 --> 00:03:07.759
+that implement the Kalman Filter in higher dimensions.
+

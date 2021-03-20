@@ -1,0 +1,139 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.390
+So, I'm trying it out and see what happens.
+
+00:00:02.390 --> 00:00:06.439
+So, before it was minus 3, 2, 5, 7.
+
+00:00:06.440 --> 00:00:09.030
+Now, the first position is completely unchanged,
+
+00:00:09.029 --> 00:00:10.644
+and I'll explain to you in a second why.
+
+00:00:10.644 --> 00:00:14.719
+The third one, went from five to 5.5,
+
+00:00:14.720 --> 00:00:19.295
+and the landmark went down from seven to 6.8.
+
+00:00:19.295 --> 00:00:23.140
+So graphically, this guy becomes larger than five,
+
+00:00:23.140 --> 00:00:27.030
+and this landmark even shift a little bit to the left to make these two things
+
+00:00:27.030 --> 00:00:31.850
+closer together than they were before when they had a separation distance of two.
+
+00:00:31.850 --> 00:00:35.524
+Now, this picture doesn't really explain it well because it's a 2D picture,
+
+00:00:35.524 --> 00:00:38.185
+but in 1D that's exactly what's happening.
+
+00:00:38.185 --> 00:00:40.935
+Also interesting, the initial position is unchanged.
+
+00:00:40.935 --> 00:00:42.609
+So, these are the correct answers.
+
+00:00:42.609 --> 00:00:46.229
+Now, I will be blown away if you guess them correctly.
+
+00:00:46.229 --> 00:00:48.859
+The reason why the original position doesn't change is,
+
+00:00:48.859 --> 00:00:52.429
+the only information we have about the absolute coordinates location is
+
+00:00:52.429 --> 00:00:57.859
+the very first initial position anchor that we said it has to be minus three.
+
+00:00:57.859 --> 00:00:59.734
+None of the relative rubber bands
+
+00:00:59.734 --> 00:01:02.710
+change the fact that we need this guy to be minus three.
+
+00:01:02.710 --> 00:01:04.870
+A relative strength changed in
+
+00:01:04.870 --> 00:01:07.660
+these two things over here means the rubber band is different,
+
+00:01:07.659 --> 00:01:09.004
+but it's a relative thing.
+
+00:01:09.004 --> 00:01:11.289
+This is the only absolute constraint we put in.
+
+00:01:11.290 --> 00:01:15.630
+So, clearly, the absolute location of the first position doesn't change.
+
+00:01:15.629 --> 00:01:18.489
+The reason why it becomes larger than five is,
+
+00:01:18.489 --> 00:01:20.339
+well, think about rubber bands.
+
+00:01:20.340 --> 00:01:22.270
+Our landmark is at around seven.
+
+00:01:22.269 --> 00:01:25.084
+We believe to be a position five in the noise-free case,
+
+00:01:25.084 --> 00:01:27.244
+we just put a tight rubber band between them.
+
+00:01:27.245 --> 00:01:29.725
+It's not two anymore, it's now one.
+
+00:01:29.724 --> 00:01:35.069
+That means we're inclined to move the landmark and this position closer together,
+
+00:01:35.069 --> 00:01:36.744
+and that's exactly what happens.
+
+00:01:36.745 --> 00:01:39.780
+If you go find a position, becomes 5.5,
+
+00:01:39.780 --> 00:01:43.920
+and the landmark becomes 6.875 instead of seven.
+
+00:01:43.920 --> 00:01:47.355
+Now, this is a case where the rubber bands don't add up.
+
+00:01:47.355 --> 00:01:51.015
+This is one of the places where graph's limit is just magical.
+
+00:01:51.015 --> 00:01:53.344
+So, before everything adds up,
+
+00:01:53.344 --> 00:01:55.885
+but we have cycles in these structures,
+
+00:01:55.885 --> 00:01:58.010
+and these cycles might not add up,
+
+00:01:58.010 --> 00:02:00.660
+because we have noise and motionless measurements.
+
+00:02:00.659 --> 00:02:02.554
+What our method does,
+
+00:02:02.555 --> 00:02:04.530
+by computing this thing,
+
+00:02:04.530 --> 00:02:06.655
+Omega to the minus one times c,
+
+00:02:06.655 --> 00:02:11.104
+we find the best solution to the relaxation of those rubber bands.
+
+00:02:11.104 --> 00:02:14.479
+That to me is sheer magic.
+

@@ -1,0 +1,40 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.600
+Let me do another quiz.
+
+00:00:01.600 --> 00:00:07.025
+Supposing x_1, we see landmark L_0 at a distance of nine,
+
+00:00:07.025 --> 00:00:10.740
+this gives me a relative constraint between x_1 over
+
+00:00:10.740 --> 00:00:15.009
+here and landmark zero, which is over here.
+
+00:00:15.009 --> 00:00:16.625
+So just like before,
+
+00:00:16.625 --> 00:00:19.179
+these link two things together relatively,
+
+00:00:19.179 --> 00:00:21.149
+the x_1 and the L_0.
+
+00:00:21.149 --> 00:00:23.429
+Now this doesn't look like a sub matrix,
+
+00:00:23.429 --> 00:00:25.545
+but it's spread a little bit apart.
+
+00:00:25.545 --> 00:00:28.090
+But I want you to modify those four values in
+
+00:00:28.089 --> 00:00:31.164
+the matrix and those two values in the vector to accommodate
+
+00:00:31.164 --> 00:00:37.839
+that we believe the location of L_0 is nine greater than the robot position x_1.
+

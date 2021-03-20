@@ -1,0 +1,67 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.675
+He has a really tricky quiz.
+
+00:00:01.675 --> 00:00:03.919
+Let's look at the forward motion again.
+
+00:00:03.919 --> 00:00:10.019
+Say I changed the last measurement from two down to one.
+
+00:00:10.019 --> 00:00:11.964
+You might remember the robot poses,
+
+00:00:11.964 --> 00:00:14.544
+we minus three, two and five.
+
+00:00:14.544 --> 00:00:17.550
+Before their modification, then my position was seven.
+
+00:00:17.550 --> 00:00:19.210
+But if one doesn't really add up,
+
+00:00:19.210 --> 00:00:22.500
+a one suggests I might be at a different distance to the
+
+00:00:22.500 --> 00:00:26.300
+seven than the five over here that come from this side.
+
+00:00:26.300 --> 00:00:27.769
+So, here's my quiz.
+
+00:00:27.769 --> 00:00:31.089
+First, I want you to know if I make this modification,
+
+00:00:31.089 --> 00:00:33.424
+what is the effect on x2?
+
+00:00:33.424 --> 00:00:39.409
+Will the estimate be smaller than five as we shrink the robot path a little bit?
+
+00:00:39.409 --> 00:00:44.729
+Will be exactly equals five like before or will be larger than five?
+
+00:00:44.729 --> 00:00:48.369
+Also want to know what's the effect on x0.
+
+00:00:48.369 --> 00:00:49.859
+Will it be smaller than minus three,
+
+00:00:49.859 --> 00:00:51.479
+equal to minus three,
+
+00:00:51.479 --> 00:00:53.389
+or larger than minus three?
+
+00:00:53.390 --> 00:00:55.359
+This is a completely nontrivial quiz,
+
+00:00:55.359 --> 00:00:56.875
+it takes really some thinking.
+
+00:00:56.875 --> 00:01:00.600
+Invest in thinking and you can even go back and try it out.
+

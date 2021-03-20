@@ -1,0 +1,217 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.615
+So, we're back in our car.py file,
+
+00:00:02.615 --> 00:00:07.555
+and let's see how we can actually modify this car object and add a color variable.
+
+00:00:07.554 --> 00:00:09.300
+Inside our class code,
+
+00:00:09.300 --> 00:00:11.550
+we can see that there's a default color for our car.
+
+00:00:11.550 --> 00:00:14.845
+Red represented by the character r. So,
+
+00:00:14.845 --> 00:00:16.875
+how do you think we might customize this?
+
+00:00:16.875 --> 00:00:19.859
+Well, just like with our state variables in our world,
+
+00:00:19.859 --> 00:00:22.774
+we can pass it in in our initialization parameters.
+
+00:00:22.774 --> 00:00:24.469
+To do this in the usual way,
+
+00:00:24.469 --> 00:00:28.104
+we just add an extra parameter to our init function.
+
+00:00:28.105 --> 00:00:30.795
+I'll call this parameter color.
+
+00:00:30.795 --> 00:00:35.545
+I can also specify a default value for color, equal to red,
+
+00:00:35.545 --> 00:00:39.914
+equal to the character r. This color equals r means that,
+
+00:00:39.914 --> 00:00:41.295
+if and only if,
+
+00:00:41.295 --> 00:00:45.505
+a person does not specify a color parameter when a car object is created,
+
+00:00:45.505 --> 00:00:47.615
+it will by default be red.
+
+00:00:47.615 --> 00:00:50.635
+None of our other variables have a default value.
+
+00:00:50.634 --> 00:00:54.530
+Then, we also have to change this one other line of code.
+
+00:00:54.530 --> 00:00:57.634
+Instead of saying self.color equals r,
+
+00:00:57.634 --> 00:01:00.500
+we say self.color equals color,
+
+00:01:00.500 --> 00:01:03.734
+and this is the past end variable here.
+
+00:01:03.734 --> 00:01:07.780
+So, now, our init function initializes the state of our car,
+
+00:01:07.780 --> 00:01:10.489
+gives our car a 2D world to traverse,
+
+00:01:10.489 --> 00:01:13.059
+and it specifies the color of a car.
+
+00:01:13.060 --> 00:01:17.180
+All that's left to do is to test this out in executable code.
+
+00:01:17.180 --> 00:01:19.280
+So, let's go into a new notebook.
+
+00:01:19.280 --> 00:01:23.329
+Here are the usual import statements where we import our car class file.
+
+00:01:23.329 --> 00:01:27.745
+Here are our usual import statements where we import our car class file.
+
+00:01:27.745 --> 00:01:30.520
+Next, I'll create car objects.
+
+00:01:30.519 --> 00:01:32.899
+Here, I'm defining the initial parameters,
+
+00:01:32.900 --> 00:01:36.515
+and I'm creating Carla in the same way as I usually do.
+
+00:01:36.515 --> 00:01:41.765
+Then, I'll define some new initial parameters and they'll create a new car object.
+
+00:01:41.765 --> 00:01:44.980
+This time, I'll name the car Jeannette.
+
+00:01:46.950 --> 00:01:49.564
+I'll passion an initial state,
+
+00:01:49.564 --> 00:01:51.590
+a world and a color,
+
+00:01:51.590 --> 00:01:54.079
+and it'll say Jeanette equals car.car,
+
+00:01:54.078 --> 00:01:56.814
+and pass in our initial variables.
+
+00:01:56.814 --> 00:02:01.969
+As you can see. I'm passing in our initial state variables, position2 and velocity2.
+
+00:02:01.969 --> 00:02:04.010
+I'm passing in the same world,
+
+00:02:04.010 --> 00:02:06.640
+and I'm also passing in a color,
+
+00:02:06.640 --> 00:02:10.194
+and specifying that Jeanette has a yellow color with the character y,
+
+00:02:10.194 --> 00:02:12.659
+as our last past end invariable.
+
+00:02:12.659 --> 00:02:14.349
+Order is important here.
+
+00:02:14.349 --> 00:02:17.219
+This should match the order in our car class file.
+
+00:02:17.219 --> 00:02:19.069
+So, now, I should have two cars,
+
+00:02:19.069 --> 00:02:23.194
+Carla and Jeanette, and I'll run this cell of the notebook.
+
+00:02:23.194 --> 00:02:25.680
+Now, if you get an error at this step,
+
+00:02:25.680 --> 00:02:29.140
+make sure you saved your car class file after you've changed it,
+
+00:02:29.139 --> 00:02:31.459
+and restart your kernel by clicking kernel,
+
+00:02:31.460 --> 00:02:33.580
+and restart, and clear output.
+
+00:02:33.580 --> 00:02:35.555
+So, since I didn't get any errors,
+
+00:02:35.555 --> 00:02:39.260
+my next step will be to write some move code for both of these cars.
+
+00:02:39.259 --> 00:02:42.004
+This is just for fun and visualization.
+
+00:02:42.004 --> 00:02:43.715
+First, I'm going to move Carla.
+
+00:02:43.715 --> 00:02:46.444
+Telling Carla to move, and turn left, and move again.
+
+00:02:46.444 --> 00:02:48.864
+Then, I'm going to display Carla's world.
+
+00:02:48.865 --> 00:02:50.700
+We can see Carla's movement,
+
+00:02:50.699 --> 00:02:52.084
+moving forward, then left,
+
+00:02:52.085 --> 00:02:53.550
+and looping around the world.
+
+00:02:53.550 --> 00:02:55.475
+We see that color is red.
+
+00:02:55.474 --> 00:02:58.479
+Red is the default color since we didn't specify
+
+00:02:58.479 --> 00:03:02.569
+a color when we created Carla. Let's scroll back down.
+
+00:03:03.330 --> 00:03:06.760
+Next, I'm going to move Jeannette, turning left, and moving,
+
+00:03:06.759 --> 00:03:10.269
+and turning left and moving some more and I'll display Jeannette's world.
+
+00:03:10.270 --> 00:03:12.775
+We can see that Jeanette start off at a different point,
+
+00:03:12.775 --> 00:03:15.480
+and looped around, creating a different path.
+
+00:03:15.479 --> 00:03:18.424
+We see that Janette is yellow, including the path.
+
+00:03:18.425 --> 00:03:20.005
+So, this is pretty cool.
+
+00:03:20.004 --> 00:03:24.525
+Adding more variables like a car color can be just a couple of lines of code.
+
+00:03:24.525 --> 00:03:26.745
+This is also the case with functions.
+
+00:03:26.745 --> 00:03:30.960
+You can add their definitions to a class and then be able to access them.
+

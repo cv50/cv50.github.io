@@ -1,0 +1,85 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.674
+In Kalma Filter then, we're going to build a two-dimensional estimate.
+
+00:00:04.674 --> 00:00:11.429
+One for the location and one for the velocity denoted x.
+
+00:00:11.429 --> 00:00:14.025
+But it also can be 0,
+
+00:00:14.025 --> 00:00:15.734
+it can be negative,
+
+00:00:15.734 --> 00:00:17.599
+or it can be positive.
+
+00:00:17.600 --> 00:00:21.859
+If initially, I know my location but not my velocity,
+
+00:00:21.859 --> 00:00:27.634
+then I represented Gaussian as elongated around the correct location.
+
+00:00:27.635 --> 00:00:31.840
+But really, really broad in the space of velocities.
+
+00:00:31.839 --> 00:00:33.969
+Now let's look at the predictions step.
+
+00:00:33.969 --> 00:00:36.990
+In the prediction step, I don't know my velocity.
+
+00:00:36.990 --> 00:00:41.075
+So, I can't possibly predict for location I want to saw.
+
+00:00:41.075 --> 00:00:45.225
+But miraculously, they have some interesting correlation.
+
+00:00:45.225 --> 00:00:47.379
+So this for a second,
+
+00:00:47.378 --> 00:00:49.789
+just pick a point on this distribution over here.
+
+00:00:49.789 --> 00:00:52.960
+Let me assume my velocity is 0.
+
+00:00:52.960 --> 00:00:54.590
+Of course in practice I don't know
+
+00:00:54.590 --> 00:00:57.335
+the velocity but let me assume for a moment the velocity is 0.
+
+00:00:57.335 --> 00:01:00.890
+Where would my posture be after the prediction?
+
+00:01:00.890 --> 00:01:03.975
+Well, we know we started location one,
+
+00:01:03.975 --> 00:01:08.174
+the velocity of 0, so my location would likely be here.
+
+00:01:08.174 --> 00:01:12.079
+Now let's change my belief of the velocity and pick a different one.
+
+00:01:12.079 --> 00:01:13.545
+Let's say the velocity is 1.
+
+00:01:13.545 --> 00:01:18.340
+Where would my prediction be one timestep later,
+
+00:01:18.340 --> 00:01:23.040
+starting at location one, and velocity 1?
+
+00:01:23.040 --> 00:01:24.210
+I give you three choices.
+
+00:01:24.209 --> 00:01:30.014
+Here, here, or here?
+
+00:01:30.015 --> 00:01:32.680
+Please pick the one that makes most sense.
+

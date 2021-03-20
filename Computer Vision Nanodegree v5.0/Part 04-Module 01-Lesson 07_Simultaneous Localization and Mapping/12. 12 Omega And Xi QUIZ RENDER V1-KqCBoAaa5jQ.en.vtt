@@ -1,0 +1,139 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.459
+The last thing I can tell you before we go into programming is,
+
+00:00:02.459 --> 00:00:04.515
+why this makes any sense.
+
+00:00:04.514 --> 00:00:06.963
+Suppose you fill the matrix,
+
+00:00:06.964 --> 00:00:09.100
+which I call omega, and the vector,
+
+00:00:09.099 --> 00:00:11.654
+which will give the Greek name of xi.
+
+00:00:11.654 --> 00:00:18.035
+Then I can find the best solution for all the landmark position or the work position,
+
+00:00:18.035 --> 00:00:23.435
+by a very simple mathematical trick and that is completely counter intuitive.
+
+00:00:23.434 --> 00:00:25.354
+I invert the omega,
+
+00:00:25.355 --> 00:00:27.760
+I right multiply with xi,
+
+00:00:27.760 --> 00:00:30.105
+and out comes a vector mu,
+
+00:00:30.105 --> 00:00:35.240
+which gives me the best estimates for all the locations and the landmark locations.
+
+00:00:35.240 --> 00:00:37.255
+Now, that is quite amazing,
+
+00:00:37.255 --> 00:00:40.250
+because all it means in graphs lemmas,
+
+00:00:40.250 --> 00:00:42.439
+that we keep adding numbers to these matrices
+
+00:00:42.439 --> 00:00:45.349
+every time sequence straight and when you're done with it,
+
+00:00:45.350 --> 00:00:46.820
+you run a very simple procedure,
+
+00:00:46.820 --> 00:00:49.730
+and out comes the best places for your robot.
+
+00:00:49.729 --> 00:00:52.159
+So, let's go and try it and I'm going to ask you to program
+
+00:00:52.159 --> 00:00:55.009
+this and I'm giving you my matrix class,
+
+00:00:55.009 --> 00:00:56.289
+so you can do this easily.
+
+00:00:56.289 --> 00:00:59.240
+What I'm asking you to do is to build a three by three matrix,
+
+00:00:59.240 --> 00:01:01.704
+and of course a three by one vector,
+
+00:01:01.704 --> 00:01:07.069
+by which you shall state that our initial location is minus three X 1 and
+
+00:01:07.069 --> 00:01:15.029
+exploitation is obtained by adding five to 0 and X 2 is obtained by adding three to X1.
+
+00:01:15.030 --> 00:01:17.469
+So, our expectation, what we should get out,
+
+00:01:17.469 --> 00:01:21.700
+we run the mu equals omega minus one times xi trick.
+
+00:01:21.700 --> 00:01:26.100
+That X 0 becomes minus three X 1 becomes 2,
+
+00:01:26.099 --> 00:01:28.319
+and X 2 becomes five.
+
+00:01:28.319 --> 00:01:31.959
+So, diving straight into our programming environment,
+
+00:01:31.959 --> 00:01:34.614
+I'm giving you a matrix class,
+
+00:01:34.614 --> 00:01:36.515
+you might want to take a moment to look over it.
+
+00:01:36.515 --> 00:01:39.329
+It's really augmented to what I've given you before and I
+
+00:01:39.329 --> 00:01:42.579
+fixed a bug with the inversion code,
+
+00:01:42.579 --> 00:01:45.679
+which is quite essential and if I run it,
+
+00:01:45.680 --> 00:01:47.535
+I construct an omega matrix.
+
+00:01:47.534 --> 00:01:50.340
+Piece-by-piece that's the one that you should come out with
+
+00:01:50.340 --> 00:01:53.850
+xi vector and then I run and print
+
+00:01:53.849 --> 00:02:00.259
+out using the show command the result of omega to the minus one times xi.
+
+00:02:00.260 --> 00:02:03.510
+You can see -3, 2 and 5 are the correct result.
+
+00:02:03.510 --> 00:02:06.719
+The result from the omega matrix and xi vector.
+
+00:02:06.719 --> 00:02:08.998
+So, what I want you to do is write code that incrementally
+
+00:02:08.998 --> 00:02:13.719
+step-by-step constructs the omega vector and the xi function,
+
+00:02:13.719 --> 00:02:16.639
+and then returns to me those results over here.
+
+00:02:16.639 --> 00:02:20.250
+There's an empty function in the code that accepts as parameter the initial
+
+00:02:20.250 --> 00:02:24.789
+position minus three and the demotion values five and three.
+

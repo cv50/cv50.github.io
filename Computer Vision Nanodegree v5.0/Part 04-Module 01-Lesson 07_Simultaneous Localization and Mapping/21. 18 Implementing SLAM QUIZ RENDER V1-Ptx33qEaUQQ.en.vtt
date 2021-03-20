@@ -1,0 +1,184 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.185
+So now we'll learn all about Linear Graph Slam, and that's quite a bit.
+
+00:00:03.185 --> 00:00:04.740
+And it's really simple.
+
+00:00:04.740 --> 00:00:06.290
+Every time there's a constraint,
+
+00:00:06.290 --> 00:00:09.015
+initial position, motion or measurement,
+
+00:00:09.015 --> 00:00:13.054
+we take this constraint and add something to omega
+
+00:00:13.054 --> 00:00:17.339
+and C. What we add is the constraint itself,
+
+00:00:17.339 --> 00:00:19.934
+but it's up multiplied by a strength factor,
+
+00:00:19.934 --> 00:00:22.500
+there is nothing else but one over sigma,
+
+00:00:22.500 --> 00:00:25.254
+the uncertainty in motion or measurements.
+
+00:00:25.254 --> 00:00:27.109
+And then when we're done with this adding,
+
+00:00:27.109 --> 00:00:30.119
+we simply calculate this guy and outcomes
+
+00:00:30.120 --> 00:00:35.105
+our best possible path and along with a map of all the landmarks.
+
+00:00:35.104 --> 00:00:36.734
+Isn't that something?
+
+00:00:36.734 --> 00:00:38.594
+Isn't that really cool?
+
+00:00:38.594 --> 00:00:44.100
+So let's dive in and have you program your own real robot example.
+
+00:00:44.100 --> 00:00:48.355
+This is a fairly complicated generalization of what we just saw.
+
+00:00:48.354 --> 00:00:52.729
+I'm giving you an environment where you can specify the number of landmarks that exists,
+
+00:00:52.729 --> 00:00:54.959
+the number of time steps you want the world to run,
+
+00:00:54.960 --> 00:00:58.100
+the world size, the measurement range,
+
+00:00:58.100 --> 00:01:00.469
+that is the range at which a robot might be able to
+
+00:01:00.469 --> 00:01:03.644
+see a landmark of it's further away than this response see it,
+
+00:01:03.645 --> 00:01:05.984
+emotion noise and measurement noise,
+
+00:01:05.984 --> 00:01:07.549
+and the distance parameter,
+
+00:01:07.549 --> 00:01:11.319
+the distance specifies how faster what moves in each step.
+
+00:01:11.319 --> 00:01:15.194
+Then I'm giving you a routine which makes the data.
+
+00:01:15.194 --> 00:01:19.444
+It takes all these parameters and outputs a data field
+
+00:01:19.444 --> 00:01:24.184
+that contains sequence of motions and a sequence of measurements,
+
+00:01:24.185 --> 00:01:28.075
+the code comments on exact format of what data looks like.
+
+00:01:28.075 --> 00:01:31.609
+Now I wanted to program the function Slam that inputs
+
+00:01:31.609 --> 00:01:36.185
+the data in various important parameters and then outputs my result,
+
+00:01:36.185 --> 00:01:38.015
+a sequence of estimated poses,
+
+00:01:38.015 --> 00:01:42.784
+the robot path, and estimated landmark positions.
+
+00:01:42.784 --> 00:01:45.280
+This is really challenging to program.
+
+00:01:45.280 --> 00:01:47.564
+It's based on the math I just gave you.
+
+00:01:47.564 --> 00:01:50.254
+The vocal coordinates are now X and Y coordinates.
+
+00:01:50.254 --> 00:01:52.859
+The measurements are differences in X and Y,
+
+00:01:52.859 --> 00:01:55.739
+so you have to duplicate things for X and things
+
+00:01:55.739 --> 00:01:59.155
+for for Y. I myself put them all into one big matrix,
+
+00:01:59.155 --> 00:02:01.704
+but you can have them in two separate matrices if you so wish.
+
+00:02:01.704 --> 00:02:04.649
+You have to apply everything we've learned so far,
+
+00:02:04.650 --> 00:02:07.040
+including the the weights of one of our measurement noise.
+
+00:02:07.040 --> 00:02:08.935
+And then with the motion noise,
+
+00:02:08.935 --> 00:02:11.909
+these happen to be equivalent in this case, but they might be different.
+
+00:02:11.909 --> 00:02:18.189
+We need to run Slam and return back to me a result data structure.
+
+00:02:18.189 --> 00:02:21.069
+I'm also supplying you with the print results routine,
+
+00:02:21.069 --> 00:02:24.310
+so you can go in and see how the result has to look like.
+
+00:02:24.310 --> 00:02:29.250
+There's an example routine that doesn't work that outputs all the correct formats,
+
+00:02:29.250 --> 00:02:33.094
+but it tends not to implement the estimates that I want you to estimate.
+
+00:02:33.094 --> 00:02:38.085
+You have to bring this to life and turn this into an amazing Slam routine.
+
+00:02:38.085 --> 00:02:41.469
+So that when you run it, you get the same results that I do.
+
+00:02:41.469 --> 00:02:43.284
+For the examples here,
+
+00:02:43.284 --> 00:02:45.349
+where there's an estimated path,
+
+00:02:45.349 --> 00:02:47.625
+an estimated landmark positions.
+
+00:02:47.625 --> 00:02:50.439
+There's one last thing I want you to know is I assume
+
+00:02:50.439 --> 00:02:54.430
+the initial robot position is going to be the center of the world,
+
+00:02:54.430 --> 00:02:58.400
+so it's the word size of 100 is going to be 50-50.
+
+00:02:58.400 --> 00:03:00.879
+Or here it's printed as 49.999,
+
+00:03:00.879 --> 00:03:02.120
+but it's the same as 50.
+
+00:03:02.120 --> 00:03:04.870
+So you have to put in a constraint that
+
+00:03:04.870 --> 00:03:09.000
+sets the initial robot pose to the center of the world
+

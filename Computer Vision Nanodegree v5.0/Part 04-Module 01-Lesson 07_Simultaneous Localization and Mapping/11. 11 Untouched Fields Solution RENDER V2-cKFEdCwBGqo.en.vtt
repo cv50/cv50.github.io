@@ -1,0 +1,67 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.960
+And the correct answer is six for the following missing links.
+
+00:00:03.960 --> 00:00:07.650
+This guy here gives me two values in the matrix,
+
+00:00:07.650 --> 00:00:11.669
+this guy here another two and this link here is also missing.
+
+00:00:11.669 --> 00:00:14.205
+So it's another two. So it's six values missing.
+
+00:00:14.205 --> 00:00:15.824
+Let's prove it to ourselves.
+
+00:00:15.824 --> 00:00:19.515
+Moving from x_0 to x_1 filter this area,
+
+00:00:19.515 --> 00:00:23.609
+from x_1 to x_2, this area.
+
+00:00:23.609 --> 00:00:30.390
+So seeing end mark L_0 from x_0 and x_1 means you fill these guys over here
+
+00:00:30.390 --> 00:00:33.480
+and the main diagonal there and seeing
+
+00:00:33.479 --> 00:00:37.814
+the other end mark from x_1 and x_2 means we fill these guys over here.
+
+00:00:37.814 --> 00:00:41.274
+So let's count the ones that are still open and here're the other ones.
+
+00:00:41.274 --> 00:00:43.604
+And my answer was actually wrong,
+
+00:00:43.604 --> 00:00:45.750
+it's eight. I overlooked.
+
+00:00:45.750 --> 00:00:48.615
+There's no direct link from L_1 to L_2 either.
+
+00:00:48.615 --> 00:00:51.600
+So my apologies that I gave you the wrong number,
+
+00:00:51.600 --> 00:00:54.825
+but it proves the utilization not an easy question.
+
+00:00:54.825 --> 00:00:57.870
+It's harder than I thought and the reason is there's also
+
+00:00:57.869 --> 00:01:00.689
+no direct link that constraints L_1 and L_2 directly.
+
+00:01:00.689 --> 00:01:02.099
+Landmarks can't see.
+
+00:01:02.100 --> 00:01:06.060
+So they can't put a direct link between any two landmarks or put
+
+00:01:06.060 --> 00:01:11.740
+differently in this part over here our matrix will always be a diagonal matrix.
+

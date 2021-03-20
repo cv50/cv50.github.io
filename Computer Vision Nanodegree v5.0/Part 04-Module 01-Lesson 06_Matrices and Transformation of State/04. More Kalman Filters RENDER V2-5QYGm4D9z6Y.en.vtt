@@ -1,0 +1,214 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.424
+When you put all this together,
+
+00:00:02.424 --> 00:00:05.820
+you find that all these possibilities on the Gaussian over
+
+00:00:05.820 --> 00:00:10.074
+here link to a Gaussian that's just like this.
+
+00:00:10.074 --> 00:00:13.469
+This is a really interesting two-dimensional Gaussian
+
+00:00:13.470 --> 00:00:15.585
+which you should really think about.
+
+00:00:15.585 --> 00:00:18.120
+Clearly, if it was to project
+
+00:00:18.120 --> 00:00:21.745
+this Gaussian uncertainty into the space of possible locations,
+
+00:00:21.745 --> 00:00:23.595
+I can't predict a thing.
+
+00:00:23.594 --> 00:00:26.699
+It's impossible to predict where the object is,
+
+00:00:26.699 --> 00:00:29.114
+and the reason is I don't know the velocity.
+
+00:00:29.114 --> 00:00:33.339
+Also, clearly, if I project this Gaussian into the space of x_dot,
+
+00:00:33.340 --> 00:00:35.600
+then it's impossible to say what the velocity is.
+
+00:00:35.600 --> 00:00:41.219
+A single observation or single prediction is insufficient to make that observation.
+
+00:00:41.219 --> 00:00:47.114
+However, what we know is our location is correlated to the velocity.
+
+00:00:47.115 --> 00:00:51.120
+The faster I move the farther on the right is the location,
+
+00:00:51.119 --> 00:00:53.239
+and this Gaussian expresses this.
+
+00:00:53.240 --> 00:00:54.890
+If, I for example,
+
+00:00:54.890 --> 00:00:58.515
+figured out that my velocity was 2 and then was able
+
+00:00:58.515 --> 00:01:02.505
+under this Gaussian to really nail that my location is 3.
+
+00:01:02.505 --> 00:01:04.200
+That is really remarkable.
+
+00:01:04.200 --> 00:01:06.180
+You still haven't figured where you are,
+
+00:01:06.180 --> 00:01:08.140
+we haven't figured out how fast we're moving,
+
+00:01:08.140 --> 00:01:10.349
+but we've learned so much about the relation of
+
+00:01:10.349 --> 00:01:12.489
+these two things with this tilted Gaussian.
+
+00:01:12.489 --> 00:01:14.969
+To understand how powerful this is,
+
+00:01:14.969 --> 00:01:19.340
+let's now fall in the second observation at time t equals 2.
+
+00:01:19.340 --> 00:01:21.780
+This observation tells us nothing about
+
+00:01:21.780 --> 00:01:25.480
+the velocity and only something about the location.
+
+00:01:25.480 --> 00:01:28.170
+So, if I were to draw this as a Gaussian,
+
+00:01:28.170 --> 00:01:30.299
+it's a Gaussian just like this,
+
+00:01:30.299 --> 00:01:33.884
+which is sending about location but not about the velocity.
+
+00:01:33.885 --> 00:01:40.439
+But if I now multiply my prior from the prediction step with the measurement probability,
+
+00:01:40.439 --> 00:01:44.474
+then miraculously, I get a Gaussian that sits right over here.
+
+00:01:44.474 --> 00:01:47.864
+And this Gaussian now has a really good estimate
+
+00:01:47.864 --> 00:01:52.274
+what my velocity is and a really good estimate where I am.
+
+00:01:52.275 --> 00:01:56.795
+If I take this Gaussian and predict one step forward,
+
+00:01:56.795 --> 00:01:59.750
+and I find myself right over here.
+
+00:01:59.750 --> 00:02:02.555
+This is exactly the effect we have over here.
+
+00:02:02.555 --> 00:02:05.245
+As I opted this, I get a Gaussian like this.
+
+00:02:05.245 --> 00:02:08.900
+I predict right over here. Think about this.
+
+00:02:08.900 --> 00:02:12.715
+This is a really deep insight in how Kalman Filter work.
+
+00:02:12.715 --> 00:02:17.400
+In particular, we've only been able to observe one variable,
+
+00:02:17.400 --> 00:02:22.560
+we've been able to multiple observations to infer this other variable.
+
+00:02:22.560 --> 00:02:25.110
+The way we've been able to infer this is that
+
+00:02:25.110 --> 00:02:27.750
+there's a set of physical equations which say that
+
+00:02:27.750 --> 00:02:34.169
+my location after time step is my old location plus my velocity.
+
+00:02:34.169 --> 00:02:38.609
+This set of equation has been able to propagate constraints from
+
+00:02:38.610 --> 00:02:43.470
+subsequent measurements back to this unobserved variable velocity,
+
+00:02:43.469 --> 00:02:45.969
+so we're able to estimate the velocity as well.
+
+00:02:45.969 --> 00:02:49.090
+This is really key to understanding Kalman Filter.
+
+00:02:49.090 --> 00:02:55.240
+It is key to understand how Google self-driving car estimates location of other cars,
+
+00:02:55.240 --> 00:03:00.629
+and is able to make predictions even if it's unable to measure velocity directly.
+
+00:03:00.629 --> 00:03:02.585
+So, there's a big lesson here.
+
+00:03:02.585 --> 00:03:04.849
+The variables of a Kalman Filter,
+
+00:03:04.849 --> 00:03:08.234
+they often called states because they reflect states
+
+00:03:08.235 --> 00:03:12.465
+of the physical world like where's the other car and how fast it's moving.
+
+00:03:12.465 --> 00:03:16.425
+They separate into two subsets, the observables,
+
+00:03:16.425 --> 00:03:19.390
+like the momentary location, and the hidden,
+
+00:03:19.389 --> 00:03:24.179
+which in our example is the velocity which I can never directly observe.
+
+00:03:24.180 --> 00:03:26.685
+But because those two things interact,
+
+00:03:26.685 --> 00:03:31.300
+subsequent observations of the observed variables give us
+
+00:03:31.300 --> 00:03:34.615
+information about these hidden variables
+
+00:03:34.615 --> 00:03:38.469
+so we can also estimate what these hidden variables are.
+
+00:03:38.469 --> 00:03:42.830
+So from multiple observations of the places of the object,
+
+00:03:42.830 --> 00:03:46.475
+the location, we can estimate how fast it's moving.
+
+00:03:46.474 --> 00:03:47.979
+This is actually true for
+
+00:03:47.979 --> 00:03:50.619
+all the different filters but because
+
+00:03:50.620 --> 00:03:53.370
+Kalman Filter happened to be very efficient to calculate,
+
+00:03:53.370 --> 00:03:54.795
+when you have a problem like this,
+
+00:03:54.794 --> 00:03:58.079
+you tend to often use just the Kalman filter.
+

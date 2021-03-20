@@ -1,0 +1,46 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.469
+The answer is, our initial constraint would touch this guy over here.
+
+00:00:04.469 --> 00:00:08.064
+The van to the second motion touches these things over here.
+
+00:00:08.064 --> 00:00:09.464
+The second to third,
+
+00:00:09.464 --> 00:00:13.089
+these guys, and then the landmark observation over here.
+
+00:00:13.089 --> 00:00:16.239
+Put something between x0 and the landmark,
+
+00:00:16.239 --> 00:00:18.229
+that sits here, here,
+
+00:00:18.230 --> 00:00:20.719
+here, here again and here.
+
+00:00:20.719 --> 00:00:24.679
+This observation over here put something between x2 in the landmark.
+
+00:00:24.679 --> 00:00:27.295
+These guys over here, and the guys over here.
+
+00:00:27.295 --> 00:00:32.100
+That means we have only the following places that are still zero.
+
+00:00:32.100 --> 00:00:35.765
+This means there is no direct constraint between x2 and x0.
+
+00:00:35.765 --> 00:00:38.880
+There is this no direct motion information between these guys,
+
+00:00:38.880 --> 00:00:41.370
+and there's no direct constraint x1 and L,
+
+00:00:41.369 --> 00:00:44.189
+which is this guy is missing over here.
+

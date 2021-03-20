@@ -1,0 +1,43 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.299
+I'm going to add one last thing here the initial robot location.
+
+00:00:03.299 --> 00:00:05.934
+If we define x_0 to be zero,
+
+00:00:05.934 --> 00:00:12.199
+which is the origin of the map then what this means is we add one over here and
+
+00:00:12.199 --> 00:00:18.660
+zero over here and the reason why is this constraint is that x_0 is zero.
+
+00:00:18.660 --> 00:00:22.975
+So let's take a robot moving around and let's see it sees a landmark,
+
+00:00:22.975 --> 00:00:28.060
+from the first pose x_0 and from the third pose x_2,
+
+00:00:28.059 --> 00:00:29.884
+but not from the second pose.
+
+00:00:29.885 --> 00:00:32.645
+I want you in this matrix over here,
+
+00:00:32.645 --> 00:00:36.500
+checkmark all the fields that are being modified by graham's law,
+
+00:00:36.500 --> 00:00:41.405
+to binary check and the same for the vector without putting actual numbers in.
+
+00:00:41.405 --> 00:00:43.734
+So go to this matrix and ask yourself,
+
+00:00:43.734 --> 00:00:45.070
+which fields will be zero,
+
+00:00:45.070 --> 00:00:50.039
+the ones that are untouched and which ones will not be zero, the ones you will modified.
+

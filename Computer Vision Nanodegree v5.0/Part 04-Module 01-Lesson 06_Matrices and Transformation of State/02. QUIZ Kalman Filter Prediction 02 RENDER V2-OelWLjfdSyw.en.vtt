@@ -1,0 +1,34 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.490
+The answer is right over here.
+
+00:00:02.490 --> 00:00:08.009
+Why? If our current starting point is the point over here,
+
+00:00:08.009 --> 00:00:11.064
+for which we know the location is one,
+
+00:00:11.064 --> 00:00:12.474
+and the velocity is one,
+
+00:00:12.474 --> 00:00:14.879
+and we predict one time step in the future.
+
+00:00:14.880 --> 00:00:16.484
+Then for that prediction,
+
+00:00:16.484 --> 00:00:18.600
+we know the location will be two,
+
+00:00:18.600 --> 00:00:21.960
+and the velocity might be liberal uncertain,
+
+00:00:21.960 --> 00:00:24.089
+but it stays about the same.
+
+00:00:24.089 --> 00:00:27.719
+So we end up with a point over here. Let's do this again.
+

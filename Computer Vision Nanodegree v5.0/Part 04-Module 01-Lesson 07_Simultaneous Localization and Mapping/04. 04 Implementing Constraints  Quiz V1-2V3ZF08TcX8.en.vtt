@@ -1,0 +1,109 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.875
+What we do is we make a matrix and also a vector.
+
+00:00:02.875 --> 00:00:04.700
+And we label the matrix,
+
+00:00:04.700 --> 00:00:08.089
+which is quadratic with all the poses and all the landmarks.
+
+00:00:08.089 --> 00:00:13.230
+Here we assume the landmarks are distinguishable and every time we make an observation,
+
+00:00:13.230 --> 00:00:14.925
+say between two poses,
+
+00:00:14.925 --> 00:00:18.330
+they become little additions locally in
+
+00:00:18.329 --> 00:00:21.474
+the four elements in the matrix defined over those poses.
+
+00:00:21.475 --> 00:00:25.365
+For example, if the robot moves from x_0 to x_1.
+
+00:00:25.364 --> 00:00:30.509
+We therefore believe x_1 should be the same as x_0 say plus five.
+
+00:00:30.510 --> 00:00:33.420
+The way we enter this into the matrix is in two ways.
+
+00:00:33.420 --> 00:00:38.070
+First, 1 x_0, minus 1 x_1,
+
+00:00:38.070 --> 00:00:41.625
+add it together should be minus five.
+
+00:00:41.625 --> 00:00:46.960
+We look on the equation here x_0 minus x_1 equals minus 5.
+
+00:00:46.960 --> 00:00:50.160
+These are added into the matrix that starts with zero
+
+00:00:50.159 --> 00:00:53.759
+everywhere and it's a constraint that relates x_0,
+
+00:00:53.759 --> 00:00:57.149
+x_1 by minus 5, it's that simple.
+
+00:00:57.149 --> 00:01:00.649
+Secondly, we do the same with x_1 as positive,
+
+00:01:00.649 --> 00:01:02.954
+so we add one over here and for that,
+
+00:01:02.954 --> 00:01:05.329
+x_1 minus x_0 equals five.
+
+00:01:05.329 --> 00:01:08.439
+You put five here and a minus one over here.
+
+00:01:08.439 --> 00:01:14.804
+Put differently the motion constraint that relates x_0 to x_1 by the motion of five,
+
+00:01:14.805 --> 00:01:17.925
+has modified incrementally by adding values,
+
+00:01:17.924 --> 00:01:21.625
+the matrix for all elements that fall between x_0 and x_1.
+
+00:01:21.625 --> 00:01:25.504
+We basically wrote that constraint twice in both cases,
+
+00:01:25.504 --> 00:01:28.640
+we make sure that the diagonal element was positive and the
+
+00:01:28.640 --> 00:01:32.245
+viewer the correspondents off-diagonal element as a negative value.
+
+00:01:32.245 --> 00:01:34.520
+We added the corresponding value on the right side.
+
+00:01:34.519 --> 00:01:36.750
+Let me ask you a question,
+
+00:01:36.750 --> 00:01:42.334
+suppose we know we go from x_1 to x_2 and whereas the motion over here was plus five.
+
+00:01:42.334 --> 00:01:46.159
+Now, it's minus 4, so we moving back in the opposite direction.
+
+00:01:46.159 --> 00:01:49.004
+What will be the new value as for the matrix over here?
+
+00:01:49.004 --> 00:01:50.875
+I'll give you a hint.
+
+00:01:50.875 --> 00:01:55.000
+They only affect values that occur in the region between x_1,
+
+00:01:55.000 --> 00:01:57.185
+x_2 and over here,
+
+00:01:57.185 --> 00:02:00.379
+and remember these are additive
+

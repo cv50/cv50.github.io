@@ -1,0 +1,226 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.459
+Let me take you about my favorite methods of all called Graph SLAM.
+
+00:00:03.459 --> 00:00:06.049
+This is one of many methods for SLAM,
+
+00:00:06.049 --> 00:00:09.074
+and this abundance by far the easiest to explain.
+
+00:00:09.074 --> 00:00:10.889
+Let's assume we have a robot,
+
+00:00:10.890 --> 00:00:14.130
+and it's called arbitrarily the initial location,
+
+00:00:14.130 --> 00:00:16.425
+x equals zero and y equals zero.
+
+00:00:16.425 --> 00:00:19.830
+For this example, we just assume the board has a perfect compass,
+
+00:00:19.829 --> 00:00:23.189
+and we don't care about heading direction just to keep things simple.
+
+00:00:23.190 --> 00:00:28.865
+Let's assume the robot moves to the right in x direction by 10. So, it's now over here.
+
+00:00:28.864 --> 00:00:30.500
+In a perfect world,
+
+00:00:30.500 --> 00:00:32.250
+you would know that x1,
+
+00:00:32.250 --> 00:00:36.689
+the location after motion is the same as x0 plus 10,
+
+00:00:36.689 --> 00:00:39.479
+and y1 is the same as y0.
+
+00:00:39.479 --> 00:00:43.769
+But we learned from our various robotic common fiddle lessons
+
+00:00:43.770 --> 00:00:46.410
+and others that the location is actually uncertain.
+
+00:00:46.409 --> 00:00:47.779
+So, rather than assuming in
+
+00:00:47.780 --> 00:00:51.844
+our X-Y coordinate system the robot moved to the right by 10 exactly,
+
+00:00:51.844 --> 00:00:57.019
+we know that the actual location is a Gaussian centered around 10,
+
+00:00:57.020 --> 00:00:59.885
+0, but it's possible that over to somewhere else.
+
+00:00:59.884 --> 00:01:02.515
+Remember, we worked out the math for this Gaussian.
+
+00:01:02.515 --> 00:01:05.195
+Here's how it looks like just for the x variable.
+
+00:01:05.194 --> 00:01:08.974
+Rather than setting x1 to x0 plus 10,
+
+00:01:08.974 --> 00:01:14.259
+we tried to express the Gaussian that peaks when these two things are the same.
+
+00:01:14.260 --> 00:01:16.370
+So, if you subtract from x1,
+
+00:01:16.370 --> 00:01:19.910
+x0, and 10, put this into a square format,
+
+00:01:19.909 --> 00:01:21.709
+and turn this into a Gaussian,
+
+00:01:21.709 --> 00:01:26.250
+we get a probability distribution that relates x1 and x0.
+
+00:01:26.250 --> 00:01:28.379
+We can do the same for y.
+
+00:01:28.379 --> 00:01:31.500
+Since there is no change in y according to our motion,
+
+00:01:31.500 --> 00:01:36.364
+all the assets that y1 and y0 are as close together as possible.
+
+00:01:36.364 --> 00:01:41.099
+The product of these two Gaussians is now our constraint.
+
+00:01:41.099 --> 00:01:44.953
+We wish to maximize the likelihood of the position
+
+00:01:44.953 --> 00:01:49.469
+x1 given that the position x0 is zero, zero.
+
+00:01:49.469 --> 00:01:52.530
+So, with what Graph SLAM does is
+
+00:01:52.530 --> 00:01:58.015
+defining our probabilities using a sequence of such constraints.
+
+00:01:58.015 --> 00:02:02.864
+Say we have a robot that moves in some space,
+
+00:02:02.864 --> 00:02:08.579
+and each location is now characterized by a vector x0 and a vector x1,
+
+00:02:08.580 --> 00:02:10.770
+vector x2, vector x3.
+
+00:02:10.770 --> 00:02:12.675
+Often, they're three-dimensional vectors,
+
+00:02:12.675 --> 00:02:16.200
+then we'll graph some collects is initial location,
+
+00:02:16.199 --> 00:02:18.129
+which is a zero, zero, zero usually.
+
+00:02:18.129 --> 00:02:20.189
+Over here, it looks a little bit different.
+
+00:02:20.189 --> 00:02:23.870
+Then, really importantly, the lots of relative constraints that
+
+00:02:23.870 --> 00:02:27.480
+relate each robot pose to the previous world pose.
+
+00:02:27.479 --> 00:02:29.954
+We call them relative motion constraints.
+
+00:02:29.955 --> 00:02:32.140
+You can think of those as rubber bands.
+
+00:02:32.139 --> 00:02:34.699
+In expectation, this rubber band will be
+
+00:02:34.699 --> 00:02:37.713
+exactly the motion the robot sensed or commanded.
+
+00:02:37.713 --> 00:02:43.189
+But in reality, it might have to bend a little bit to make the map more consistent.
+
+00:02:43.189 --> 00:02:46.500
+Speaking about maps, there's huge landmarks as an example.
+
+00:02:46.500 --> 00:02:48.280
+So, suppose there's a landmark out here,
+
+00:02:48.280 --> 00:02:54.020
+and the landmark is being seen from the robot with some relative measurement, zero, z1.
+
+00:02:54.020 --> 00:02:55.939
+Perhaps it didn't even see it to attempt two,
+
+00:02:55.939 --> 00:02:57.849
+but this is z3.
+
+00:02:57.849 --> 00:03:00.709
+All these are also relative constraints,
+
+00:03:00.709 --> 00:03:02.759
+very much like the ones before.
+
+00:03:02.759 --> 00:03:04.769
+Again, they capture by Gaussians,
+
+00:03:04.770 --> 00:03:07.280
+and we get relative measurement constraints.
+
+00:03:07.280 --> 00:03:10.449
+One such constraint every time the robot sees a landmark.
+
+00:03:10.449 --> 00:03:13.905
+So, Graph SLAM collects those constraints.
+
+00:03:13.905 --> 00:03:16.650
+As we'll see, they're insanely easy to collect,
+
+00:03:16.650 --> 00:03:19.400
+and it just relax this the set of rubber bands to find
+
+00:03:19.400 --> 00:03:24.659
+the most likely configuration of robot path along with the location of landmarks,
+
+00:03:24.659 --> 00:03:27.134
+and that is the mapping process.
+
+00:03:27.134 --> 00:03:28.739
+Let me ask you a quick quiz.
+
+00:03:28.740 --> 00:03:30.180
+It will take some thinking.
+
+00:03:30.180 --> 00:03:32.760
+Suppose we have six robot poses.
+
+00:03:32.759 --> 00:03:35.269
+That is one initial, and five motions,
+
+00:03:35.270 --> 00:03:38.675
+and we have eight measurements of landmarks that we've seen.
+
+00:03:38.675 --> 00:03:39.890
+These might be multiple landmarks,
+
+00:03:39.889 --> 00:03:41.349
+some doesn't move it, so more than one.
+
+00:03:41.349 --> 00:03:42.599
+The question now is,
+
+00:03:42.599 --> 00:03:44.989
+how many total constraints do we have if we
+
+00:03:44.990 --> 00:03:49.040
+count each of this constraint for exactly one constraint?
+
