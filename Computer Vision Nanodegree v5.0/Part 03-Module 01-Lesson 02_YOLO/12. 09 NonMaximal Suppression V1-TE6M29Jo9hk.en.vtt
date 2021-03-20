@@ -1,0 +1,106 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.330
+For a test image broken down into a grid,
+
+00:00:03.330 --> 00:00:06.300
+how can we handle the case in which our grid CNN produces
+
+00:00:06.299 --> 00:00:10.914
+multiple grid cell vectors and multiple bounding boxes for the same object?
+
+00:00:10.914 --> 00:00:14.864
+To account for this, we use a technique called non-maximal suppression.
+
+00:00:14.865 --> 00:00:20.984
+This uses the IOU between two predicted bounding boxes to select the best bounding box.
+
+00:00:20.984 --> 00:00:24.339
+Let's see an example. In this example,
+
+00:00:24.339 --> 00:00:27.394
+these three grid cells have a non-zero PC value,
+
+00:00:27.394 --> 00:00:31.579
+meaning they've all detected an object and a bounding box for that object.
+
+00:00:31.579 --> 00:00:34.284
+If we plot the bounding boxes predicted by
+
+00:00:34.284 --> 00:00:38.349
+each grid cell along with the value of PC, we get this.
+
+00:00:38.350 --> 00:00:41.435
+Three three bounding boxes for the same object.
+
+00:00:41.435 --> 00:00:45.150
+But the PC value associated with each box is different.
+
+00:00:45.149 --> 00:00:49.399
+We see that the first bounding box has a PC value of 0.8,
+
+00:00:49.399 --> 00:00:52.119
+the second has a value of 0.9,
+
+00:00:52.119 --> 00:00:54.890
+and the last has a value of zero 0.7.
+
+00:00:54.890 --> 00:00:59.539
+PC is a measure of confidence that there has been an object detected,
+
+00:00:59.539 --> 00:01:03.515
+and so a high PC means a high confidence of object detection.
+
+00:01:03.515 --> 00:01:09.004
+Now non-maximal suppression selects only the bounding box with the highest PC value.
+
+00:01:09.004 --> 00:01:10.849
+In this case, the bounding box with
+
+00:01:10.849 --> 00:01:15.459
+the highest PC value is the red bounding box with a value of 0.9.
+
+00:01:15.459 --> 00:01:18.259
+It then removes all of the bounding boxes that have
+
+00:01:18.260 --> 00:01:23.200
+a high IOU value when compared to this best bounding box that I just selected.
+
+00:01:23.200 --> 00:01:27.784
+In this way it gets rid of the boxes that are too similar to the red bounding box.
+
+00:01:27.784 --> 00:01:30.409
+Then you're left with just one bounding box,
+
+00:01:30.409 --> 00:01:33.019
+which should correspond to the best prediction.
+
+00:01:33.019 --> 00:01:35.530
+This is called non-maximal suppression,
+
+00:01:35.530 --> 00:01:38.730
+because you suppress overlapping bounding boxes that
+
+00:01:38.730 --> 00:01:42.780
+do not have the maximum probability for object detection.
+
+00:01:42.780 --> 00:01:47.469
+So far we've been going through an example with only one object in the image.
+
+00:01:47.469 --> 00:01:50.069
+When there are multiple objects in an image,
+
+00:01:50.069 --> 00:01:54.390
+we have to apply non-maximal suppression to each class independently.
+
+00:01:54.390 --> 00:01:55.980
+So if we have three classes,
+
+00:01:55.980 --> 00:01:59.475
+we have to apply non-maximal suppression three times.
+
+00:01:59.474 --> 00:02:05.359
+Next, we'll see another technique that YOLO uses to detect objects even if they overlap
+

@@ -1,0 +1,70 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.609
+To speed up the time it takes to run
+
+00:00:02.609 --> 00:00:05.939
+a test image through a network and detect all the objects in it,
+
+00:00:05.940 --> 00:00:09.380
+we want to decrease the time it takes to form region proposals.
+
+00:00:09.380 --> 00:00:12.630
+For this we have the faster R-CNN architecture.
+
+00:00:12.630 --> 00:00:16.750
+Faster R-CNN learns to come up with its own region proposals.
+
+00:00:16.750 --> 00:00:18.789
+It takes in an input image,
+
+00:00:18.789 --> 00:00:23.855
+runs it through a CNN up until a certain convolutional layer just like Fast R-CNN,
+
+00:00:23.855 --> 00:00:26.515
+but this time it uses the produced feature map
+
+00:00:26.515 --> 00:00:29.635
+as input into a separate region proposal network.
+
+00:00:29.635 --> 00:00:34.179
+So it predicts its own regions from the features produced inside the network.
+
+00:00:34.179 --> 00:00:38.979
+If an area in the feature map is rich in detected edges or other features,
+
+00:00:38.979 --> 00:00:41.524
+it's identified as a region of interest.
+
+00:00:41.524 --> 00:00:45.519
+Then this part of a network does a quick binary classification.
+
+00:00:45.520 --> 00:00:49.810
+For each ROI it checks whether or not that region contains an object.
+
+00:00:49.810 --> 00:00:52.640
+If it does then the region will continue on and go through
+
+00:00:52.640 --> 00:00:55.310
+the classification steps and if it doesn't,
+
+00:00:55.310 --> 00:00:57.245
+then the proposal is discarded.
+
+00:00:57.244 --> 00:00:59.695
+Once we have the final region proposals,
+
+00:00:59.695 --> 00:01:02.765
+the rest of the network looks the same as Fast R-CNN.
+
+00:01:02.765 --> 00:01:07.704
+It takes cropped regions from the feature map and learns to classify those regions.
+
+00:01:07.704 --> 00:01:11.239
+By eliminating the analysis of non-object regions,
+
+00:01:11.239 --> 00:01:15.399
+this model is the fastest of all the region-based CNNs that we've seen.
+

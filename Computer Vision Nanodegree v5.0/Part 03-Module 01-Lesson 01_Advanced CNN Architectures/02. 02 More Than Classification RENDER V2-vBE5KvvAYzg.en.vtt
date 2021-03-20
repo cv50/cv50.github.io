@@ -1,0 +1,49 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.330
+In this lesson we'll talk about a few different types of
+
+00:00:03.330 --> 00:00:07.455
+CNN architectures that can do more than single image classification.
+
+00:00:07.455 --> 00:00:12.210
+First we'll talk about classifying one object in an image and localizing it,
+
+00:00:12.210 --> 00:00:14.850
+which means finding its location in the image.
+
+00:00:14.849 --> 00:00:18.914
+This is typically done by placing a bounding box around the object.
+
+00:00:18.914 --> 00:00:22.064
+Finding the location of an object in an image and
+
+00:00:22.065 --> 00:00:25.245
+more generally being able to analyze an image by breaking it
+
+00:00:25.245 --> 00:00:28.289
+up into smaller bounded regions is the key to
+
+00:00:28.289 --> 00:00:32.234
+creating a model that can classify multiple objects in an image.
+
+00:00:32.234 --> 00:00:35.769
+We'll build up to learning about region-based CNN's like
+
+00:00:35.770 --> 00:00:41.410
+the faster R-CNN model which analyzes different cropped areas of a single input image,
+
+00:00:41.409 --> 00:00:46.569
+decides which regions correspond to objects and then performs classification as usual.
+
+00:00:46.570 --> 00:00:50.505
+This is the kind of architecture that's used in cutting edge applications,
+
+00:00:50.505 --> 00:00:53.589
+from medical diagnostic tools to autonomous vehicles.
+
+00:00:53.588 --> 00:00:56.000
+I'm really excited to show you how they work.
+

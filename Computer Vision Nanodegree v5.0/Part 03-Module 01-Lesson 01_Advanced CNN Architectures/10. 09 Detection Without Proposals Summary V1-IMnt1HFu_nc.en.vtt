@@ -1,0 +1,58 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.184
+You've really learned a lot about the evolution of CNN architectures in this lesson,
+
+00:00:05.184 --> 00:00:10.390
+especially about how to detect multiple objects in an image using region proposals.
+
+00:00:10.390 --> 00:00:12.019
+As we mentioned at the start,
+
+00:00:12.019 --> 00:00:16.899
+simple image classification problems are really the most basic application for CNNs.
+
+00:00:16.899 --> 00:00:19.879
+And if we're aiming to reach levels of human understanding,
+
+00:00:19.879 --> 00:00:23.369
+we have to add complexity to these networks so that they're able to
+
+00:00:23.370 --> 00:00:27.164
+recognize multiple objects and their relations to one another.
+
+00:00:27.164 --> 00:00:29.820
+You may also be wondering if there's a way to perform
+
+00:00:29.820 --> 00:00:33.810
+object recognition without region proposals like this, and there is.
+
+00:00:33.810 --> 00:00:35.325
+There's a whole other family of
+
+00:00:35.325 --> 00:00:38.699
+object detection networks that don't use region proposals.
+
+00:00:38.698 --> 00:00:40.210
+One of these is YOLO,
+
+00:00:40.210 --> 00:00:42.395
+which stands for you only look once,
+
+00:00:42.395 --> 00:00:43.995
+and another is SSD,
+
+00:00:43.994 --> 00:00:45.689
+or single shot detection.
+
+00:00:45.689 --> 00:00:47.700
+These both came out around the same time,
+
+00:00:47.700 --> 00:00:50.790
+and in the next lesson you'll learn all about YOLO and get a chance
+
+00:00:50.789 --> 00:00:54.359
+to work with a code implementation of a YOLO Detection Network.
+

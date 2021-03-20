@@ -1,0 +1,103 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.700
+To localize and classify multiple objects in an image,
+
+00:00:03.700 --> 00:00:08.830
+we want to be able to identify a limited set of cropped regions for a CNN to look at.
+
+00:00:08.830 --> 00:00:10.214
+In the ideal case,
+
+00:00:10.214 --> 00:00:12.675
+we would generate three perfectly cropped regions
+
+00:00:12.675 --> 00:00:14.910
+for three different objects in an image.
+
+00:00:14.910 --> 00:00:19.199
+To approach this goal and generate a good limited set of cropped regions,
+
+00:00:19.199 --> 00:00:21.894
+the idea of region proposals was introduced.
+
+00:00:21.894 --> 00:00:25.800
+Region proposals give us a way to quickly look at an image and generate
+
+00:00:25.800 --> 00:00:29.679
+regions only for areas in which we think there may be an object.
+
+00:00:29.679 --> 00:00:34.329
+We can use traditional computer vision techniques that detect things like edges and
+
+00:00:34.329 --> 00:00:39.879
+textured bobs to produce a set of regions in which objects are most likely to be found;
+
+00:00:39.880 --> 00:00:44.320
+areas of similar texture or the same unifying boundary, for example.
+
+00:00:44.320 --> 00:00:48.670
+These proposals often produce noisy non-object regions,
+
+00:00:48.670 --> 00:00:52.960
+but they are also very likely to include the regions in which objects are located.
+
+00:00:52.960 --> 00:00:57.469
+So the noise is considered a worthwhile cost for not missing any objects.
+
+00:00:57.469 --> 00:01:01.700
+So let's see how this looks when incorporated into a CNN architecture.
+
+00:01:01.700 --> 00:01:06.704
+We can use a region proposal algorithm to produce a limited set of cropped regions.
+
+00:01:06.704 --> 00:01:10.170
+Often called regions of interests or ROIs.
+
+00:01:10.170 --> 00:01:13.489
+And then we put these regions through a classification CNN,
+
+00:01:13.489 --> 00:01:18.359
+one at a time and see what kind of class label the network predicts for each crop.
+
+00:01:18.359 --> 00:01:20.864
+This model is called an R-CNN.
+
+00:01:20.864 --> 00:01:23.929
+Which stands for region convolutional neural network.
+
+00:01:23.930 --> 00:01:27.720
+The R-CNN produces a class for each region of interest,
+
+00:01:27.719 --> 00:01:32.120
+and so it can identify the region that is a dog and the region that is a cat in an image.
+
+00:01:32.120 --> 00:01:35.160
+In this case we also include a class called background,
+
+00:01:35.159 --> 00:01:37.539
+that's meant to capture any noisy regions.
+
+00:01:37.540 --> 00:01:41.719
+Since these regions are often different sizes they first need to be transformed and
+
+00:01:41.719 --> 00:01:45.875
+warped into a standard size that a CNN can accept as input.
+
+00:01:45.875 --> 00:01:51.109
+Now, the main shortcoming of this method is that it still time intensive because it
+
+00:01:51.109 --> 00:01:53.269
+requires that each cropped region go through
+
+00:01:53.269 --> 00:01:56.804
+an entire CNN before a class label can be produced.
+
+00:01:56.805 --> 00:02:00.890
+Next, we'll see some examples of region-based CNNs that aim to speed up
+
+00:02:00.890 --> 00:02:05.079
+this process and efficiently classify multiple objects in an image.
+

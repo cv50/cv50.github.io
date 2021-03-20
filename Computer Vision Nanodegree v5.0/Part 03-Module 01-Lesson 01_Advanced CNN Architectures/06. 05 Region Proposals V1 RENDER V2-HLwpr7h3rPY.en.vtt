@@ -1,0 +1,124 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.730
+Now you've seen how to locate one object in
+
+00:00:02.730 --> 00:00:06.140
+an image by generating a bounding box around that object.
+
+00:00:06.139 --> 00:00:08.719
+But what if there are multiple objects in an image?
+
+00:00:08.720 --> 00:00:11.610
+How can you train a network to detect all of them?
+
+00:00:11.609 --> 00:00:15.824
+Well, let's think about the case where we just have two objects in an image.
+
+00:00:15.824 --> 00:00:18.744
+How can we localize and label both of these?
+
+00:00:18.745 --> 00:00:20.984
+One approach could be to try to simplify
+
+00:00:20.984 --> 00:00:24.429
+this input image and split it into two different regions,
+
+00:00:24.429 --> 00:00:27.089
+each of which only contains one object.
+
+00:00:27.089 --> 00:00:29.789
+Then we can proceed in the same way as before,
+
+00:00:29.789 --> 00:00:34.929
+putting each region through a CNN that generates one class label and one bounding box.
+
+00:00:34.929 --> 00:00:40.185
+Then you might think, what about if there are three objects in an image or four or more?
+
+00:00:40.185 --> 00:00:43.820
+The real challenge here is that there's a variable output.
+
+00:00:43.820 --> 00:00:48.299
+You don't know ahead of time how many objects are going to be in a given image and
+
+00:00:48.299 --> 00:00:53.009
+CNNs and most neural networks have a defined unchanging output size.
+
+00:00:53.009 --> 00:00:57.030
+So, to detect a variable amount of objects in any image,
+
+00:00:57.030 --> 00:01:00.780
+you first must break that image up into smaller regions and produce
+
+00:01:00.780 --> 00:01:05.605
+bounding boxes and class labels for one region and one object at a time.
+
+00:01:05.605 --> 00:01:09.060
+We'll learn about techniques for finding these regions shortly.
+
+00:01:09.060 --> 00:01:11.680
+Then, you should be able to locate and classify
+
+00:01:11.680 --> 00:01:14.410
+any objects that appear in an original image,
+
+00:01:14.409 --> 00:01:16.789
+whether that's one object or three or 20.
+
+00:01:16.790 --> 00:01:20.765
+So how can we go about breaking up an image into regions?
+
+00:01:20.765 --> 00:01:24.099
+We know that we want these regions to correspond to different objects
+
+00:01:24.099 --> 00:01:27.379
+in the image and we don't want to miss any objects.
+
+00:01:27.379 --> 00:01:31.030
+We could just make a bunch of cropped regions to make sure we don't miss anything.
+
+00:01:31.030 --> 00:01:34.810
+This would mean defining a small sliding window and passing it over
+
+00:01:34.810 --> 00:01:37.659
+the entire image using some value for stride
+
+00:01:37.659 --> 00:01:41.189
+to create mini different crops of the original input image.
+
+00:01:41.189 --> 00:01:42.780
+Then for each cropped region,
+
+00:01:42.780 --> 00:01:45.930
+we can put it through a CNN and perform classification.
+
+00:01:45.930 --> 00:01:48.930
+However, this approach produces a huge amount of
+
+00:01:48.930 --> 00:01:52.070
+cropped images and is extremely time-intensive.
+
+00:01:52.069 --> 00:01:53.534
+Also, in this case,
+
+00:01:53.534 --> 00:01:56.359
+most of the cropped images don't even contain objects.
+
+00:01:56.359 --> 00:01:59.709
+So how can you better choose these cropped regions,
+
+00:01:59.709 --> 00:02:02.539
+especially when objects vary in size and location?
+
+00:02:02.540 --> 00:02:07.094
+Next, I want you to think about how you might improve this region selection process.
+
+00:02:07.094 --> 00:02:10.229
+You want to make sure not to miss any objects but you also don't
+
+00:02:10.229 --> 00:02:13.399
+want to put a huge number of cropped regions through a CNN.
+

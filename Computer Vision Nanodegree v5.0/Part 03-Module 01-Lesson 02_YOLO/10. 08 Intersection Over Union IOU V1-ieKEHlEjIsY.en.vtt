@@ -1,0 +1,55 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.174
+Before learning about non-maximal suppression,
+
+00:00:03.174 --> 00:00:07.455
+we'll need to learn about intersection over union or IOU,
+
+00:00:07.455 --> 00:00:10.800
+which is a technique used in non-maximal suppression to compare
+
+00:00:10.800 --> 00:00:14.730
+how good two different bounding boxes are for a given object.
+
+00:00:14.730 --> 00:00:18.705
+It's easiest to see how to calculate IOU in an example.
+
+00:00:18.704 --> 00:00:20.789
+Take these two bounding boxes.
+
+00:00:20.789 --> 00:00:24.419
+We define the intersection over union for the two boxes to be
+
+00:00:24.420 --> 00:00:28.740
+the ratio of the area of intersection to the area of Union.
+
+00:00:28.739 --> 00:00:32.519
+The area of intersection between the two boxes is marked by
+
+00:00:32.520 --> 00:00:36.855
+the green rectangle and it's just the area where these boxes overlap.
+
+00:00:36.854 --> 00:00:40.699
+The area of the union is denoted by the purple area and is
+
+00:00:40.700 --> 00:00:45.825
+the total area of the boxes if they were smooched into one bigger unified shape.
+
+00:00:45.825 --> 00:00:49.340
+The area of intersection is 900 square pixels,
+
+00:00:49.340 --> 00:00:52.925
+while the union of the boxes is 3000 square pixels.
+
+00:00:52.924 --> 00:00:59.609
+This means that the IOU of the boxes is 900 over 3000 or 0.3.
+
+00:00:59.609 --> 00:01:04.170
+Now, imagine you're comparing a ground-truth box to predicted box,
+
+00:01:04.170 --> 00:01:07.960
+what IOU value would indicate a good match?
+

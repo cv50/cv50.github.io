@@ -1,0 +1,133 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.634
+How does Yolo find a correct Bounding Box when it looks at an image broken up by grid?
+
+00:00:05.634 --> 00:00:09.119
+The trick is that it assigns the ground-truth bounding box for
+
+00:00:09.119 --> 00:00:13.434
+one object in an image to only one grid cell in the training image.
+
+00:00:13.435 --> 00:00:16.399
+So, only one grid cell is meant to locate the object.
+
+00:00:16.399 --> 00:00:18.979
+Now, how is this grid cell chosen?
+
+00:00:18.980 --> 00:00:20.429
+For each training image,
+
+00:00:20.429 --> 00:00:24.509
+we locate the midpoint of each object in the image and then we assign
+
+00:00:24.510 --> 00:00:29.255
+the true bounding box to the grid cell that contains that midpoint. Let's see an example.
+
+00:00:29.254 --> 00:00:30.939
+In this image of a person,
+
+00:00:30.940 --> 00:00:34.910
+we locate the midpoint of this person indicated by the yellow dot.
+
+00:00:34.909 --> 00:00:37.794
+This dot contained by one grid cell,
+
+00:00:37.795 --> 00:00:40.760
+so we assign the ground-truth bounding box to
+
+00:00:40.759 --> 00:00:44.000
+this grid cell alone and the ground truth vector for
+
+00:00:44.000 --> 00:00:46.640
+this grid cell which will be used for training will look like
+
+00:00:46.640 --> 00:00:51.344
+this and even though this other grid cell also contains part of the person,
+
+00:00:51.344 --> 00:00:53.975
+it's ground-truth vector will look like this.
+
+00:00:53.975 --> 00:00:59.390
+We treat it as if it does not contain an object and its PC value equal zero.
+
+00:00:59.390 --> 00:01:03.230
+Now let's see how we determine the numerical values of X,
+
+00:01:03.229 --> 00:01:06.894
+Y, W, and H. In the Yolo algorithm,
+
+00:01:06.894 --> 00:01:11.269
+X and Y determine the coordinates of the center of the bounding box relative to
+
+00:01:11.269 --> 00:01:14.119
+the grid cell and W and H determine
+
+00:01:14.120 --> 00:01:17.825
+the width and the height of the box relative to the whole image.
+
+00:01:17.825 --> 00:01:21.409
+The convention is that the upper left corner of a grid cell has
+
+00:01:21.409 --> 00:01:27.094
+coordinates 0,0 or the bottom right hand corner has coordinates 1,1.
+
+00:01:27.094 --> 00:01:28.689
+So in this example,
+
+00:01:28.689 --> 00:01:32.704
+the centre point relative to the grid cell coordinate system is
+
+00:01:32.704 --> 00:01:37.390
+X equal to about 0.5 and Y equal to 0.3.
+
+00:01:37.390 --> 00:01:40.709
+Now the width of the predicted bounding box W is
+
+00:01:40.709 --> 00:01:44.339
+0.1 because its width is about 10 percent the width of
+
+00:01:44.340 --> 00:01:47.340
+the entire image and the height H is
+
+00:01:47.340 --> 00:01:52.560
+0.4 because its height is about 40 percent the height of the entire image.
+
+00:01:52.560 --> 00:01:55.019
+Notice that in this system,
+
+00:01:55.019 --> 00:01:59.064
+all bounding box coordinate values fall between zero and one
+
+00:01:59.064 --> 00:02:00.719
+and the width and height of
+
+00:02:00.719 --> 00:02:03.914
+the bounding box can be bigger than the size of the grid cell.
+
+00:02:03.915 --> 00:02:06.930
+This technique is very similar to normalization.
+
+00:02:06.930 --> 00:02:09.510
+By standardizing the range of these values,
+
+00:02:09.509 --> 00:02:13.689
+this algorithm becomes easier to train and converge to a smaller error.
+
+00:02:13.689 --> 00:02:16.539
+But there's one problem with this method.
+
+00:02:16.539 --> 00:02:19.989
+Imagine that a network has trained on a fine grid and
+
+00:02:19.990 --> 00:02:24.460
+only one small grid cell has a true bounding box for an object in an image,
+
+00:02:24.460 --> 00:02:27.129
+what do you think will happen once a network like
+
+00:02:27.129 --> 00:02:30.439
+this sees a new test image with an object in it?
+

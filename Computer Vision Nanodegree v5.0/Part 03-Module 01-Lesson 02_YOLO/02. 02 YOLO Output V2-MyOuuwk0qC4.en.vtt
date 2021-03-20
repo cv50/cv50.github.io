@@ -1,0 +1,100 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.270
+When we talked about localization in images,
+
+00:00:03.270 --> 00:00:05.924
+we talked about creating a CNN that could output
+
+00:00:05.924 --> 00:00:11.740
+a predicted class front object in an image and a predicted bounding box for that object.
+
+00:00:11.740 --> 00:00:14.394
+In the CNN examples that we've seen,
+
+00:00:14.394 --> 00:00:18.164
+these outputs are analyzed separately in the network trains by using
+
+00:00:18.164 --> 00:00:22.774
+a weighted combination of classification and regression losses.
+
+00:00:22.774 --> 00:00:28.190
+Another way to process these outputs is by merging them into a single output vector,
+
+00:00:28.190 --> 00:00:30.304
+which is what the yellow algorithm does.
+
+00:00:30.304 --> 00:00:32.409
+Let's see this in an example.
+
+00:00:32.409 --> 00:00:36.899
+Let's assume I want to train a CNN to be able to detect three classes,
+
+00:00:36.899 --> 00:00:38.969
+a person, a cat, and a dog.
+
+00:00:38.969 --> 00:00:41.659
+In this case, because we only have three classes,
+
+00:00:41.659 --> 00:00:44.789
+the output vector y will only have three elements,
+
+00:00:44.789 --> 00:00:47.009
+C one, two, and three.
+
+00:00:47.009 --> 00:00:49.280
+Each of which is a class score or
+
+00:00:49.280 --> 00:00:52.564
+a probability that the image is of a person, cat, or dog.
+
+00:00:52.564 --> 00:00:54.079
+If you have more classes,
+
+00:00:54.079 --> 00:00:55.954
+this vector will get longer.
+
+00:00:55.954 --> 00:00:59.489
+For this image, we want to train the CNN so that it can identify
+
+00:00:59.490 --> 00:01:03.740
+the person in this image and look at that person within a bounding box.
+
+00:01:03.740 --> 00:01:07.609
+We can do this by adding some box parameters to our output vector.
+
+00:01:07.609 --> 00:01:09.715
+We can add four more numbers,
+
+00:01:09.715 --> 00:01:11.200
+x, y, w and h,
+
+00:01:11.200 --> 00:01:15.439
+that determine the position and size of the bounding box.
+
+00:01:15.439 --> 00:01:19.399
+X and y determine the coordinates of the center of the box,
+
+00:01:19.400 --> 00:01:22.615
+and w and h determine its width and height.
+
+00:01:22.614 --> 00:01:28.409
+Once you've trained your CNN to output class probabilities and bounding box coordinates,
+
+00:01:28.409 --> 00:01:32.804
+you're one step closer to being able to detect objects in any given image.
+
+00:01:32.805 --> 00:01:35.970
+Next we'll briefly go over the sliding-windows approach that you've
+
+00:01:35.969 --> 00:01:38.969
+seen before with our example output vector in mind.
+
+00:01:38.969 --> 00:01:42.075
+Then you'll see how yellow improves upon sliding windows
+
+00:01:42.075 --> 00:01:46.540
+and breaks an image into a grid for efficient object detection.
+

@@ -1,0 +1,31 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.800
+One of the problems with
+
+00:00:01.800 --> 00:00:05.819
+this grid-based method for object detection is that a trained CNN,
+
+00:00:05.819 --> 00:00:08.775
+when faced with a new test image will often produce
+
+00:00:08.775 --> 00:00:13.300
+multiple grid cell vectors that are all trying to detect the same object.
+
+00:00:13.300 --> 00:00:16.260
+This means lots of output vectors that all contain
+
+00:00:16.260 --> 00:00:19.475
+slightly different bounding boxes for the same object.
+
+00:00:19.475 --> 00:00:23.474
+To account for this, we use a technique called non-maximal suppression
+
+00:00:23.474 --> 00:00:27.945
+which tries to find the bounding box that best matches an object in an image.
+
+00:00:27.945 --> 00:00:31.960
+Next, we'll learn how it finds the best box in a group.
+

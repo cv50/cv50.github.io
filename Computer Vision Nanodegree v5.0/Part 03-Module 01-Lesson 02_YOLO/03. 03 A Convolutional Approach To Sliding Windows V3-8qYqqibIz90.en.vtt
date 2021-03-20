@@ -1,0 +1,178 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.539
+Since objects can be anywhere in a given image,
+
+00:00:03.539 --> 00:00:07.349
+you can make sure to detect all of them by sliding a small window over
+
+00:00:07.349 --> 00:00:11.894
+the entire image and checking for objects within each of the created windows.
+
+00:00:11.894 --> 00:00:14.009
+This is the Sliding Windows approach.
+
+00:00:14.009 --> 00:00:16.140
+Let's see how this works in detail.
+
+00:00:16.140 --> 00:00:19.859
+Suppose I've trained my CNN to detect my three classes;
+
+00:00:19.859 --> 00:00:21.939
+a person, a cat and a dog.
+
+00:00:21.940 --> 00:00:25.725
+Now I want to use this train CNN to detect the person in this image.
+
+00:00:25.725 --> 00:00:29.700
+The first step in sliding windows is to choose the size of your window.
+
+00:00:29.699 --> 00:00:33.585
+We want it small enough to capture any small objects in an image.
+
+00:00:33.585 --> 00:00:36.679
+Then we place our window at the beginning of the image and
+
+00:00:36.679 --> 00:00:39.850
+feed the region inside the window to the train CNN.
+
+00:00:39.850 --> 00:00:42.975
+For each region, this CNN will output a prediction.
+
+00:00:42.975 --> 00:00:44.829
+Which is this output vector y.
+
+00:00:44.829 --> 00:00:47.554
+Notice the first element in this vector,
+
+00:00:47.554 --> 00:00:50.299
+PC, is different than what we've seen before.
+
+00:00:50.299 --> 00:00:53.719
+PC is a probability between zero and one,
+
+00:00:53.719 --> 00:00:56.789
+then an object exists within the window at all.
+
+00:00:56.789 --> 00:00:58.769
+If no object is detected,
+
+00:00:58.770 --> 00:01:03.240
+we don't have to proceed with trying to classify that particular region of the image.
+
+00:01:03.240 --> 00:01:06.185
+The next values in the vector are as usual.
+
+00:01:06.185 --> 00:01:08.060
+We have C1, 2 and 3,
+
+00:01:08.060 --> 00:01:12.879
+which correspond to the class of the object detected and the bounding box coordinates.
+
+00:01:12.879 --> 00:01:15.604
+In this example, we see that this first window region
+
+00:01:15.605 --> 00:01:18.245
+doesn't contain any of the classes we're looking for;
+
+00:01:18.245 --> 00:01:20.740
+no person, no cat and no dog.
+
+00:01:20.739 --> 00:01:24.919
+Therefore the CNN will output a vector with PC equal to zero,
+
+00:01:24.920 --> 00:01:27.820
+because no objects were detected inside the window.
+
+00:01:27.819 --> 00:01:30.769
+Then we move along and slide the window to the ray using
+
+00:01:30.769 --> 00:01:33.754
+some small stride and we repeat this process.
+
+00:01:33.754 --> 00:01:37.399
+Small strides are used to make sure that we catch any object and to
+
+00:01:37.400 --> 00:01:41.865
+determine the location of objects within a few pixels of their true location.
+
+00:01:41.864 --> 00:01:45.314
+Now, since this region also doesn't contain any objects,
+
+00:01:45.314 --> 00:01:48.379
+it will return PC equal to zero again.
+
+00:01:48.379 --> 00:01:52.299
+We repeat this process until we cover the entire image.
+
+00:01:52.299 --> 00:01:56.689
+You might also analyze the whole image again using windows of a different size.
+
+00:01:56.689 --> 00:02:00.259
+One of the detection windows might nicely capture a small object in
+
+00:02:00.260 --> 00:02:04.140
+an image and another might better capture large objects.
+
+00:02:04.140 --> 00:02:09.300
+Here we see that when we feed the region inside this particular window to our CNN,
+
+00:02:09.300 --> 00:02:12.260
+it produces a y vector with PC equal to one,
+
+00:02:12.259 --> 00:02:17.909
+indicating that an object has been found and it indicates that the object is a person,
+
+00:02:17.909 --> 00:02:19.799
+with C1 equal to one.
+
+00:02:19.800 --> 00:02:23.250
+In reality these probability values will typically be very
+
+00:02:23.250 --> 00:02:27.120
+close but not quite equal to one because of some uncertainty.
+
+00:02:27.120 --> 00:02:29.759
+Our model also gives us the predicted bounding
+
+00:02:29.759 --> 00:02:33.129
+box coordinates which are determined by the window.
+
+00:02:33.129 --> 00:02:35.849
+The Sliding Window approach works well,
+
+00:02:35.849 --> 00:02:39.644
+but it's a very computationally expensive because we have to scan
+
+00:02:39.645 --> 00:02:41.610
+the entire image with windows of
+
+00:02:41.610 --> 00:02:45.490
+different sizes and each window has to be fed into the CNN.
+
+00:02:45.490 --> 00:02:50.170
+You've seen that one way to get around this problem is to project regions of interest in
+
+00:02:50.169 --> 00:02:55.049
+the input image to a layer deeper in the CNN into a set of feature maps.
+
+00:02:55.050 --> 00:02:59.650
+That way you can process an image through several convolutional and pooling layers just
+
+00:02:59.650 --> 00:03:04.659
+once and use the resulting feature maps to analyze different regions of the input image.
+
+00:03:04.659 --> 00:03:06.704
+But Yolo takes a different approach,
+
+00:03:06.705 --> 00:03:11.905
+and again looks at each part of an image only once without overlapping windows.
+
+00:03:11.905 --> 00:03:15.370
+How do you think you might break up an entire image so that
+
+00:03:15.370 --> 00:03:19.730
+you could analyze it without looking at one region more than once?
+

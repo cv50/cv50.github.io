@@ -1,0 +1,248 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Classification and Localization
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Advanced CNN Architectures
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. CNN's and Scene Understanding.html">
+       01. CNN's and Scene Understanding
+      </a>
+     </li>
+     <li class="">
+      <a href="02. More than Classification.html">
+       02. More than Classification
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Classification and Localization.html">
+       03. Classification and Localization
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Bounding Boxes and Regression.html">
+       04. Bounding Boxes and Regression
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Quiz Loss Values.html">
+       05. Quiz: Loss Values
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Region Proposals.html">
+       06. Region Proposals
+      </a>
+     </li>
+     <li class="">
+      <a href="07. R-CNN.html">
+       07. R-CNN
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Fast R-CNN.html">
+       08. Fast R-CNN
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Faster R-CNN.html">
+       09. Faster R-CNN
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Detection With and Without Proposals.html">
+       10. Detection With and Without Proposals
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          03. Classification and Localization
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+         <p>
+          03 Classification And Localization RENDER V3
+         </p>
+        </h3>
+        <video controls="">
+         <source src="03. 03 Classification And Localization RENDER V3-UqNg9d6cKQU.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="03. 03 Classification And Localization RENDER V3-UqNg9d6cKQU.en.vtt" srclang="en"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="03. 03 Classification And Localization RENDER V3-UqNg9d6cKQU.zh-CN.vtt" srclang="zh-CN"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="distracted-driver-detection">
+          Distracted Driver Detection
+         </h3>
+         <p>
+          As was mentioned in the video, detecting distracted drivers is a classification
+          <em>
+           and
+          </em>
+          localization challenge. As part of this task, some approaches localize cell phones in a image; if a cell phone was detected as close to a driver's face, then it assumes that the driver is on the phone and distracted, but if a phone is located on a car seat or far away from the driver, then the driver is more likely to be focused on the road.
+          <a href="https://github.com/tdeboissiere/VGG16CAM-keras" rel="noopener noreferrer" target="_blank">
+           Check out an example of such detection code in Keras
+          </a>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="04. Bounding Boxes and Regression.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('03. Classification and Localization')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

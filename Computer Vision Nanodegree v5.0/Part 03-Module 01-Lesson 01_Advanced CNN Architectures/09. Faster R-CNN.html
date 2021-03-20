@@ -1,0 +1,385 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Faster R-CNN
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Advanced CNN Architectures
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. CNN's and Scene Understanding.html">
+       01. CNN's and Scene Understanding
+      </a>
+     </li>
+     <li class="">
+      <a href="02. More than Classification.html">
+       02. More than Classification
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Classification and Localization.html">
+       03. Classification and Localization
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Bounding Boxes and Regression.html">
+       04. Bounding Boxes and Regression
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Quiz Loss Values.html">
+       05. Quiz: Loss Values
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Region Proposals.html">
+       06. Region Proposals
+      </a>
+     </li>
+     <li class="">
+      <a href="07. R-CNN.html">
+       07. R-CNN
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Fast R-CNN.html">
+       08. Fast R-CNN
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Faster R-CNN.html">
+       09. Faster R-CNN
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Detection With and Without Proposals.html">
+       10. Detection With and Without Proposals
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          09. Faster R-CNN
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+         <p>
+          08 Faster RCNN V1 RENDER V2
+         </p>
+        </h3>
+        <video controls="">
+         <source src="09. 08 Faster RCNN V1 RENDER V2-ySh_Q3KTTBY.mp4" type="video/mp4"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="09. 08 Faster RCNN V1 RENDER V2-ySh_Q3KTTBY.zh-CN.vtt" srclang="zh-CN"/>
+         <track default="true" kind="subtitles" label="en" src="09. 08 Faster RCNN V1 RENDER V2-ySh_Q3KTTBY.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="region-proposal-network">
+          Region Proposal Network
+         </h2>
+         <p>
+          You may be wondering: how exactly are the RoI's generated in the region proposal portion of the Faster R-CNN architecture?
+         </p>
+         <p>
+          The region proposal network (RPN) works in Faster R-CNN in a way that is similar to YOLO object detection, which you'll learn about in the next lesson. The RPN looks at the output of the last convolutional layer, a produced feature map, and takes a sliding window approach to possible-object detection. It slides a small (typically 3x3) window over the feature map, then for
+          <em>
+           each
+          </em>
+          window the RPN:
+         </p>
+         <ol>
+          <li>
+           Uses a set of defined anchor boxes, which are boxes of a defined aspect ratio (wide and short or tall and thin, for example) to generate multiple possible RoI's, each of these is considered a region proposal.
+          </li>
+          <li>
+           For each proposal, this network produces a probability,
+           <code>
+            Pc
+           </code>
+           , that classifies the region as an object (or not) and a set of bounding box coordinates for that object.
+          </li>
+          <li>
+           Regions with too low a probability of being an object, say
+           <code>
+            Pc &lt; 0.5
+           </code>
+           , are discarded.
+          </li>
+         </ol>
+         <h4 id="training-the-region-proposal-network">
+          Training the Region Proposal Network
+         </h4>
+         <p>
+          Since, in this case, there are no ground truth regions, how do you train the region proposal network?
+         </p>
+         <p>
+          The idea is, for any region, you can check to see if it overlaps with any of the ground truth objects. That is, for a region, if we classify that region as an object or not-object, which class will it fall into? For a region proposal that does cover some portion of an object, we should say that there is a high probability that this region has an object init and that region should be kept; if the likelihood of an object being in a region is too low, that region should be discarded.
+         </p>
+         <p>
+          I'd recommend
+          <a href="https://towardsdatascience.com/deep-learning-for-object-detection-a-comprehensive-review-73930816d8d9" rel="noopener noreferrer" target="_blank">
+           this blog post
+          </a>
+          if you'd like to learn more about region selection.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="speed-bottleneck">
+          Speed Bottleneck
+         </h3>
+         <p>
+          Now, for all of these networks
+          <em>
+           including
+          </em>
+          Faster R-CNN, we've aimed to improve the speed of our object detection models by reducing the time it takes to generate and decide on region proposals. You might be wondering: is there a way to get rid of this proposal step entirely? And in the next section we'll see a method that does not rely on region proposals to work!
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <form>
+          <fieldset>
+           <legend>
+            <p>
+             Why is speed important?
+            </p>
+            <p>
+             Multi-object identification consists of locating and classifying different objects in an image. Some models trade off accuracy for speed. What kinds of applications require speed in object recognition? Check all that apply.
+            </p>
+           </legend>
+          </fieldset>
+          <div>
+           <input id="a1525392793388" name="621657" type="checkbox" value="a1525392793388"/>
+           <label for="a1525392793388">
+            <p>
+             Accurately classifying images of cancerous vs. non-cancerous tissue.
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1525392887930" name="621657" type="checkbox" value="a1525392887930"/>
+           <label for="a1525392887930">
+            <p>
+             Pedestrian detection for an autonomous vehicles.
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1525393172757" name="621657" type="checkbox" value="a1525393172757"/>
+           <label for="a1525393172757">
+            <p>
+             Identifying people's faces in a set of images.
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1525393224349" name="621657" type="checkbox" value="a1525393224349"/>
+           <label for="a1525393224349">
+            <p>
+             Tracking people's faces so that a camera can focus on them.
+            </p>
+           </label>
+          </div>
+         </form>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          <ul>
+           <li>
+            Pedestrian detection for an autonomous vehicles.
+           </li>
+           <li>
+            Tracking people's faces so that a camera can focus on them.
+           </li>
+          </ul>
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="faster-r-cnn-implementation">
+          Faster R-CNN Implementation
+         </h3>
+         <p>
+          If you'd like to look at an implementation of this network in code, you can find a peer-reviewed version, at
+          <a href="https://github.com/jwyang/faster-rcnn.pytorch" rel="noopener noreferrer" target="_blank">
+           this Github repo
+          </a>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="10. Detection With and Without Proposals.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('09. Faster R-CNN')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

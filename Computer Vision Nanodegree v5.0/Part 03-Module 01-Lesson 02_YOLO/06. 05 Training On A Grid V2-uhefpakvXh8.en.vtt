@@ -1,0 +1,82 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.419
+Training on grid cells requires a very specific kind of training data.
+
+00:00:04.419 --> 00:00:07.080
+To train a network to output a predicted vector
+
+00:00:07.080 --> 00:00:10.080
+of class scores and box coordinates for each cell,
+
+00:00:10.080 --> 00:00:12.544
+we need to have a true vector to compare it to.
+
+00:00:12.544 --> 00:00:14.250
+So, for each training image,
+
+00:00:14.250 --> 00:00:16.109
+we have to break it into a grid,
+
+00:00:16.109 --> 00:00:19.949
+and manually sign a ground truth vector to each grid cell.
+
+00:00:19.949 --> 00:00:22.660
+Once we have this grid cell labeled training data,
+
+00:00:22.660 --> 00:00:26.855
+the second step is to design a CNN that can be trained using these vectors.
+
+00:00:26.855 --> 00:00:30.230
+Since we have a seven by 10 grid in our example,
+
+00:00:30.230 --> 00:00:34.259
+and each grid cell has an associated eight-dimensional ground truth vector,
+
+00:00:34.259 --> 00:00:37.739
+we have to design our CNN such that the output layer of
+
+00:00:37.740 --> 00:00:42.025
+the CNN is going to have a size seven by 10 by eight.
+
+00:00:42.024 --> 00:00:44.614
+We can think of this as a seven by 10 image,
+
+00:00:44.615 --> 00:00:46.170
+with a depth of eight.
+
+00:00:46.170 --> 00:00:51.375
+So, each pixel value instead of being a vector of length three as in RGB images,
+
+00:00:51.375 --> 00:00:53.725
+is an eight dimensional output vector.
+
+00:00:53.725 --> 00:00:56.189
+This way for each input grid cell,
+
+00:00:56.189 --> 00:01:00.500
+there's an eight-dimensional output vector and the output layer of the CNN.
+
+00:01:00.500 --> 00:01:03.659
+For example, when the network sees the first grid cell,
+
+00:01:03.659 --> 00:01:07.829
+it will produce an output vector in the upper left corner of the output layer.
+
+00:01:07.829 --> 00:01:09.989
+Having defined this output shape,
+
+00:01:09.989 --> 00:01:15.224
+we can train the CNN using images and their ground truth grid vectors as input.
+
+00:01:15.224 --> 00:01:17.280
+Once the CNN has been trained,
+
+00:01:17.280 --> 00:01:21.045
+we can use it to detect and localize objects in test images.
+
+00:01:21.045 --> 00:01:25.200
+Next let's see how this method produces accurate bounding boxes.
+

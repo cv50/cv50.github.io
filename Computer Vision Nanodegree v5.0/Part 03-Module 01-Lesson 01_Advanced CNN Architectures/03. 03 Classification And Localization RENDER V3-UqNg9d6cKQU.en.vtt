@@ -1,0 +1,148 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.180
+In classification tasks we've seen.
+
+00:00:03.180 --> 00:00:07.835
+We give an image to a CNN and it outputs a label for that entire image.
+
+00:00:07.835 --> 00:00:10.378
+But sometimes you want a little more information.
+
+00:00:10.378 --> 00:00:16.064
+Say where the object actually is located in the image and this is called localization.
+
+00:00:16.065 --> 00:00:20.109
+For example, say you have an image of basketball players and you want to
+
+00:00:20.109 --> 00:00:24.144
+identify the player that has possession of the basketball at this time.
+
+00:00:24.144 --> 00:00:25.515
+To complete this task,
+
+00:00:25.515 --> 00:00:29.870
+you need to locate and identify the ball and the person that's holding it.
+
+00:00:29.870 --> 00:00:34.000
+Localization has been used in a variety of safety applications too.
+
+00:00:34.000 --> 00:00:38.799
+For example and baby monitors that check to see if a baby is safely in a crib.
+
+00:00:38.799 --> 00:00:40.750
+And localization is even in
+
+00:00:40.750 --> 00:00:43.570
+safe driving applications in which a camera checks
+
+00:00:43.570 --> 00:00:45.685
+to see if a driver is distracted or not
+
+00:00:45.685 --> 00:00:49.000
+by looking at the location of a driver in a vehicle and
+
+00:00:49.000 --> 00:00:52.804
+the location of their eyes cell phone and other items around them.
+
+00:00:52.804 --> 00:00:55.679
+Localization is important for any application that
+
+00:00:55.679 --> 00:00:59.259
+relies on looking at the proximity of two or more objects.
+
+00:00:59.259 --> 00:01:02.364
+So let's look at a simple Localization example.
+
+00:01:02.365 --> 00:01:05.894
+This image of a cat, in addition to labeling this image
+
+00:01:05.894 --> 00:01:09.569
+as a cat we also want to locate the cat in this image.
+
+00:01:09.569 --> 00:01:13.875
+The typical way of doing this is by drawing a bounding box around that cat.
+
+00:01:13.875 --> 00:01:18.004
+This box can be thought of as a collection of coordinates that define the box,
+
+00:01:18.004 --> 00:01:21.640
+X and Y which could be the center of the box and W and H,
+
+00:01:21.640 --> 00:01:23.515
+the width and height of the box.
+
+00:01:23.515 --> 00:01:25.709
+To find these values we can use a lot of
+
+00:01:25.709 --> 00:01:29.294
+the same structure as in a typical classification CNN.
+
+00:01:29.295 --> 00:01:33.430
+One way to perform localization is to first put a given image through
+
+00:01:33.430 --> 00:01:38.155
+a series of convolutional and pooling layers and create a feature vector for that image.
+
+00:01:38.155 --> 00:01:43.045
+You keep the same fully-connected layers to perform classification and you add
+
+00:01:43.045 --> 00:01:45.370
+another fully connected layer attached to
+
+00:01:45.370 --> 00:01:49.875
+the feature vector whose job is to predict the location and size of a bounding box.
+
+00:01:49.875 --> 00:01:52.640
+I'll call these the bounding box coordinates.
+
+00:01:52.640 --> 00:01:54.635
+In this one CNN,
+
+00:01:54.635 --> 00:01:58.540
+we have one output path whose job is to produce a class for the object pictured in
+
+00:01:58.540 --> 00:02:03.525
+an image and another who's job is to produce the bounding box coordinates for the object.
+
+00:02:03.525 --> 00:02:08.319
+In this case we're assuming that the input image not only has an associated true label,
+
+00:02:08.319 --> 00:02:10.905
+but that it also has a true bounding box.
+
+00:02:10.905 --> 00:02:13.419
+This way we can train our network by comparing
+
+00:02:13.419 --> 00:02:17.949
+the predicted and true values for both the classes and bounding boxes.
+
+00:02:17.949 --> 00:02:20.379
+Now we know how to use something like cross
+
+00:02:20.379 --> 00:02:23.889
+entropy loss to measure the performance of a classification model.
+
+00:02:23.889 --> 00:02:28.399
+Cross entropy operates on probabilities with values between zero and one.
+
+00:02:28.400 --> 00:02:31.560
+But for the bounding box we need something different.
+
+00:02:31.560 --> 00:02:33.750
+A function that measures the error between our predicted
+
+00:02:33.750 --> 00:02:36.365
+bounding box and a true bounding box.
+
+00:02:36.365 --> 00:02:38.909
+Next you'll see what kinds of loss functions are
+
+00:02:38.909 --> 00:02:41.370
+appropriate for a regression problem like this,
+
+00:02:41.370 --> 00:02:44.200
+that compares quantities instead of class scores.
+

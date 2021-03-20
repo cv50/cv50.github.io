@@ -1,0 +1,112 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:05.509 --> 00:00:08.460
+So far, you've seen a variety of
+
+00:00:08.460 --> 00:00:13.339
+image processing techniques that play a foundational role in pattern recognition tasks,
+
+00:00:13.339 --> 00:00:15.269
+such as an image classification.
+
+00:00:15.269 --> 00:00:17.199
+You've seen how convolutional
+
+00:00:17.199 --> 00:00:20.744
+neural networks follow a series of steps to classify an image.
+
+00:00:20.745 --> 00:00:24.460
+Just to recap, a CNN first takes in an input image then
+
+00:00:24.460 --> 00:00:27.990
+puts that image through several convolutional and pooling layers.
+
+00:00:27.989 --> 00:00:32.619
+The result is a set of feature maps reduced in size from the original image that through
+
+00:00:32.619 --> 00:00:34.539
+a training process have learned to distill
+
+00:00:34.539 --> 00:00:37.634
+information about the content in the original image.
+
+00:00:37.634 --> 00:00:39.679
+We then flatten these feature maps,
+
+00:00:39.679 --> 00:00:42.579
+creating a vector that we can then pass to a series of
+
+00:00:42.579 --> 00:00:48.009
+fully-connected linear layers to produce a probability distribution of class scores.
+
+00:00:48.009 --> 00:00:51.964
+From this, we can extract the predicted class for the input image.
+
+00:00:51.965 --> 00:00:56.780
+So in short, an image comes in and the predicted class label comes out.
+
+00:00:56.780 --> 00:00:59.075
+In classification tasks like these,
+
+00:00:59.075 --> 00:01:03.955
+there's usually a single object per image that a network is expected to classify.
+
+00:01:03.954 --> 00:01:08.629
+But in the real world, we're often faced with much more complex visual scenes,
+
+00:01:08.629 --> 00:01:10.994
+scenes with many overlapping objects.
+
+00:01:10.995 --> 00:01:14.329
+We can see and classify many objects at a time,
+
+00:01:14.329 --> 00:01:17.954
+and even estimate things like the distance between objects in a scene.
+
+00:01:17.954 --> 00:01:20.090
+In this lesson, we'll look at different kinds of
+
+00:01:20.090 --> 00:01:23.745
+CNN architectures and see how they've evolved over time.
+
+00:01:23.745 --> 00:01:27.969
+Specifically, we'll look at models that detect multiple objects in a scene,
+
+00:01:27.969 --> 00:01:30.359
+like Faster R-CNN and YOLO.
+
+00:01:30.359 --> 00:01:32.885
+Two kinds of networks that can look at an image,
+
+00:01:32.885 --> 00:01:34.630
+break it up into smaller regions,
+
+00:01:34.629 --> 00:01:37.099
+and label each region with a class so that
+
+00:01:37.099 --> 00:01:41.494
+a variable number of objects in a given image can be localized and labeled.
+
+00:01:41.495 --> 00:01:43.040
+Later on in the course,
+
+00:01:43.040 --> 00:01:45.859
+you will also learn about recurrent neural networks that allow us
+
+00:01:45.859 --> 00:01:48.890
+to process and generate sequences of data,
+
+00:01:48.890 --> 00:01:52.430
+such as a sequence of image frames or a sequence of words,
+
+00:01:52.430 --> 00:01:54.290
+which can be useful should you want to describe
+
+00:01:54.290 --> 00:01:57.795
+visual scenes as in the case of automatic image captioning.
+
+00:01:57.795 --> 00:02:02.969
+So, let's start by looking at some complex tasks that CNNs can be applied to.
+

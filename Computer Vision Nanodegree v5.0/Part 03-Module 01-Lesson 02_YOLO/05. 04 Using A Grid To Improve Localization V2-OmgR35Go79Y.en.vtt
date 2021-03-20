@@ -1,0 +1,130 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.750
+The implementation of sliding windows is very slow,
+
+00:00:03.750 --> 00:00:06.120
+but it can be faster if you choose a stride so that
+
+00:00:06.120 --> 00:00:09.655
+each window covers a new part of an image and there's no overlap.
+
+00:00:09.654 --> 00:00:11.349
+Inspired by this approach,
+
+00:00:11.349 --> 00:00:14.439
+YOLO uses a grid instead of sliding windows.
+
+00:00:14.439 --> 00:00:16.280
+So, let's see how this works?
+
+00:00:16.280 --> 00:00:19.595
+In this example, we're using a seven by 10 grid.
+
+00:00:19.594 --> 00:00:21.024
+In the yellow algorithm,
+
+00:00:21.024 --> 00:00:24.774
+a much finer grid is used but the overall process will be the same.
+
+00:00:24.774 --> 00:00:26.129
+Now you might be wondering,
+
+00:00:26.129 --> 00:00:29.224
+how can we get an accurate bounding box out of a grid?
+
+00:00:29.225 --> 00:00:32.535
+This was one of the challenges with sliding windows too.
+
+00:00:32.534 --> 00:00:35.339
+How can you account for the fact that these grid cells are
+
+00:00:35.340 --> 00:00:38.030
+unlikely to match with the bounding box for an object?
+
+00:00:38.030 --> 00:00:42.779
+Well, the idea is that we can assign output vectors to each grid cell,
+
+00:00:42.779 --> 00:00:46.675
+so each cell will have an associated vector that tells us one,
+
+00:00:46.674 --> 00:00:48.949
+if an object is in that cell, two,
+
+00:00:48.950 --> 00:00:50.470
+the class of that object,
+
+00:00:50.469 --> 00:00:53.750
+and three, the predicted bounding box for that object.
+
+00:00:53.750 --> 00:00:58.630
+In this way the bounding box coordinates do not have to be contained within a grid cell.
+
+00:00:58.630 --> 00:01:02.655
+Assuming we have an input image with two labels and bounding boxes,
+
+00:01:02.655 --> 00:01:04.590
+we can then train a CNN to produce
+
+00:01:04.590 --> 00:01:07.715
+the correct output vectors for each of these grid cells.
+
+00:01:07.715 --> 00:01:11.930
+We'll call the output vector for each grid cell gn.
+
+00:01:11.930 --> 00:01:14.610
+This output vector contains the same parameters
+
+00:01:14.609 --> 00:01:17.620
+as the output vector y we saw in previous videos.
+
+00:01:17.620 --> 00:01:21.180
+For the first cell, the vector g1 will look like this,
+
+00:01:21.180 --> 00:01:23.800
+there are no objects in this grid cell,
+
+00:01:23.799 --> 00:01:25.709
+so PC equals zero.
+
+00:01:25.709 --> 00:01:28.394
+The vector will have zero for the class scores,
+
+00:01:28.394 --> 00:01:30.819
+and some values for box coordinates.
+
+00:01:30.819 --> 00:01:36.104
+The values don't matter much because we'll discard vectors with too low of a PC value.
+
+00:01:36.105 --> 00:01:40.915
+We'll get the same output vector for all the grid cells that have no objects in them.
+
+00:01:40.915 --> 00:01:44.870
+Now what about this cell on top of the person in our image?
+
+00:01:44.870 --> 00:01:49.035
+This output vector which is numbered by grid cell looks like this,
+
+00:01:49.034 --> 00:01:52.829
+PC equals one because there is an object in the grid cell,
+
+00:01:52.829 --> 00:01:56.159
+and c1 equals one because the object is a person.
+
+00:01:56.159 --> 00:01:58.170
+The output vector will also hold
+
+00:01:58.170 --> 00:02:00.030
+the predicted bounding box coordinates
+
+00:02:00.030 --> 00:02:03.075
+and we'll see how these are generated later in this lesson.
+
+00:02:03.075 --> 00:02:05.674
+Now that we know what the gn vectors look like,
+
+00:02:05.674 --> 00:02:08.479
+let's see how we can use them to train a CNN.
+
