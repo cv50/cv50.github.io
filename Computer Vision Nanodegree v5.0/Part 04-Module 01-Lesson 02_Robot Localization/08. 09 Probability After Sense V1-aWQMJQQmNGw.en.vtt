@@ -1,0 +1,82 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.609
+So, let's look at the measurement of
+
+00:00:02.609 --> 00:00:08.445
+this robot in his world with five different grid cells x_1 to x_5.
+
+00:00:08.445 --> 00:00:12.530
+Let's assume two of those cells are colored red,
+
+00:00:12.529 --> 00:00:15.934
+whereas the other three are green.
+
+00:00:15.935 --> 00:00:21.060
+As before, we assign uniform probability to each cell of 0.2,
+
+00:00:21.059 --> 00:00:24.934
+and our robot is now allowed to sense,
+
+00:00:24.934 --> 00:00:28.904
+and what it sees is a red color.
+
+00:00:28.905 --> 00:00:32.960
+How will this affect my belief over different places?
+
+00:00:32.960 --> 00:00:36.274
+Obviously, the ones for x_2 and x_3 should go up,
+
+00:00:36.274 --> 00:00:38.119
+and the ones for x_1,
+
+00:00:38.119 --> 00:00:39.854
+x_4, and x_5 should go down.
+
+00:00:39.854 --> 00:00:44.069
+So, I'm going to tell you how to incorporate this measurement
+
+00:00:44.070 --> 00:00:48.659
+into our belief with a very simple rule, a product.
+
+00:00:48.659 --> 00:00:51.654
+Any cell where the color is correct,
+
+00:00:51.655 --> 00:00:53.335
+any of the red cells,
+
+00:00:53.335 --> 00:00:57.304
+we multiply it with a relatively large number,
+
+00:00:57.304 --> 00:01:04.379
+say 0.6, that feels small but as we'll see later is actually a large number.
+
+00:01:04.379 --> 00:01:10.125
+Whereas all the green cells will be multiplied with 0.2,
+
+00:01:10.125 --> 00:01:14.480
+we look at the ratio of those that it seems about three
+
+00:01:14.480 --> 00:01:19.314
+times as likely to be in the red cell than it is to be in the green cell,
+
+00:01:19.314 --> 00:01:22.605
+because 0.6 is three times larger than 0.2.
+
+00:01:22.605 --> 00:01:24.510
+Let us do the multiplication.
+
+00:01:24.510 --> 00:01:26.405
+For each of those five cells,
+
+00:01:26.405 --> 00:01:29.180
+can you tell me what the result would be
+
+00:01:29.180 --> 00:01:33.180
+multiplying in the measurement in the way I've stated.
+
+00:01:33.180 --> 00:01:37.510
+So, please for these five boxes, fill out the number.
+

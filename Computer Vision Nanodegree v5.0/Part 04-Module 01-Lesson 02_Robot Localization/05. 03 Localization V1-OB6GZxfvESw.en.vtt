@@ -1,0 +1,76 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.115
+The very first problem I'm trying to solve is called localization.
+
+00:00:04.115 --> 00:00:07.185
+It involves a robot that's lost in space.
+
+00:00:07.184 --> 00:00:09.480
+It could be a car, it could be a mobile robot.
+
+00:00:09.480 --> 00:00:14.120
+So he has his environment and the poor robot has no clue where it is.
+
+00:00:14.119 --> 00:00:17.250
+Similarly, we might have a car driving
+
+00:00:17.250 --> 00:00:20.629
+on a highway and this car would like to know where it is.
+
+00:00:20.629 --> 00:00:24.129
+Is it inside the lane or is it crossing lane markers?
+
+00:00:24.129 --> 00:00:27.844
+Now, the traditional way to solve this problem uses satellites,
+
+00:00:27.844 --> 00:00:31.739
+and these satellites emit signals that the car can perceive.
+
+00:00:31.739 --> 00:00:33.445
+That's known as GPS,
+
+00:00:33.445 --> 00:00:36.094
+short for Global Positioning System.
+
+00:00:36.094 --> 00:00:38.969
+It's what you have in your dashboard if you have a car with
+
+00:00:38.969 --> 00:00:42.129
+GPS that shows you the maps and shows you where you are.
+
+00:00:42.130 --> 00:00:47.540
+Now unfortunately, the problem with GPS is it's really not very accurate.
+
+00:00:47.539 --> 00:00:52.435
+It's really common for a car to believe to be here but it has two,
+
+00:00:52.435 --> 00:00:54.690
+all the way up to 10 meters of error.
+
+00:00:54.689 --> 00:00:57.914
+So you try to stay in the lane with 10 meters of error,
+
+00:00:57.914 --> 00:01:02.769
+you are far off and you're driving right over here and you crash.
+
+00:01:02.770 --> 00:01:08.469
+So for our self-driving cars to be able to stay in lanes using localization,
+
+00:01:08.469 --> 00:01:13.379
+we need something like 2 to 10 centimeters of error and then,
+
+00:01:13.379 --> 00:01:16.114
+we can drive with GPS in lanes.
+
+00:01:16.114 --> 00:01:17.689
+So the question is,
+
+00:01:17.689 --> 00:01:21.795
+how can we know where we are with 10-centimeter accuracy?
+
+00:01:21.795 --> 00:01:24.530
+That's the localization question.
+

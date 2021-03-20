@@ -1,0 +1,106 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.910
+Now, optical flow assumes that points in one image frame have
+
+00:00:03.910 --> 00:00:08.460
+the same intensity pixel value as those same points in the next image frame.
+
+00:00:08.460 --> 00:00:13.605
+That is optical flow assumes that the color of a surface will stay the same over time.
+
+00:00:13.605 --> 00:00:17.804
+In practice, this is not a perfect assumption but it's close most of the time.
+
+00:00:17.804 --> 00:00:19.129
+So in these images,
+
+00:00:19.129 --> 00:00:21.439
+which I'll call I_1 and I_2,
+
+00:00:21.440 --> 00:00:23.205
+the intensity at the point x,
+
+00:00:23.204 --> 00:00:28.699
+y in this first image is the same as the intensity in image two at the point x plus u,
+
+00:00:28.699 --> 00:00:30.679
+y plus v. So far,
+
+00:00:30.679 --> 00:00:34.460
+we have treated these as two separate images in x and y space,
+
+00:00:34.460 --> 00:00:36.685
+but we also know that they're related in time.
+
+00:00:36.685 --> 00:00:38.660
+How do you think we can mathematically
+
+00:00:38.659 --> 00:00:41.739
+represent that image one comes right before image two?
+
+00:00:41.740 --> 00:00:45.140
+To relate image frames in space and time,
+
+00:00:45.140 --> 00:00:47.704
+we can think about these image frames in another way.
+
+00:00:47.704 --> 00:00:53.509
+This first image is just the 2D pattern of intensity that happens at time t,
+
+00:00:53.509 --> 00:00:57.969
+and the second image is the intensity pattern that happens at time t plus one,
+
+00:00:57.969 --> 00:00:59.554
+one time step later.
+
+00:00:59.554 --> 00:01:03.019
+In this way, we can think of a series of image frames I as
+
+00:01:03.020 --> 00:01:06.490
+a 3D volume of images with x and y coordinates,
+
+00:01:06.489 --> 00:01:08.125
+pixel values at each point,
+
+00:01:08.125 --> 00:01:10.344
+and a depth dimension of time.
+
+00:01:10.344 --> 00:01:14.614
+We can write this intensity equation as a function of x and y
+
+00:01:14.614 --> 00:01:19.459
+and t. This equation is known as the brightness constancy assumption.
+
+00:01:19.459 --> 00:01:23.834
+This function can be broken down into something called a Taylor series expansion,
+
+00:01:23.834 --> 00:01:27.879
+which represents this intensity function as a summation of terms.
+
+00:01:27.879 --> 00:01:30.019
+In this case, the terms I calculated as
+
+00:01:30.019 --> 00:01:33.024
+the derivatives of the intensity with respect to x,
+
+00:01:33.025 --> 00:01:36.270
+y and t. We can simplify this expansion,
+
+00:01:36.269 --> 00:01:40.329
+and the result is an equation that relates the motion vector quantities u and
+
+00:01:40.329 --> 00:01:44.549
+v to the change in image intensity in space and in time,
+
+00:01:44.549 --> 00:01:46.379
+which are measurable changes.
+
+00:01:46.379 --> 00:01:49.599
+This is the foundation of how optical flow estimates
+
+00:01:49.599 --> 00:01:53.199
+the motion vectors for a set of feature points in a video.
+

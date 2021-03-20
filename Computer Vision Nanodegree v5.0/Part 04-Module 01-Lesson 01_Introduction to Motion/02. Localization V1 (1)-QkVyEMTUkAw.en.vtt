@@ -1,0 +1,43 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.810
+I'll be teaching this section in tandem with Sebastian Thrun,
+
+00:00:03.810 --> 00:00:06.679
+who's been called "The Grandfather of Self-driving cars".
+
+00:00:06.679 --> 00:00:11.379
+We'll start off by talking about representing motion and tracking objects in a video.
+
+00:00:11.380 --> 00:00:13.300
+Then, we'll move onto uncertainty and
+
+00:00:13.300 --> 00:00:16.655
+robotic motion and learn a simple localization technique,
+
+00:00:16.655 --> 00:00:19.970
+the histogram filter, which can account for this uncertainty.
+
+00:00:19.969 --> 00:00:22.509
+Then, you'll learn about motion models and tracking
+
+00:00:22.510 --> 00:00:25.100
+the position of a self-driving car over time.
+
+00:00:25.100 --> 00:00:26.429
+By the end of this lesson,
+
+00:00:26.429 --> 00:00:30.300
+you'll have all the skills you need to code an implementation of SLAM,
+
+00:00:30.300 --> 00:00:33.740
+which stands for Simultaneous Localization and Mapping.
+
+00:00:33.740 --> 00:00:37.780
+Slam is a technique that allows autonomous vehicles to build up a model of
+
+00:00:37.780 --> 00:00:42.750
+the world while locating itself within that world. So, let's get started.
+

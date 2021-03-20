@@ -1,0 +1,374 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Motion Vector
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Introduction to Motion
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Object Tracking.html">
+       01. Object Tracking
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Localization Intro.html">
+       02. Localization Intro
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Motion.html">
+       03. Motion
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Optical Flow.html">
+       04. Optical Flow
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Motion Vector.html">
+       05. Motion Vector
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Brightness Constancy Assumption.html">
+       06. Brightness Constancy Assumption
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Notebook Optical Flow and Motion Vectors.html">
+       07. Notebook: Optical Flow and Motion Vectors
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Tracking Features.html">
+       08. Tracking Features
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          05. Motion Vector
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+         <p>
+          01 Motion Vector V2
+         </p>
+        </h3>
+        <video controls="">
+         <source src="05. 01 Motion Vector V2-I3f3IEUI2tg.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="05. 01 Motion Vector V2-I3f3IEUI2tg.en.vtt" srclang="en"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="05. 01 Motion Vector V2-I3f3IEUI2tg.zh-CN.vtt" srclang="zh-CN"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="motion-vectors">
+          Motion Vectors
+         </h2>
+         <p>
+          A motion vector for a 2D image, has an x and y component
+          <code>
+           (u, v)
+          </code>
+          . A motion vector for any point starts with the location of the point as the origin of the vector and it’s destination as the end of the vector (where the arrow point is).
+         </p>
+         <p>
+          All vectors have a
+          <strong>
+           direction
+          </strong>
+          and a
+          <strong>
+           magnitude
+          </strong>
+          and you can see more examples of vectors describeing motion,
+          <a href="https://www.mathsisfun.com/algebra/vectors.html" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="A vector with `(u,v) = (-2, -6)`" class="img img-fluid" src="img/screen-shot-2018-05-25-at-12.38.14-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            A vector with
+            <code>
+             (u,v) = (-2, -6)
+            </code>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <div>
+          <p>
+           <strong>
+            QUESTION:
+           </strong>
+           <p>
+            Looking at the motion vector above with
+            <code>
+             (u,v) = (-2,-6)
+            </code>
+            , what is it's magnitude?
+            <strong>
+             (Please round to the nearest 3 digits, ex. 1.234)
+            </strong>
+           </p>
+          </p>
+          <div class="" form-group"="">
+           <label for="answer">
+            <strong>
+             ANSWER:
+            </strong>
+           </label>
+           <textarea class="form-control" id="answer"></textarea>
+          </div>
+         </div>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          <p>
+           <i>
+            NOTE: The solutions are expressed in RegEx pattern. Udacity uses these patterns to check the given answer
+           </i>
+          </p>
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <form>
+          <fieldset>
+           <legend>
+            <p>
+             What is the
+             <em>
+              direction
+             </em>
+             of this vector? Note that a vector pointing straight to the right has a direction of 0 degrees.
+            </p>
+           </legend>
+          </fieldset>
+          <div>
+           <input id="a1527278240785" name="631219" type="radio" value="a1527278240785"/>
+           <label for="a1527278240785">
+            <p>
+             -71.6 degrees
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1527278245645" name="631219" type="radio" value="a1527278245645"/>
+           <label for="a1527278245645">
+            <p>
+             71.6 degrees
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1527278250770" name="631219" type="radio" value="a1527278250770"/>
+           <label for="a1527278250770">
+            <p>
+             180 degrees
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1527278267431" name="631219" type="radio" value="a1527278267431"/>
+           <label for="a1527278267431">
+            <p>
+             251.6 degrees
+            </p>
+           </label>
+          </div>
+         </form>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          251.6 degrees
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="06. Brightness Constancy Assumption.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('05. Motion Vector')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

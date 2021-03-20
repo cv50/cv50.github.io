@@ -1,0 +1,52 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.139
+Let's just go back to our example and see what an amazing thing you've just programmed.
+
+00:00:04.139 --> 00:00:06.654
+We had a uniform distribution over places,
+
+00:00:06.655 --> 00:00:09.060
+each place has a probability of 0.2.
+
+00:00:09.060 --> 00:00:11.580
+And then you wrote a piece of code that use
+
+00:00:11.580 --> 00:00:15.080
+the measurement to turn this prior into a posterior,
+
+00:00:15.080 --> 00:00:17.579
+in which the probability of
+
+00:00:17.579 --> 00:00:24.314
+the two red cells for the factor of three larger and the posterior of the green cells.
+
+00:00:24.315 --> 00:00:26.400
+You've done exactly what I gave you
+
+00:00:26.399 --> 00:00:29.320
+intuitively in the beginning as the secret of localization.
+
+00:00:29.320 --> 00:00:31.379
+You manipulate a probability distribution over
+
+00:00:31.379 --> 00:00:35.475
+places into a new one by incorporating the measurement.
+
+00:00:35.475 --> 00:00:37.730
+In fact, let's go back to our code,
+
+00:00:37.729 --> 00:00:40.649
+and test in your code whether we get
+
+00:00:40.649 --> 00:00:44.975
+a good result when we replace our measurement red by green.
+
+00:00:44.975 --> 00:00:47.730
+So, please type green into your measurement variable,
+
+00:00:47.729 --> 00:00:51.599
+and rerun your code to see if you get the correct result.
+

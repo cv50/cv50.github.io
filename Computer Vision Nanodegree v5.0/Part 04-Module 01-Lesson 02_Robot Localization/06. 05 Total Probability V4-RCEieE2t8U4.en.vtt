@@ -1,0 +1,229 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.645
+Let me begin my story in a world where
+
+00:00:03.645 --> 00:00:08.189
+a robot resides and let's assume the robot has no clue where it is.
+
+00:00:08.189 --> 00:00:11.088
+Then we will model this with a function,
+
+00:00:11.089 --> 00:00:13.280
+I'm going to draw onto this diagram over here.
+
+00:00:13.279 --> 00:00:18.210
+Where the vertical axis is the probability for any location in
+
+00:00:18.210 --> 00:00:20.850
+this world and the horizontal axis
+
+00:00:20.850 --> 00:00:24.429
+corresponds to all the places in this one-dimensional world.
+
+00:00:24.429 --> 00:00:28.850
+The way I am going to model the robot's current belief about where it might be,
+
+00:00:28.850 --> 00:00:31.550
+it's confusion is by a uniform function that
+
+00:00:31.550 --> 00:00:35.340
+assigns equal weights to every possible place in this world.
+
+00:00:35.340 --> 00:00:38.630
+There is the state of maximum confusion.
+
+00:00:38.630 --> 00:00:42.460
+Now to localize the bot has they have some distinctive features,
+
+00:00:42.460 --> 00:00:46.259
+let's assume there's three different landmarks in the world.
+
+00:00:46.259 --> 00:00:48.704
+There's a door over here,
+
+00:00:48.704 --> 00:00:53.034
+there's a door over here and a third one way back here.
+
+00:00:53.034 --> 00:00:56.375
+And for the sake of the argument let's assume they are all look alike.
+
+00:00:56.375 --> 00:00:58.619
+They're not distinguishable, but you can
+
+00:00:58.619 --> 00:01:02.339
+distinguish the door from the none door area from the wall.
+
+00:01:02.340 --> 00:01:07.460
+Now let's see how the robot can localize itself by assuming it senses,
+
+00:01:07.459 --> 00:01:10.649
+and it senses that it's standing right next to a door.
+
+00:01:10.650 --> 00:01:15.370
+All it knows now that is located likely next to a door.
+
+00:01:15.370 --> 00:01:18.055
+How will this affect our belief?
+
+00:01:18.055 --> 00:01:21.155
+Here is the critical step for localization.
+
+00:01:21.155 --> 00:01:24.189
+If you understand this step you understand localization.
+
+00:01:24.189 --> 00:01:28.719
+The measurement of a door transforms our belief function,
+
+00:01:28.719 --> 00:01:32.164
+defined over possible locations to a new function.
+
+00:01:32.165 --> 00:01:33.780
+It looks very much like this.
+
+00:01:33.780 --> 00:01:37.019
+For the three locations adjacent to doors,
+
+00:01:37.019 --> 00:01:39.810
+we now have an increased belief of being
+
+00:01:39.810 --> 00:01:44.189
+there whereas all the other locations have a decreased belief.
+
+00:01:44.189 --> 00:01:47.280
+This is a probability distribution that assigns
+
+00:01:47.280 --> 00:01:50.700
+high probability for being next to a door and it's called the
+
+00:01:50.700 --> 00:01:57.810
+posterior belief with the word posterior means it's after a measurement has been taking.
+
+00:01:57.810 --> 00:02:02.579
+Now the key aspects of this belief is that we still don't know where we are,
+
+00:02:02.579 --> 00:02:05.170
+there's three possible locations and in fact,
+
+00:02:05.170 --> 00:02:06.989
+it might be that the sensors were
+
+00:02:06.989 --> 00:02:09.984
+erroneous and we accidentally saw a door where there is none,
+
+00:02:09.985 --> 00:02:14.780
+there's still a residual probability of being at these places over here,
+
+00:02:14.780 --> 00:02:20.240
+but these three bumps to get them really express our current best belief of where we are.
+
+00:02:20.240 --> 00:02:27.344
+This representation is absolutely core to probability and to movable localization.
+
+00:02:27.344 --> 00:02:30.275
+Now let's assume the robot moves.
+
+00:02:30.275 --> 00:02:33.685
+Say it moves to the right by a certain distance,
+
+00:02:33.685 --> 00:02:38.115
+then we can shift the belief according to the motion.
+
+00:02:38.115 --> 00:02:40.650
+Anyway this might look like is about like this.
+
+00:02:40.650 --> 00:02:44.685
+This pump over here, made it to here.
+
+00:02:44.685 --> 00:02:48.305
+This guy went over here and this guy over here.
+
+00:02:48.305 --> 00:02:51.540
+Obviously this robot it knows it's heading direction,
+
+00:02:51.539 --> 00:02:53.764
+it's moving to the right in this example.
+
+00:02:53.764 --> 00:02:56.524
+But it knows roughly how far it moved.
+
+00:02:56.525 --> 00:02:58.780
+Now robot motion is somewhat uncertain,
+
+00:02:58.780 --> 00:03:01.180
+we can never be certain where the robot moved.
+
+00:03:01.180 --> 00:03:04.645
+These things we will be a little bit flatter than these guys over here.
+
+00:03:04.645 --> 00:03:09.520
+The process of moving those beliefs to right are essentially called a convolution,
+
+00:03:09.520 --> 00:03:13.060
+and let's now assume the robot senses again and for the sake of
+
+00:03:13.060 --> 00:03:17.420
+the argument let's assume it sees itself right next to a door again,
+
+00:03:17.419 --> 00:03:19.559
+so the measurement is the same as before.
+
+00:03:19.560 --> 00:03:22.810
+Now the most amazing thing happens.
+
+00:03:22.810 --> 00:03:27.770
+We end up multiplying our belief which is now prior to the second measurement,
+
+00:03:27.770 --> 00:03:30.400
+with a function looks very much like this one over here,
+
+00:03:30.400 --> 00:03:35.330
+which has a peak at each door and outcomes it believes it looks like the following.
+
+00:03:35.330 --> 00:03:40.695
+There's a couple of minor bumps but the only really big bump is this one over here.
+
+00:03:40.694 --> 00:03:48.219
+This one corresponds to this guy over here in the prior and it's the only place in this
+
+00:03:48.219 --> 00:03:51.370
+prior that really corresponds to the measurement of
+
+00:03:51.370 --> 00:03:55.944
+a door whereas all the other places of doors have a low prior belief.
+
+00:03:55.944 --> 00:03:59.229
+As a result this function is really interesting,
+
+00:03:59.229 --> 00:04:01.299
+it's a distribution that focuses most of
+
+00:04:01.300 --> 00:04:04.700
+its weight under the correct hypothesis of the bot being on
+
+00:04:04.699 --> 00:04:10.569
+the second door and it provides very little belief to places far away from doors.
+
+00:04:10.569 --> 00:04:14.134
+At this point our robot has localized itself.
+
+00:04:14.134 --> 00:04:15.729
+If you understood this,
+
+00:04:15.729 --> 00:04:19.894
+you understand probability and you understand localization.
+
+00:04:19.894 --> 00:04:24.384
+Congratulations, you understand probability and localization.
+
+00:04:24.384 --> 00:04:25.560
+You might not know yet,
+
+00:04:25.560 --> 00:04:27.699
+but that's really a core aspect of
+
+00:04:27.699 --> 00:04:32.610
+understanding a whole bunch of things I'm going to teach you in the class today.
+

@@ -1,0 +1,707 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Probability Review
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Robot Localization
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Probability Review.html">
+       01. Probability Review
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Uncertainty and Bayes' Rule.html">
+       02. Uncertainty and Bayes' Rule
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Reducing Uncertainty.html">
+       03. Reducing Uncertainty
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Probability Distributions.html">
+       04. Probability Distributions
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Localization.html">
+       05. Localization
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Total Probability.html">
+       06. Total Probability
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Notebook 1D Robot World.html">
+       07. Notebook: 1D Robot World
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Probability After Sense.html">
+       08. Probability After Sense
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Notebook Probability After Sense.html">
+       09. Notebook: Probability After Sense
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Normalize Distribution.html">
+       10. Normalize Distribution
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Sense Function.html">
+       11. Sense Function
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Notebook Sense Function.html">
+       12. Notebook: Sense Function
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Answer Sense Function.html">
+       13. Answer: Sense Function
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Normalized Sense Function.html">
+       14. Normalized Sense Function
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Notebook Normalized Sense Function.html">
+       15. Notebook: Normalized Sense Function
+      </a>
+     </li>
+     <li class="">
+      <a href="16. Answer Normalized Sense Function.html">
+       16. Answer: Normalized Sense Function
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Test Sense Function.html">
+       17. Test Sense Function
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Multiple Measurements.html">
+       18. Multiple Measurements
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Notebook Multiple Measurements.html">
+       19. Notebook: Multiple Measurements
+      </a>
+     </li>
+     <li class="">
+      <a href="20. Answer Multiple Measurements.html">
+       20. Answer: Multiple Measurements
+      </a>
+     </li>
+     <li class="">
+      <a href="21. Exact Motion .html">
+       21. Exact Motion
+      </a>
+     </li>
+     <li class="">
+      <a href="22. Move Function.html">
+       22. Move Function
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Notebook Move Function.html">
+       23. Notebook: Move Function
+      </a>
+     </li>
+     <li class="">
+      <a href="24. Answer Move Function.html">
+       24. Answer: Move Function
+      </a>
+     </li>
+     <li class="">
+      <a href="25. Inexact Motion.html">
+       25. Inexact Motion
+      </a>
+     </li>
+     <li class="">
+      <a href="26. Inexact Move Function.html">
+       26. Inexact Move Function
+      </a>
+     </li>
+     <li class="">
+      <a href="27. Notebook Inexact Move Function.html">
+       27. Notebook: Inexact Move Function
+      </a>
+     </li>
+     <li class="">
+      <a href="28. Answer Inexact Move Function.html">
+       28. Answer: Inexact Move Function
+      </a>
+     </li>
+     <li class="">
+      <a href="29. Limit Distribution.html">
+       29. Limit Distribution
+      </a>
+     </li>
+     <li class="">
+      <a href="30. Move Twice.html">
+       30. Move Twice
+      </a>
+     </li>
+     <li class="">
+      <a href="31. Move 1000.html">
+       31. Move 1000
+      </a>
+     </li>
+     <li class="">
+      <a href="32. Notebook Multiple Moves.html">
+       32. Notebook: Multiple Moves
+      </a>
+     </li>
+     <li class="">
+      <a href="33. Sense and Move.html">
+       33. Sense and Move
+      </a>
+     </li>
+     <li class="">
+      <a href="34. Notebook Sense and Move Cycle.html">
+       34. Notebook: Sense and Move Cycle
+      </a>
+     </li>
+     <li class="">
+      <a href="35. Answer Sense and Move.html">
+       35. Answer: Sense and Move
+      </a>
+     </li>
+     <li class="">
+      <a href="36. Sense and Move 2.html">
+       36. Sense and Move 2
+      </a>
+     </li>
+     <li class="">
+      <a href="37. Localization Summary.html">
+       37. Localization Summary
+      </a>
+     </li>
+     <li class="">
+      <a href="38. C++ Elective &amp; Implementation.html">
+       38. C++ Elective &amp; Implementation
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          01. Probability Review
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="review-probability">
+          Review Probability
+         </h1>
+         <p>
+          Before Sebastian teaches you about localizing a robot, in the next couple concepts, we'll review how to represent uncertainty in robot motion and sensors. The next couple sections will include multiple videos and quizzes to check your understanding of probability and probability distributions. These are meant to prepare you for this lesson, so make sure to read this material carefully to become familiar with terminology and mathematical representations of uncertainty!
+         </p>
+         <hr/>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="probability-review">
+          Probability Review
+         </h3>
+         <p>
+          Before learning more about uncertainty in robot localization, let's review how to mathematically represent uncertainty using probability!
+         </p>
+         <p>
+          A classic example of an event with some certainty associated with it is a coin flip. A typical coin has two sides: heads and tails. Without me telling you anything else, what chance do you think a coin like this has of flipping and landing heads up?
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Heads and tails of a coin." class="img img-fluid" src="img/coins.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Heads and tails of a coin.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <form>
+          <fieldset>
+           <legend>
+            <p>
+             If you flip a coin with two sides (heads and tails), what is the probability,
+             <code>
+              P(H)
+             </code>
+             , that the coin will land heads up? (1= 100%, 0 = 0% chance)
+            </p>
+           </legend>
+          </fieldset>
+          <div>
+           <input id="a1525322177865" name="620724" type="radio" value="a1525322177865"/>
+           <label for="a1525322177865">
+            <p>
+             P(H) = 0.3
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1525322291440" name="620724" type="radio" value="a1525322291440"/>
+           <label for="a1525322291440">
+            <p>
+             P(H) = 0.5
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1525322295841" name="620724" type="radio" value="a1525322295841"/>
+           <label for="a1525322295841">
+            <p>
+             P(H) = 0.75
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1525322307755" name="620724" type="radio" value="a1525322307755"/>
+           <label for="a1525322307755">
+            <p>
+             P(H) = 1.0
+            </p>
+           </label>
+          </div>
+         </form>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          P(H) = 0.5
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <form>
+          <fieldset>
+           <legend>
+            <p>
+             When you flip a coin and it comes up
+             <em>
+              heads
+             </em>
+             , do you think it's more likely that the NEXT flip will come up
+             <em>
+              tails
+             </em>
+             ? That is, does one flip affect the probability that another flip will be heads or tails?
+            </p>
+           </legend>
+          </fieldset>
+          <div>
+           <input id="a1525322805859" name="620725" type="radio" value="a1525322805859"/>
+           <label for="a1525322805859">
+            <p>
+             Yes
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1525322897913" name="620725" type="radio" value="a1525322897913"/>
+           <label for="a1525322897913">
+            <p>
+             No
+            </p>
+           </label>
+          </div>
+         </form>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          Yes
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="formal-definition-of-probability">
+          Formal Definition of Probability
+         </h3>
+         <p>
+          The probability of an event, X, occurring is
+          <code>
+           P(X)
+          </code>
+          . The value of P(X) must fall in a range of 0 to 1.
+         </p>
+         <ul>
+          <li>
+           <code>
+            0 &lt;= P(X) &lt;= 1
+           </code>
+          </li>
+         </ul>
+         <p>
+          An event, X, can have multiple outcomes which we might call X1, X2, .. and so on; the probabilities for all outcomes of X must add up to one. For example, say there are two possible outcomes, X1 and X2:
+         </p>
+         <ul>
+          <li>
+           If
+           <code>
+            P(X1) = 0.2
+           </code>
+           then
+           <code>
+            P(X2) = 0.8
+           </code>
+           because all possible outcomes must sum to 1.
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="terminology">
+          Terminology
+         </h3>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h4 id="independent-events">
+          Independent Events
+         </h4>
+         <p>
+          Events like coin flips are known as
+          <strong>
+           independent events
+          </strong>
+          ; this means that the probability of a single flip does not affect the probability of another flip; P(H) will be 0.5 for each fair coin flip. When flipping a coin multiple times, each flip is an independent event because one flip does not affect the probability that another flip will land heads up or tails up.
+         </p>
+         <h4 id="dependent-events">
+          Dependent Events
+         </h4>
+         <p>
+          When two events are said to be
+          <em>
+           dependent
+          </em>
+          , the probability of one event occurring influences the likelihood of the other event. For example, say you are more likely to go outside if it's sunny weather. If the probability of sunny weather is low on a given day, the probability of you going outside will decrease as well, so the probability of going outside is dependent on the probability of sunny weather.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h4 id="joint-probability">
+          Joint Probability
+         </h4>
+         <p>
+          The probability that two or more independent events will occur together (in the same time frame) is called a
+          <strong>
+           joint probability
+          </strong>
+          , and it is calculated by multiplying the probabilities of each independent event together. For example, the probability that you will flip a coin and it will lands heads up two times in a row can be calculated as follows:
+         </p>
+         <ul>
+          <li>
+           The probability of a coin flipping heads up,
+           <code>
+            P(H) =  0.5
+           </code>
+          </li>
+          <li>
+           The joint probability of two events (a coin landing heads up) happening in a row, is the probability of the first event times the probability of the second event:
+           <code>
+            P(H)*P(H) = (0.5)*(0.5) = 0.25
+           </code>
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="quantifying-certainty-and-uncertainty">
+          Quantifying Certainty (and Uncertainty)
+         </h3>
+         <p>
+          When we talk about being certain that a robot is at a certain location (x, y), moving a certain direction, or sensing a certain environment, we can quantify that certainty using probabilistic quantities. Sensor measurements and movement all have some uncertainty associated with them (ex. a speedometer that reads 50mph may be off by a few mph, depending on whether a car is moving up or down hill).
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/screen-shot-2018-05-02-at-10.10.16-pm.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <div>
+          <p>
+           <strong>
+            QUESTION:
+           </strong>
+           <p>
+            At a particular intersection, cars can either:
+           </p>
+           <ol>
+            <li>
+             <p>
+              Turn left
+             </p>
+            </li>
+            <li>
+             <p>
+              Go straight
+             </p>
+            </li>
+            <li>
+             <p>
+              Turn right
+             </p>
+            </li>
+           </ol>
+           <p>
+            Cars tend to turn left with a probability of 0.4 and go straight with a probability of 0.25.  What is the probability that a car turns right?
+           </p>
+          </p>
+          <div class="" form-group"="">
+           <label for="answer">
+            <strong>
+             ANSWER:
+            </strong>
+           </label>
+           <textarea class="form-control" id="answer"></textarea>
+          </div>
+         </div>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          <p>
+           <i>
+            NOTE: The solutions are expressed in RegEx pattern. Udacity uses these patterns to check the given answer
+           </i>
+          </p>
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="02. Uncertainty and Bayes' Rule.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('01. Probability Review')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

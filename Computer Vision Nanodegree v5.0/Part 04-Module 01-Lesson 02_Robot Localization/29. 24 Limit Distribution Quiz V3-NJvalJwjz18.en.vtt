@@ -1,0 +1,61 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.540
+So, here's a question for you that is somewhat involved,
+
+00:00:03.540 --> 00:00:05.669
+and I either want to check your intuition.
+
+00:00:05.669 --> 00:00:08.310
+Suppose we have five grid cells as before,
+
+00:00:08.310 --> 00:00:10.560
+with an initial distribution that assigns
+
+00:00:10.560 --> 00:00:13.554
+one to the first grid cell and zero to all of the other ones,
+
+00:00:13.554 --> 00:00:15.709
+let's assume we do U equals one,
+
+00:00:15.710 --> 00:00:19.365
+which means with 0.8 chance in each action,
+
+00:00:19.364 --> 00:00:21.394
+we transition one to the right.
+
+00:00:21.394 --> 00:00:25.679
+With 0.1 chance, we don't move at all and with 0.1 chance again,
+
+00:00:25.679 --> 00:00:27.640
+we skip and move two steps and again,
+
+00:00:27.640 --> 00:00:28.910
+let's assume the world is cyclic.
+
+00:00:28.910 --> 00:00:31.045
+Every time I fall off on the right side,
+
+00:00:31.045 --> 00:00:33.289
+I find myself back on the left side.
+
+00:00:33.289 --> 00:00:35.700
+The question is, suppose I have
+
+00:00:35.700 --> 00:00:38.505
+an infinitely many motion steps then I
+
+00:00:38.505 --> 00:00:41.820
+actually get a what's called the limit distribution.
+
+00:00:41.820 --> 00:00:47.270
+So what's going to happen to my robot if it never senses but executes the action,
+
+00:00:47.270 --> 00:00:53.020
+one will go one to the right on our little cyclic environment forever?
+
+00:00:53.020 --> 00:01:00.560
+What will be the so-called limit or stationary distribution B in the very end?
+

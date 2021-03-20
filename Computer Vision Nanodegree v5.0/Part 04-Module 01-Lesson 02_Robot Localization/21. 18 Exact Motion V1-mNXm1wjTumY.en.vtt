@@ -1,0 +1,46 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.679
+So before we're done with localization,
+
+00:00:01.679 --> 00:00:03.419
+I'd like to talk about robot motion.
+
+00:00:03.419 --> 00:00:06.279
+Suppose we have a distribution over those cells,
+
+00:00:06.280 --> 00:00:08.105
+such as this one: a ninth,
+
+00:00:08.105 --> 00:00:10.035
+a third, a third, a ninth, a ninth.
+
+00:00:10.035 --> 00:00:12.664
+And even though we don't know where the robot is,
+
+00:00:12.664 --> 00:00:15.479
+the robot moves, and it moves to the right.
+
+00:00:15.480 --> 00:00:19.480
+In fact, the way we're going to program is that we assume the world cyclic.
+
+00:00:19.480 --> 00:00:22.199
+So if it drops off the rightmost cell,
+
+00:00:22.199 --> 00:00:24.344
+and finds itself on the leftmost cell.
+
+00:00:24.344 --> 00:00:26.579
+Suppose we know for a fact the robot moved
+
+00:00:26.579 --> 00:00:31.184
+exactly one grid cell to the right including the cyclic motion.
+
+00:00:31.184 --> 00:00:33.924
+Can you tell me for all these five values
+
+00:00:33.924 --> 00:00:37.119
+what the posterior probability is after that motion?
+

@@ -1,0 +1,67 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.440 --> 00:00:06.450
+Optical flow is used in many tracking and motion analysis applications.
+
+00:00:06.450 --> 00:00:09.929
+It works by assuming two things about image frames.
+
+00:00:09.929 --> 00:00:12.869
+One, that the pixel intensities of an object do
+
+00:00:12.869 --> 00:00:16.454
+not change between consecutive frames and two,
+
+00:00:16.454 --> 00:00:19.379
+that neighboring pixels have similar motion.
+
+00:00:19.379 --> 00:00:21.704
+It then looks at interesting points, say,
+
+00:00:21.704 --> 00:00:24.433
+corners or particularly bright pixels,
+
+00:00:24.434 --> 00:00:27.679
+and tracks them from one frame to the next.
+
+00:00:27.679 --> 00:00:31.439
+Tracking a point or a set of points provides information about how
+
+00:00:31.440 --> 00:00:35.820
+fast that point or object is moving and in what direction.
+
+00:00:35.820 --> 00:00:40.049
+This data also allows you to predict where an object will move next.
+
+00:00:40.049 --> 00:00:42.929
+So you can use optical flow to do things like
+
+00:00:42.929 --> 00:00:47.744
+hand gesture recognition or to track a certain object like a person or vehicle,
+
+00:00:47.744 --> 00:00:49.829
+and it's so much more powerful too.
+
+00:00:49.829 --> 00:00:52.379
+Motion recognition can be used to
+
+00:00:52.380 --> 00:00:55.410
+distinguish between behaviors like running versus walking,
+
+00:00:55.409 --> 00:00:58.894
+and in safety applications by predicting the motion of things and
+
+00:00:58.895 --> 00:01:03.005
+performing obstacle avoidance like in the case of self-driving cars.
+
+00:01:03.005 --> 00:01:07.980
+It's even used in eye tracking for virtual reality games and advertising.
+
+00:01:07.980 --> 00:01:09.525
+So, in many applications,
+
+00:01:09.525 --> 00:01:13.310
+tracking and motion can add some very valuable information.
+

@@ -1,0 +1,61 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.580 --> 00:00:10.509
+So far, you've learned a lot about how to extract important information from images and
+
+00:00:10.509 --> 00:00:15.654
+how to use deep learning techniques to recognize patterns in images and identify objects.
+
+00:00:15.654 --> 00:00:17.160
+In this part of the course,
+
+00:00:17.160 --> 00:00:22.109
+we'll focus less on images and more on pattern recognition over time and space.
+
+00:00:22.109 --> 00:00:24.699
+We'll talk about different computer vision methods for
+
+00:00:24.699 --> 00:00:27.519
+tracking objects and predicting their movement.
+
+00:00:27.519 --> 00:00:28.879
+In fact, in this lesson,
+
+00:00:28.879 --> 00:00:31.329
+you'll be programming a filter that tracks a robot
+
+00:00:31.329 --> 00:00:34.259
+as it moves and senses its environment over time.
+
+00:00:34.259 --> 00:00:36.879
+This requires having a model of motion and
+
+00:00:36.880 --> 00:00:40.495
+the mathematical way to represent uncertainty in that motion.
+
+00:00:40.494 --> 00:00:43.409
+Finding out where a moving object is located with
+
+00:00:43.409 --> 00:00:47.404
+some certainty at any given time is called localization.
+
+00:00:47.405 --> 00:00:50.219
+Localization techniques are used extensively in
+
+00:00:50.219 --> 00:00:55.019
+computer graphics applications that track certain objects and people over time,
+
+00:00:55.020 --> 00:00:57.790
+and localization is used in autonomous vehicles,
+
+00:00:57.789 --> 00:01:00.329
+like in self-driving cars that need to know where
+
+00:01:00.329 --> 00:01:03.394
+they are in the world so that they can safely navigate.
+
+00:01:03.395 --> 00:01:08.140
+Next, let's talk about the specific skills that we'll cover in the next few lessons.
+

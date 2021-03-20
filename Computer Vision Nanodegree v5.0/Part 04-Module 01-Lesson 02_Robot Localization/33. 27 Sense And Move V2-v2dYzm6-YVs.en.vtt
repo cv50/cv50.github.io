@@ -1,0 +1,115 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.089
+So wow! You've basically programmed
+
+00:00:03.089 --> 00:00:07.620
+the Google self-driving car localization even though you might not quite know yet.
+
+00:00:07.620 --> 00:00:09.900
+So, let me tell you where we are.
+
+00:00:09.900 --> 00:00:11.815
+We talked about measurement updates,
+
+00:00:11.814 --> 00:00:13.320
+and we talked about motion,
+
+00:00:13.320 --> 00:00:15.849
+and we coded these two routines sense and move.
+
+00:00:15.849 --> 00:00:19.980
+Now, localization is nothing else but the iteration of sends and move.
+
+00:00:19.980 --> 00:00:23.785
+There's an initial belief that is tossed into this loop,
+
+00:00:23.785 --> 00:00:26.530
+if your sense first to come to the left side,
+
+00:00:26.530 --> 00:00:31.155
+and then localization cycles through these move sense,
+
+00:00:31.155 --> 00:00:33.125
+move sense, move sense,
+
+00:00:33.125 --> 00:00:35.070
+move sense, move sense cycle.
+
+00:00:35.070 --> 00:00:36.975
+Every time the robot moves,
+
+00:00:36.975 --> 00:00:39.274
+it loses information with awareness.
+
+00:00:39.274 --> 00:00:42.049
+That's because word motion is inaccurate.
+
+00:00:42.049 --> 00:00:44.774
+Every time it's senses, its gains information.
+
+00:00:44.774 --> 00:00:47.519
+That is manifest by the fact that after motion,
+
+00:00:47.520 --> 00:00:50.740
+the probability distribution is a little bit flatter and a bit more spread out.
+
+00:00:50.740 --> 00:00:54.635
+After sensing, it's focused a little bit more.
+
+00:00:54.634 --> 00:00:56.464
+In fact, as a footnote,
+
+00:00:56.465 --> 00:00:59.390
+there's a measure of information called entropy.
+
+00:00:59.390 --> 00:01:02.355
+Here is one of the many ways you can write it.
+
+00:01:02.354 --> 00:01:07.289
+It's the expected log likelihood of the probability of each grid cell,
+
+00:01:07.290 --> 00:01:08.820
+and without going to detail,
+
+00:01:08.819 --> 00:01:12.314
+this is a measure of information that the distribution has,
+
+00:01:12.314 --> 00:01:14.920
+and it can be shown that the update step,
+
+00:01:14.920 --> 00:01:17.905
+the motion step makes the entropy go down,
+
+00:01:17.905 --> 00:01:20.439
+and the measurement step makes it go up.
+
+00:01:20.439 --> 00:01:22.709
+So, you're really losing and gaining information.
+
+00:01:22.709 --> 00:01:25.824
+I would now love to implement this in our code.
+
+00:01:25.825 --> 00:01:29.365
+So, in addition to the two measurements we had before, red and green,
+
+00:01:29.364 --> 00:01:31.024
+I'm gonna give you two motions,
+
+00:01:31.025 --> 00:01:34.050
+one and one, which means our moves right and, right again.
+
+00:01:34.049 --> 00:01:39.920
+Can you compute the posterior distribution if there was first senses red,
+
+00:01:39.920 --> 00:01:42.325
+then moves right by one,
+
+00:01:42.325 --> 00:01:44.609
+then senses green, then moves right again?
+
+00:01:44.609 --> 00:01:48.519
+Let's start with a uniform prior distribution.
+
