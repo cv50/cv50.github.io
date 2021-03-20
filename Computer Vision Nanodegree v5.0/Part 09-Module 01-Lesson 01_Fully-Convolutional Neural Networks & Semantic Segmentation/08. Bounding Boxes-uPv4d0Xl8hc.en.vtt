@@ -1,0 +1,52 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.609
+Our first task is object detection.
+
+00:00:02.609 --> 00:00:05.285
+And for that, we can use bounding boxes.
+
+00:00:05.285 --> 00:00:09.554
+They are a simpler method of scene understanding compared to segmentation.
+
+00:00:09.554 --> 00:00:12.254
+In neural network, just has to figure out
+
+00:00:12.255 --> 00:00:15.500
+where an object is and draw a type box around it.
+
+00:00:15.500 --> 00:00:18.795
+There are already great open source state of the art solutions,
+
+00:00:18.795 --> 00:00:21.970
+such as YOLO and SSD models.
+
+00:00:21.969 --> 00:00:26.379
+These models perform extremely well even at high frame per second.
+
+00:00:26.379 --> 00:00:29.640
+They're useful for detecting different objects such as cars,
+
+00:00:29.640 --> 00:00:33.435
+people, traffic lights, and other objects in the scene.
+
+00:00:33.435 --> 00:00:36.330
+However, burning boxes have their limits.
+
+00:00:36.329 --> 00:00:39.229
+Imagine drawing and bounding box around a curvy road,
+
+00:00:39.229 --> 00:00:41.081
+the forest, or the sky,
+
+00:00:41.082 --> 00:00:43.770
+this quickly becomes problematic or even
+
+00:00:43.770 --> 00:00:47.065
+impossible to convey the true shape of an object.
+
+00:00:47.064 --> 00:00:52.229
+At best, bounding boxes can only hope to achieve partial seen understanding.
+

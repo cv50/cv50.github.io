@@ -1,0 +1,338 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Transposed Convolutions
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Fully-Convolutional Neural Networks &amp; Semantic Segmentation
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Intro.html">
+       01. Intro
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Why Fully Convolutional Networks (FCNs) .html">
+       02. Why Fully Convolutional Networks (FCNs) ?
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Fully Convolutional Networks.html">
+       03. Fully Convolutional Networks
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Fully Connected to 1x1 Convolution.html">
+       04. Fully Connected to 1x1 Convolution
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Transposed Convolutions.html">
+       05. Transposed Convolutions
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Skip Connections.html">
+       06. Skip Connections
+      </a>
+     </li>
+     <li class="">
+      <a href="07. FCNs In The Wild.html">
+       07. FCNs In The Wild
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Bounding Boxes.html">
+       08. Bounding Boxes
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Semantic Segmentation.html">
+       09. Semantic Segmentation
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Semantic Segmentation and FCN's.html">
+       10. Semantic Segmentation and FCN's
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Scene Understanding.html">
+       11. Scene Understanding
+      </a>
+     </li>
+     <li class="">
+      <a href="12. IoU.html">
+       12. IoU
+      </a>
+     </li>
+     <li class="">
+      <a href="13. IOU Example.html">
+       13. IOU Example
+      </a>
+     </li>
+     <li class="">
+      <a href="14. FCN-8 Architecture.html">
+       14. FCN-8 Architecture
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Outro.html">
+       15. Outro
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          05. Transposed Convolutions
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Transposed Convolutions
+         </p>
+        </h3>
+        <video controls="">
+         <source src="05. Transposed Convolutions-K6mlLX8ZZDs.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="05. Transposed Convolutions-K6mlLX8ZZDs.en.vtt" srclang="en"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="05. Transposed Convolutions-K6mlLX8ZZDs.zh-CN.vtt" srclang="zh-CN"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="transposed-convolutions">
+          Transposed Convolutions
+         </h2>
+         <p>
+          Transposed Convolutions help in
+          <a href="https://en.wikipedia.org/wiki/Upsampling" rel="noopener noreferrer" target="_blank">
+           upsampling
+          </a>
+          the previous layer to a higher resolution or dimension.  Upsampling is a classic signal processing technique which is often
+          <a href="https://dspguru.com/dsp/faqs/multirate/interpolation/" rel="noopener noreferrer" target="_blank">
+           accompanied by interpolation
+          </a>
+          .  The term transposed can be confusing since we typically think of transposing as changing places, such as switching rows and columns of a matrix.  In this case when we use the term
+          <a href="http://www.dictionary.com/browse/transpose" rel="noopener noreferrer" target="_blank">
+           transpose
+          </a>
+          , we mean transfer to a different place or context.
+         </p>
+         <p>
+          We can use a transposed convolution to transfer patches of data onto a sparse matrix, then we can fill the sparse area of the matrix based on the transferred information.  Helpful animations of convolutional operations, including transposed convolutions, can be found
+          <a href="https://github.com/vdumoulin/conv_arithmetic" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          .  As an example, suppose you have a 3x3 input and you wish to upsample that to the desired dimension of 6x6. The process involves multiplying each pixel of your input with a kernel or filter. If this filter was of size 5x5, the output of this operation will be a weighted kernel of size 5x5. This weighted kernel then defines your output layer.
+         </p>
+         <h2 id="methods-of-upsampling">
+          Methods of upsampling
+         </h2>
+         <ol>
+          <li>
+           Max "unpooling"
+          </li>
+          <li>
+           Learnable upsampling (with transposed convolutions)
+          </li>
+         </ol>
+         <p>
+          The first is pictured below.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/screen-shot-2018-05-31-at-4.06.11-pm.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="learnable-upsampling-transposed-convolutions">
+          Learnable upsampling, transposed convolutions
+         </h2>
+         <p>
+          We've been going over learnable upsampling layers. The upsampling part of the process is defined by the strides and the padding. Let's look at a simple representation of this. If we have a 2x2 input and a 3x3 kernel and a stride of 2, we can expect an output of dimension 4x4. The following image gives an idea of the process.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/screen-shot-2018-05-31-at-4.10.13-pm.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="06. Skip Connections.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('05. Transposed Convolutions')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

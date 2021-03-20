@@ -1,0 +1,55 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.609
+Fully Convolutional Networks have achieved state
+
+00:00:02.609 --> 00:00:04.980
+of the art results in computer vision tasks,
+
+00:00:04.980 --> 00:00:06.910
+such as semantic segmentation.
+
+00:00:06.910 --> 00:00:11.115
+FCNs take advantage of three special techniques; one,
+
+00:00:11.115 --> 00:00:15.855
+replace fully connected layers with one by one convolutional layers, two,
+
+00:00:15.855 --> 00:00:22.105
+up-sampling through the use of transposed convolutional layers, three, skip connections.
+
+00:00:22.105 --> 00:00:24.269
+These skip connections allow the network to
+
+00:00:24.269 --> 00:00:27.394
+use information from multiple resolution scales.
+
+00:00:27.394 --> 00:00:32.115
+As a result the network is able to make more precise segmentation decisions.
+
+00:00:32.115 --> 00:00:35.325
+We will discuss these techniques in greater detail shortly.
+
+00:00:35.325 --> 00:00:41.695
+Structurally an FCN is usually comprised of two parts; encoder and decoder.
+
+00:00:41.695 --> 00:00:45.734
+The encoder is a series of convolutional layers like VGG and ResNet.
+
+00:00:45.734 --> 00:00:49.570
+The goal of the encoder is to extract features from the image.
+
+00:00:49.570 --> 00:00:52.344
+The decoder up-scales the output of the encoder
+
+00:00:52.344 --> 00:00:55.604
+such that it's the same size as the original image.
+
+00:00:55.604 --> 00:00:58.259
+Thus, it results in segmentation or prediction
+
+00:00:58.259 --> 00:01:01.179
+of each individual pixel in the original image.
+

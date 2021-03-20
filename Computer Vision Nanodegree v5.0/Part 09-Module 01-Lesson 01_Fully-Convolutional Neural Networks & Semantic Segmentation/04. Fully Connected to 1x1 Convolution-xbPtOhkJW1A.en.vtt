@@ -1,0 +1,52 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.330
+Let's use the first special technique in SCNs by replacing
+
+00:00:03.330 --> 00:00:07.004
+a fully connected layer with one by one convolutional layers.
+
+00:00:07.004 --> 00:00:09.605
+This will result in the output value with the tensor
+
+00:00:09.605 --> 00:00:12.830
+will remain 4D instead of flattening to 2D,
+
+00:00:12.830 --> 00:00:15.419
+so spatial information will be preserved.
+
+00:00:15.419 --> 00:00:18.989
+This may sound daunting but it's actually simpler than you might think.
+
+00:00:18.989 --> 00:00:22.309
+At the core, we're still doing the same math as before.
+
+00:00:22.309 --> 00:00:26.939
+Recall, the output of the convolution operation is the result of sweeping the kernel over
+
+00:00:26.940 --> 00:00:29.429
+the input with the sliding window and
+
+00:00:29.429 --> 00:00:33.049
+performing element wise multiplication and summation.
+
+00:00:33.049 --> 00:00:36.049
+One way to think about this is the number of kernels is
+
+00:00:36.049 --> 00:00:39.689
+equivalent to the number of outputs in a fully connected layer.
+
+00:00:39.689 --> 00:00:42.614
+Similarly, the number of weights in each kernel is
+
+00:00:42.615 --> 00:00:46.079
+equivalent to the number of inputs in the fully connected layer.
+
+00:00:46.079 --> 00:00:49.229
+Effectively, this turns convolutions into
+
+00:00:49.229 --> 00:00:53.000
+a matrix multiplication with spatial information.
+

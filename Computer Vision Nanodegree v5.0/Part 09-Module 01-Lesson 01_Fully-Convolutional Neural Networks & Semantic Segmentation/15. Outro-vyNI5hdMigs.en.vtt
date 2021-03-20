@@ -1,0 +1,31 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.149
+Congratulations. Semantic segmentation is
+
+00:00:03.149 --> 00:00:06.839
+the cutting edge of perception in autonomous vehicles and beyond.
+
+00:00:06.839 --> 00:00:10.814
+This is a tremendous skill to demonstrate to employers and to use on the job.
+
+00:00:10.814 --> 00:00:13.199
+Even better, you can build on this knowledge to
+
+00:00:13.199 --> 00:00:16.429
+construct faster and more powerful segmentation networks.
+
+00:00:16.429 --> 00:00:18.475
+In the next lesson,
+
+00:00:18.475 --> 00:00:20.875
+you'll learn about inference optimizations,
+
+00:00:20.875 --> 00:00:24.309
+which accelerate the deployed model in production.
+
+00:00:24.309 --> 00:00:29.000
+You see, even after training there's still a lot we can do to improve performance.
+

@@ -1,0 +1,34 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.234
+Now, using the second special technique,
+
+00:00:02.234 --> 00:00:06.419
+we can create decoder of FCN's using transposed convolution.
+
+00:00:06.419 --> 00:00:08.789
+A transpose convolution is essentially
+
+00:00:08.789 --> 00:00:13.480
+a reverse convolution in which the forward and the backward passes are swapped.
+
+00:00:13.480 --> 00:00:16.070
+Hence, we call it transpose convolution.
+
+00:00:16.070 --> 00:00:21.214
+Some people may call it deconvolution because it undoes the previous convolution.
+
+00:00:21.214 --> 00:00:24.945
+Since all we're doing is swapping the order of forward and backward passes,
+
+00:00:24.945 --> 00:00:28.315
+the math is actually exactly the same as what we've done earlier.
+
+00:00:28.315 --> 00:00:30.750
+The property of differentiability is thus
+
+00:00:30.750 --> 00:00:35.000
+retain and training is simply the same as previous neural networks.
+

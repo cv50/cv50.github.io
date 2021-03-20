@@ -1,0 +1,64 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.810
+Let's take a few moments to talk about using FCNs in practice.
+
+00:00:03.810 --> 00:00:05.894
+An FCN has two components,
+
+00:00:05.894 --> 00:00:07.994
+the encoder and the decoder.
+
+00:00:07.995 --> 00:00:12.570
+We mentioned that encoder extracts features that will later be used by the decoder.
+
+00:00:12.570 --> 00:00:15.780
+This may sound familiar to transfer learning, and it is.
+
+00:00:15.779 --> 00:00:18.434
+In fact, we can borrow techniques from transfer
+
+00:00:18.434 --> 00:00:21.504
+learning to accelerate the training of our FCNs.
+
+00:00:21.504 --> 00:00:26.009
+It's common for the encoder to be pre-trained on ImageNet.
+
+00:00:26.010 --> 00:00:29.346
+VGG and ResNet are popular choices, as examples.
+
+00:00:29.346 --> 00:00:33.509
+By applying the first special technique of one by one convolutional layer conversion,
+
+00:00:33.509 --> 00:00:35.820
+we can complete the encoder portion of the FCN.
+
+00:00:35.820 --> 00:00:38.549
+The encoder is followed by the decoder,
+
+00:00:38.549 --> 00:00:41.099
+which uses a second special technique of
+
+00:00:41.100 --> 00:00:44.710
+transposed convolutional layers to upsample the image.
+
+00:00:44.710 --> 00:00:49.120
+Then the skip connection via the third special technique is added.
+
+00:00:49.119 --> 00:00:51.959
+Be careful not to add too many skip connections, though.
+
+00:00:51.960 --> 00:00:54.980
+It can lead to the explosion in the size of your model.
+
+00:00:54.979 --> 00:00:58.244
+For example, when using VGG-16 as the encoder,
+
+00:00:58.244 --> 00:01:02.984
+only the third and the fourth pooling layers are typically used for skip connections.
+
+00:01:02.984 --> 00:01:06.209
+After all that, we can now train the model end to end.
+

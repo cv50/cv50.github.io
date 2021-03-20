@@ -1,0 +1,79 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.190
+A typical convolutional neural network might consist of a series of convolution layers.
+
+00:00:05.190 --> 00:00:10.960
+Followed by fully connected layers and ultimately a soft max activation function.
+
+00:00:10.960 --> 00:00:14.280
+This is a great architecture for a classification task like,
+
+00:00:14.279 --> 00:00:16.800
+is this a picture of a hotdog?
+
+00:00:16.800 --> 00:00:20.469
+But what if we want to change our task ever so slightly.
+
+00:00:20.469 --> 00:00:22.679
+We want to answer the question,
+
+00:00:22.679 --> 00:00:26.189
+"where in this picture is the hotdog?".
+
+00:00:26.190 --> 00:00:29.425
+The question is much more difficult to answer since
+
+00:00:29.425 --> 00:00:33.814
+fully connected layers don't preserve spatial information.
+
+00:00:33.814 --> 00:00:39.534
+But turns out, if you change the C from connected to convolutional,
+
+00:00:39.534 --> 00:00:43.314
+we can integrate convolutions directly into the layer to
+
+00:00:43.314 --> 00:00:49.375
+create fully convolutional networks or FCN's for short.
+
+00:00:49.375 --> 00:00:53.575
+FCN's help us answer where is the hotdog question.
+
+00:00:53.575 --> 00:00:56.585
+Because while doing the convolution they preserve
+
+00:00:56.585 --> 00:00:59.914
+the spatial information throughout the entire network.
+
+00:00:59.914 --> 00:01:02.575
+Additionally, since convolutional operations
+
+00:01:02.575 --> 00:01:05.570
+fundamentally don't care about the size of the input,
+
+00:01:05.569 --> 00:01:10.689
+a fully convolutional network will work on images of any size.
+
+00:01:10.689 --> 00:01:15.212
+In a classic convolutional network with fully connected final layers,
+
+00:01:15.212 --> 00:01:19.834
+the size of the input is constrained by the size of the fully connected layers.
+
+00:01:19.834 --> 00:01:22.750
+Passing different size images through the same sequence of
+
+00:01:22.750 --> 00:01:25.965
+convolutional layers and flattening the final output.
+
+00:01:25.965 --> 00:01:28.314
+These outputs would be of different sizes,
+
+00:01:28.314 --> 00:01:32.064
+which doesn't bode very well for matrix multiplication.
+
+00:01:32.064 --> 00:01:36.000
+We will dive more into details of fully convolutional networks next.
+

@@ -1,0 +1,73 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.370
+IOU, not the monetary kind,
+
+00:00:02.370 --> 00:00:04.919
+is Intersection Over Union Metric,
+
+00:00:04.919 --> 00:00:10.219
+commonly used to measure the performance of a model on the semantic segmentation task.
+
+00:00:10.220 --> 00:00:15.960
+It is literally just the intersection set divided by the union set.
+
+00:00:15.960 --> 00:00:19.230
+Intersection of two sets is an AND operation.
+
+00:00:19.230 --> 00:00:21.071
+If it exists in both sets,
+
+00:00:21.071 --> 00:00:23.520
+then we put it into the intersection set.
+
+00:00:23.519 --> 00:00:28.335
+For each class, the intersection is defined as the number of pixels that are both
+
+00:00:28.335 --> 00:00:34.439
+truly part of that class and are classified as part of that class by the network.
+
+00:00:34.439 --> 00:00:38.204
+Union of the two set is a OR operation.
+
+00:00:38.204 --> 00:00:41.655
+If it exists in at least one of the two sets,
+
+00:00:41.655 --> 00:00:43.590
+then we put it into the union set.
+
+00:00:43.590 --> 00:00:48.390
+The union is defined as the number of pixels that are truly part of that class
+
+00:00:48.390 --> 00:00:54.155
+plus the number of pixels that are classified as part of that class by the network.
+
+00:00:54.155 --> 00:00:59.549
+So, the intersection set should always be smaller or equal to the union set.
+
+00:00:59.549 --> 00:01:03.884
+The ratio then tell us the overall performance per pixel, per class.
+
+00:01:03.884 --> 00:01:06.939
+Since this intersection set is divided by the union set,
+
+00:01:06.939 --> 00:01:10.120
+the ratio will always be less than or equal to one.
+
+00:01:10.120 --> 00:01:14.340
+We can go even further and calculate the mean IOU for a network,
+
+00:01:14.340 --> 00:01:18.540
+which is just the average of all the IOU for all the classes.
+
+00:01:18.540 --> 00:01:21.015
+This gives you an idea of how well it handles
+
+00:01:21.015 --> 00:01:24.329
+all the different classifications for every single pixel.
+
+00:01:24.329 --> 00:01:29.299
+Intensive flow we can use matrix mean IOU function and call it directly.
+
