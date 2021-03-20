@@ -1,0 +1,347 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Project Overview
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Project: Image Captioning
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Project Overview.html">
+       01. Project Overview
+      </a>
+     </li>
+     <li class="">
+      <a href="02. LSTM InputsOutputs.html">
+       02. LSTM Inputs/Outputs
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Introduction to GPU Workspaces.html">
+       03. Introduction to GPU Workspaces
+      </a>
+     </li>
+     <li class="">
+      <a href="04. [submit from here] Project Image Captioning, PyTorch 0.4.html">
+       04. [submit from here] Project: Image Captioning, PyTorch 0.4
+      </a>
+     </li>
+     <li class="">
+      <a href="Project Description - Image Captioning.html">
+       Project Description - Image Captioning
+      </a>
+     </li>
+     <li class="">
+      <a href="Project Rubric - Image Captioning.html">
+       Project Rubric - Image Captioning
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          01. Project Overview
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Image Captioning Model" class="img img-fluid" src="img/image-captioning.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Image Captioning Model
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="project-overview">
+          Project Overview
+         </h2>
+         <p>
+          In this project, you will create a neural network architecture to automatically generate captions from images.
+         </p>
+         <p>
+          After using the Microsoft Common Objects in COntext
+          <a href="http://cocodataset.org/#home" rel="noopener noreferrer" target="_blank">
+           (MS COCO) dataset
+          </a>
+          to train your network, you will test your network on novel images!
+         </p>
+         <h2 id="project-instructions">
+          Project Instructions
+         </h2>
+         <p>
+          The project is structured as a series of Jupyter notebooks that are designed to be completed in sequential order:
+         </p>
+         <ul>
+          <li>
+           0_Dataset.ipynb
+          </li>
+          <li>
+           1_Preliminaries.ipynb
+          </li>
+          <li>
+           2_Training.ipynb
+          </li>
+          <li>
+           3_Inference.ipynb
+          </li>
+         </ul>
+         <p>
+          You can find these notebooks in the Udacity workspace that appears in the concept titled
+          <strong>
+           Project: Image Captioning
+          </strong>
+          .  This workspace provides a Jupyter notebook server directly in your browser.
+         </p>
+         <p>
+          You can read more about workspaces (and how to toggle GPU support) in the following concept (
+          <strong>
+           Introduction to GPU Workspaces
+          </strong>
+          ).  This concept will show you how to toggle GPU support in the workspace.
+         </p>
+         <blockquote>
+          <p>
+           <strong>
+            You MUST enable GPU mode for this project and submit your project after you complete the code in the workspace.
+           </strong>
+          </p>
+         </blockquote>
+         <blockquote>
+          <p>
+           A completely trained model is expected to take between 5-12 hours to train well on a GPU; it is suggested that you look at early patterns in loss (what happens in the first hour or so of training) as you make changes to your model, so that you only have to spend this large amount of time training your
+           <em>
+            final
+           </em>
+           model.
+          </p>
+         </blockquote>
+         <p>
+          Should you have any questions as you go, please post in the Student Hub!
+         </p>
+         <h2 id="evaluation">
+          Evaluation
+         </h2>
+         <p>
+          Your project will be reviewed by a Udacity reviewer against the CNN project
+          <a href="https://review.udacity.com/#!/rubrics/1427/view" rel="noopener noreferrer" target="_blank">
+           rubric
+          </a>
+          . Review this rubric thoroughly, and self-evaluate your project before submission. As in the first project,
+          <strong>
+           you'll find that only some of the notebooks and files are graded
+          </strong>
+          . All criteria found in the rubric must meet specifications for you to pass.
+         </p>
+         <h2 id="ready-to-submit-your-project">
+          Ready to submit your project?
+         </h2>
+         <p>
+          It is a known issue that the COCO dataset is not well supported for download on Windows, and so you are required to complete the project in the GPU workspace. This will also allow you to bypass setting up an AWS account and downloading the dataset, locally. If you would like to refer to the project code, you may look at
+          <a href="https://github.com/udacity/CVND---Image-Captioning-Project" rel="noopener noreferrer" target="_blank">
+           this version (in PyTorch 0.4.0)
+          </a>
+          at the linked Github repo.
+         </p>
+         <p>
+          Once you've completed your project, you may
+          <strong>
+           only submit from the workspace
+          </strong>
+          for this project,
+          <a href="https://coco.udacity.com/nanodegrees/nd891/locale/en-us/versions/1.0.0/parts/501942/modules/501948/lessons/502041/concepts/624503" rel="noopener noreferrer" target="_blank">
+           linked here
+          </a>
+          . Click Submit, a button that appears on the bottom right of the
+          <em>
+           workspace
+          </em>
+          , to submit your project.
+         </p>
+         <p>
+          For submitting from the workspace, directly, please make sure that you have deleted any large files and model checkpoints in your notebook directory before submission** or your project file may be too large to download and grade.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="gpu-workspaces">
+          GPU Workspaces
+         </h3>
+         <p>
+          <strong>
+           Note: To load the COCO data in the workspace, you
+           <em>
+            must have GPU mode enabled
+           </em>
+           .
+          </strong>
+         </p>
+         <p>
+          In the next section, you'll learn more about these types of workspaces.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="02. LSTM InputsOutputs.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('01. Project Overview')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

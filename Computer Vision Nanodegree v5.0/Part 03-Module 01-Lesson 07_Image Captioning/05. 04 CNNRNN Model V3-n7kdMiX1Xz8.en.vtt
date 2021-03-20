@@ -1,0 +1,79 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.870
+End to end, we want our captioning model to take in
+
+00:00:03.870 --> 00:00:08.089
+an image as input and output a text description of that image.
+
+00:00:08.089 --> 00:00:12.629
+The input image will be processed by CNN and will connect the output of
+
+00:00:12.630 --> 00:00:18.344
+the CNN to the input of the RNN which will allow us to generate descriptive texts.
+
+00:00:18.344 --> 00:00:20.265
+To see how this works,
+
+00:00:20.265 --> 00:00:23.115
+let's look at a particular example.
+
+00:00:23.114 --> 00:00:26.250
+Say we have a training image and associated
+
+00:00:26.250 --> 00:00:29.850
+caption which is a man holding a slice of pizza.
+
+00:00:29.850 --> 00:00:35.195
+Our goal is to train a network to generate this caption given the image as input.
+
+00:00:35.195 --> 00:00:38.605
+First, we feed this image into a CNN.
+
+00:00:38.604 --> 00:00:43.164
+We'll be using a pre-trained network like VGG16 or Resnet.
+
+00:00:43.164 --> 00:00:44.905
+At the end of these networks,
+
+00:00:44.905 --> 00:00:49.049
+is a softmax classifier that outputs a vector of class scores.
+
+00:00:49.049 --> 00:00:51.439
+But we don't want to classify the image,
+
+00:00:51.439 --> 00:00:56.434
+instead we want a set of features that represents the spatial content in the image.
+
+00:00:56.435 --> 00:00:58.850
+To get that kind of spatial information,
+
+00:00:58.850 --> 00:01:03.380
+we're going to remove the final fully connected layer that classifies
+
+00:01:03.380 --> 00:01:05.900
+the image and look at it earlier layer that
+
+00:01:05.900 --> 00:01:08.995
+distills the spatial information in the image.
+
+00:01:08.995 --> 00:01:14.189
+Now, we're using the CNN as a feature extractor that compresses the huge amount
+
+00:01:14.189 --> 00:01:19.524
+of information contained in the original image into a smaller representation.
+
+00:01:19.525 --> 00:01:23.040
+This CNN is often called the encoder because it
+
+00:01:23.040 --> 00:01:27.310
+encodes the content of the image into a smaller feature vector.
+
+00:01:27.310 --> 00:01:30.840
+Then we can process this feature vector and use
+
+00:01:30.840 --> 00:01:34.549
+it as an initial input to the following RNN.
+

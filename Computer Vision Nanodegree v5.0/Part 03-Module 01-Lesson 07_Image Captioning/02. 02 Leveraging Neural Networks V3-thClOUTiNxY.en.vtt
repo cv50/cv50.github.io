@@ -1,0 +1,52 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.844
+Hi, I'm Calvin Lin and I work for Deep Learning Institute at NVIDIA,
+
+00:00:04.844 --> 00:00:10.035
+where we're tasked with enabling everyone in the industry to create AI companies.
+
+00:00:10.035 --> 00:00:14.550
+For that, we need very capable AI and image captioning is where we go from
+
+00:00:14.550 --> 00:00:19.125
+mere perception modules to ones with generative capabilities.
+
+00:00:19.125 --> 00:00:22.445
+A captioning model rely on two main components,
+
+00:00:22.445 --> 00:00:24.649
+a CNN and an RNN.
+
+00:00:24.649 --> 00:00:27.299
+You've already learned about a variety of applications for
+
+00:00:27.300 --> 00:00:30.940
+convolutional and recurrent neural networks separately,
+
+00:00:30.940 --> 00:00:36.615
+but captioning is all about merging the two to combine their most powerful attributes.
+
+00:00:36.615 --> 00:00:40.800
+CNNs excel at preserving spatial information and images,
+
+00:00:40.799 --> 00:00:43.974
+and RNNs work well with any kind of sequential data,
+
+00:00:43.975 --> 00:00:47.310
+such as generating a sequence of words.
+
+00:00:47.310 --> 00:00:49.320
+So by merging the two,
+
+00:00:49.320 --> 00:00:52.320
+you can get a model that can find patterns and images,
+
+00:00:52.320 --> 00:00:57.365
+and then use that information to help generate a description of those images.
+
+00:00:57.365 --> 00:01:02.510
+In this lesson, I'll go over the details of how a model like this works
+

@@ -1,0 +1,133 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.514
+Coming up in this lesson,
+
+00:00:01.514 --> 00:00:04.080
+you'll implement a character-wise RNN.
+
+00:00:04.080 --> 00:00:07.900
+That is the network will learn about some text one character at a time,
+
+00:00:07.900 --> 00:00:11.280
+and then generate new text one character at a time.
+
+00:00:11.279 --> 00:00:14.574
+Let's say we want to generate a new Shakespeare plays.
+
+00:00:14.574 --> 00:00:17.544
+As an example, "To be or not to be."
+
+00:00:17.545 --> 00:00:21.710
+We'd pass the sequence into our RNN one character at a time.
+
+00:00:21.710 --> 00:00:24.780
+Once trained, the network will generate new text by predicting
+
+00:00:24.780 --> 00:00:28.220
+the next character based on the characters it's already seen.
+
+00:00:28.219 --> 00:00:30.339
+So then, to train this network,
+
+00:00:30.339 --> 00:00:33.509
+we want it to predict the next character in the input sequence.
+
+00:00:33.509 --> 00:00:36.320
+In this way, the network will learn to produce a sequence of
+
+00:00:36.320 --> 00:00:39.325
+characters that look like the original text.
+
+00:00:39.325 --> 00:00:42.705
+Let's consider what the architecture of this network will look like.
+
+00:00:42.704 --> 00:00:44.820
+First, let's unroll the RNN,
+
+00:00:44.820 --> 00:00:47.645
+so we can see how this all works as a sequence.
+
+00:00:47.645 --> 00:00:50.450
+Here, we have our input layer where we'll
+
+00:00:50.450 --> 00:00:53.240
+pass in a characters as one-hot encoded vectors.
+
+00:00:53.240 --> 00:00:55.630
+These vectors go to the hidden layer.
+
+00:00:55.630 --> 00:00:58.835
+The hidden layer is built with LSTM cells where
+
+00:00:58.835 --> 00:01:03.314
+the hidden state and cell state pass from one cell to the next in the sequence.
+
+00:01:03.314 --> 00:01:07.414
+In practice, we'll actually use multiple layers of LSTM cells.
+
+00:01:07.415 --> 00:01:09.565
+You just stack them up like this.
+
+00:01:09.564 --> 00:01:12.950
+The output of these cells go to the output layer.
+
+00:01:12.950 --> 00:01:15.980
+The output layer is used to predict the next character.
+
+00:01:15.980 --> 00:01:18.255
+We want the probabilities for each character
+
+00:01:18.254 --> 00:01:21.974
+the same way you did image classification with the covenant.
+
+00:01:21.974 --> 00:01:26.489
+That means that we want a softmax activation on the output.
+
+00:01:26.489 --> 00:01:30.375
+Our targets here will be the input sequence but shifted over one
+
+00:01:30.375 --> 00:01:34.219
+so that each character is predicting the next character in the sequence.
+
+00:01:34.219 --> 00:01:38.250
+Again, we'll use cross entropy loss for training with gradient descent.
+
+00:01:38.250 --> 00:01:40.170
+When this network is trained up,
+
+00:01:40.170 --> 00:01:42.555
+we can pass in one character and get out
+
+00:01:42.555 --> 00:01:45.915
+a probability distribution for the likely next character.
+
+00:01:45.915 --> 00:01:49.750
+Then we can sample from that distribution to get the next character.
+
+00:01:49.750 --> 00:01:52.480
+Then we can take that character,
+
+00:01:52.480 --> 00:01:54.650
+pass it in, and get another one.
+
+00:01:54.650 --> 00:01:58.800
+We keep doing this and eventually we'll build up some completely new text.
+
+00:01:58.799 --> 00:02:02.244
+We'll be training this network on the text from Anna Karenina,
+
+00:02:02.245 --> 00:02:04.340
+one of my favorite books.
+
+00:02:04.340 --> 00:02:05.795
+It's in the public domain,
+
+00:02:05.795 --> 00:02:07.605
+so it's free to use however you want.
+
+00:02:07.605 --> 00:02:09.680
+Also, it's an amazing novel.
+

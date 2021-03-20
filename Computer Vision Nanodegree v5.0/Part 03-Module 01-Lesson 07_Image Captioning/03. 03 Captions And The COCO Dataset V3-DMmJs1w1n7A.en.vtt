@@ -1,0 +1,76 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.594
+The first thing to know about image captioning model is how it will train.
+
+00:00:04.594 --> 00:00:08.214
+Your model will learn from a dataset composed of images,
+
+00:00:08.214 --> 00:00:12.254
+pair with captions that describe the content of those images.
+
+00:00:12.255 --> 00:00:16.734
+Say you're asked to write a caption that describe this image,
+
+00:00:16.734 --> 00:00:18.975
+how would you approach this task?
+
+00:00:18.975 --> 00:00:22.920
+First, you might look at the image and take notes of a bunch
+
+00:00:22.920 --> 00:00:27.015
+of different objects like different people and kites and the blue sky.
+
+00:00:27.015 --> 00:00:29.550
+Then based on how these objects are placed in
+
+00:00:29.550 --> 00:00:32.969
+an image and their relationship to each other,
+
+00:00:32.969 --> 00:00:35.679
+you might think that these people are flying kites.
+
+00:00:35.679 --> 00:00:37.854
+They're in this big grassy area,
+
+00:00:37.854 --> 00:00:40.289
+so they may also be in a park.
+
+00:00:40.289 --> 00:00:43.100
+After collecting these visual observations,
+
+00:00:43.100 --> 00:00:47.045
+you could put together a phrase that describes the image as,
+
+00:00:47.045 --> 00:00:49.740
+"People flying kites in a park".
+
+00:00:49.740 --> 00:00:52.950
+You use a combination of spatial observation and
+
+00:00:52.950 --> 00:00:56.050
+sequential text descriptions to write a caption,
+
+00:00:56.049 --> 00:00:59.849
+and this is exactly the kind of flow we'll aim to create in
+
+00:00:59.850 --> 00:01:04.724
+a captioning model that uses CNN and RNN architectures.
+
+00:01:04.724 --> 00:01:10.679
+A common dataset that is used in training and captioning model is that COCO dataset.
+
+00:01:10.680 --> 00:01:16.620
+COCO stands for common objects and contexts and it contains a large variety of images.
+
+00:01:16.620 --> 00:01:20.368
+Each image has a set of about five associated captions,
+
+00:01:20.368 --> 00:01:24.530
+and you can see a few examples of those captions here.
+
+00:01:24.530 --> 00:01:29.000
+Next, you'll get a chance to explore this data on your own.
+

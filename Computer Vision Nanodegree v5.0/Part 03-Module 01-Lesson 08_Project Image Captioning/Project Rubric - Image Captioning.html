@@ -1,0 +1,571 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Image Captioning
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Project: Image Captioning
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Project Overview.html">
+       01. Project Overview
+      </a>
+     </li>
+     <li class="">
+      <a href="02. LSTM InputsOutputs.html">
+       02. LSTM Inputs/Outputs
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Introduction to GPU Workspaces.html">
+       03. Introduction to GPU Workspaces
+      </a>
+     </li>
+     <li class="">
+      <a href="04. [submit from here] Project Image Captioning, PyTorch 0.4.html">
+       04. [submit from here] Project: Image Captioning, PyTorch 0.4
+      </a>
+     </li>
+     <li class="">
+      <a href="Project Description - Image Captioning.html">
+       Project Description - Image Captioning
+      </a>
+     </li>
+     <li class="">
+      <a href="Project Rubric - Image Captioning.html">
+       Project Rubric - Image Captioning
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          Image Captioning
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div>
+        <h2>
+         <p>
+          Files Submitted
+         </p>
+        </h2>
+        <table class="table table-bordered table-hover">
+         <thead>
+          <tr class="thead-dark">
+           <th>
+            Criteria
+           </th>
+           <th>
+            Meet Specification
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr scope="row">
+           <td>
+            <p>
+             Submission Files
+            </p>
+           </td>
+           <td>
+            <p>
+             The submission includes
+             <strong>
+              model.py
+             </strong>
+             and the following Jupyter notebooks, where all questions have been answered:
+             <br/>
+             <strong>
+              2_Training.ipynb
+             </strong>
+             , and
+             <br/>
+             <strong>
+              3_Inference.ipynb
+             </strong>
+             .
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <div>
+        <h2>
+         <p>
+          model.py
+         </p>
+        </h2>
+        <table class="table table-bordered table-hover">
+         <thead>
+          <tr class="thead-dark">
+           <th>
+            Criteria
+           </th>
+           <th>
+            Meet Specification
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr scope="row">
+           <td>
+            <p>
+             <code>
+              CNNEncoder
+             </code>
+            </p>
+           </td>
+           <td>
+            <p>
+             The chosen CNN architecture in the
+             <code>
+              CNNEncoder
+             </code>
+             class in
+             <strong>
+              model.py
+             </strong>
+             makes sense as an encoder for the image captioning task.
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             <code>
+              RNNDecoder
+             </code>
+            </p>
+           </td>
+           <td>
+            <p>
+             The chosen RNN architecture in the
+             <code>
+              RNNDecoder
+             </code>
+             class in
+             <strong>
+              model.py
+             </strong>
+             makes sense as a decoder for the image captioning task.
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <div>
+        <h2>
+         <p>
+          2_Training.ipynb
+         </p>
+        </h2>
+        <table class="table table-bordered table-hover">
+         <thead>
+          <tr class="thead-dark">
+           <th>
+            Criteria
+           </th>
+           <th>
+            Meet Specification
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr scope="row">
+           <td>
+            <p>
+             Using the Data Loader
+            </p>
+           </td>
+           <td>
+            <p>
+             When using the
+             <code>
+              get_loader
+             </code>
+             function in
+             <strong>
+              data_loader.py
+             </strong>
+             to train the model, most arguments are left at their default values, as outlined in
+             <strong>
+              Step 1
+             </strong>
+             of
+             <strong>
+              1_Preliminaries.ipynb
+             </strong>
+             .  In particular, the submission only (optionally) changes the values of the following arguments:
+             <code>
+              transform
+             </code>
+             ,
+             <code>
+              mode
+             </code>
+             ,
+             <code>
+              batch_size
+             </code>
+             ,
+             <code>
+              vocab_threshold
+             </code>
+             ,
+             <code>
+              vocab_from_file
+             </code>
+             .
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             <strong>
+              Step 1, Question 1
+             </strong>
+            </p>
+           </td>
+           <td>
+            <p>
+             The submission describes the chosen CNN-RNN architecture and details how the hyperparameters were selected.
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             <strong>
+              Step 1, Question 2
+             </strong>
+            </p>
+           </td>
+           <td>
+            <p>
+             The transform is congruent with the choice of CNN architecture. If the transform has been modified, the submission describes how the transform used to pre-process the training images was selected.
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             <strong>
+              Step 1, Question 3
+             </strong>
+            </p>
+           </td>
+           <td>
+            <p>
+             The submission describes how the trainable parameters were selected and has made a well-informed choice when deciding which parameters in the model should be trainable.
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             <strong>
+              Step 1, Question 4
+             </strong>
+            </p>
+           </td>
+           <td>
+            <p>
+             The submission describes how the optimizer was selected.
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             <strong>
+              Step 2
+             </strong>
+            </p>
+           </td>
+           <td>
+            <p>
+             The code cell in
+             <strong>
+              Step 2
+             </strong>
+             details all code used to train the model from scratch.  The output of the code cell shows exactly what is printed when running the code cell.  If the submission has amended the code used for training the model, it is well-organized and includes comments.
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <div>
+        <h2>
+         <p>
+          3_Inference.ipynb
+         </p>
+        </h2>
+        <table class="table table-bordered table-hover">
+         <thead>
+          <tr class="thead-dark">
+           <th>
+            Criteria
+           </th>
+           <th>
+            Meet Specification
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr scope="row">
+           <td>
+            <p>
+             <code>
+              transform_test
+             </code>
+            </p>
+           </td>
+           <td>
+            <p>
+             The transform used to pre-process the test images is congruent with the choice of CNN architecture.  It is also consistent with the transform specified in
+             <code>
+              transform_train
+             </code>
+             in
+             <strong>
+              2_Training.ipynb
+             </strong>
+             .
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             <strong>
+              Step 3
+             </strong>
+            </p>
+           </td>
+           <td>
+            <p>
+             The implementation of the
+             <code>
+              sample
+             </code>
+             method in the
+             <code>
+              RNNDecoder
+             </code>
+             class correctly leverages the RNN to generate predicted token indices.
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             <strong>
+              Step 4
+             </strong>
+            </p>
+           </td>
+           <td>
+            <p>
+             The
+             <code>
+              clean_sentence
+             </code>
+             function passes the test in
+             <strong>
+              Step 4
+             </strong>
+             .  The sentence is reasonably clean, where any
+             <code>
+              &lt;start&gt;
+             </code>
+             and
+             <code>
+              &lt;end&gt;
+             </code>
+             tokens have been removed.
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             <strong>
+              Step 5
+             </strong>
+            </p>
+           </td>
+           <td>
+            <p>
+             The submission shows two image-caption pairs where the model performed well, and two image-caption pairs where the model did not perform well.
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <div class="jumbotron">
+        <h3>
+         Tips to make your project standout:
+        </h3>
+        <p>
+         <ul>
+          <li>
+           Use the validation set to guide your search for appropriate hyperparameters.
+          </li>
+          <li>
+           Implement beam search to generate captions on new images.
+          </li>
+          <li>
+           Tinker with your model - and train it for long enough - to obtain results that are comparable to (or surpass!) recent research articles.
+          </li>
+         </ul>
+        </p>
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('Image Captioning')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

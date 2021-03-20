@@ -1,0 +1,37 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.740
+Now, that you've learned about the structure of an automatic captioning system,
+
+00:00:04.740 --> 00:00:07.110
+your next task will be to apply what you've
+
+00:00:07.110 --> 00:00:10.634
+learned to build and train your own captioning network.
+
+00:00:10.634 --> 00:00:14.330
+You'll be provided with some data pre-processing steps,
+
+00:00:14.330 --> 00:00:19.730
+and your main tasks will be about deciding how to train the RNN portion of the model.
+
+00:00:19.730 --> 00:00:25.660
+Keep in mind the type and shape of the input that each LSTM cell expect to see,
+
+00:00:25.660 --> 00:00:27.780
+and what shape the output takes,
+
+00:00:27.780 --> 00:00:34.039
+and use that information to inform your decisions about optimization and hyperparameters.
+
+00:00:34.039 --> 00:00:40.200
+We also encourage you to look at and learn from existing academic papers on this subject.
+
+00:00:40.200 --> 00:00:43.475
+This project should really give you a chance to demonstrate
+
+00:00:43.475 --> 00:00:47.920
+your knowledge of deep learning architectures. So good luck.
+

@@ -1,0 +1,106 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.069
+The RNN component of
+
+00:00:02.069 --> 00:00:06.480
+the captioning network is trained on the captions in the COCO dataset.
+
+00:00:06.480 --> 00:00:09.240
+We're aiming to train the RNN to predict
+
+00:00:09.240 --> 00:00:13.120
+the next word of a sentence based on previous words.
+
+00:00:13.119 --> 00:00:16.564
+But, how exactly can it train on string data?
+
+00:00:16.565 --> 00:00:19.200
+Neural networks do not do well with strings.
+
+00:00:19.199 --> 00:00:22.559
+They need a well-defined numerical alpha to effectively
+
+00:00:22.559 --> 00:00:27.009
+perform back propagation and learn to produce similar output.
+
+00:00:27.010 --> 00:00:30.270
+So, we have to transform the captioned associated
+
+00:00:30.269 --> 00:00:33.839
+with the image into a list of tokenize words.
+
+00:00:33.840 --> 00:00:38.325
+This tokenization turns any strings into a list of integers.
+
+00:00:38.325 --> 00:00:40.685
+So how does this tokenization work?
+
+00:00:40.685 --> 00:00:45.390
+First, we iterate through all of the training captions and create
+
+00:00:45.390 --> 00:00:49.789
+a dictionary that maps all unique words to a numerical index.
+
+00:00:49.789 --> 00:00:52.289
+So, every word we come across,
+
+00:00:52.289 --> 00:00:56.825
+will have a corresponding integer value that we can find in this dictionary.
+
+00:00:56.825 --> 00:01:01.265
+The words in this dictionaries are referred to as our vocabulary.
+
+00:01:01.265 --> 00:01:05.745
+The vocabulary typically also includes a few special tokens.
+
+00:01:05.745 --> 00:01:09.920
+In this example, we'll add two special tokens to our dictionary,
+
+00:01:09.920 --> 00:01:15.594
+a start and end token that indicates the start and the end of a sentence.
+
+00:01:15.594 --> 00:01:19.954
+Now, the entire vocabulary is the length of the number of unique words
+
+00:01:19.954 --> 00:01:24.579
+in our training dataset plus two for the start and end tokens.
+
+00:01:24.579 --> 00:01:27.364
+Let's take a look at this sample caption.
+
+00:01:27.364 --> 00:01:31.875
+A person doing a trick on a rail while riding a skateboard.
+
+00:01:31.875 --> 00:01:36.079
+This caption is then converted into a list of tokens with
+
+00:01:36.079 --> 00:01:41.534
+the special start and end tokens marking the beginning and end of the sentence.
+
+00:01:41.534 --> 00:01:46.329
+This list of token is then turned into a list of integers which come from
+
+00:01:46.329 --> 00:01:51.810
+our dictionary that maps each distinct word in the vocabulary to an integer value.
+
+00:01:51.810 --> 00:01:54.984
+This one more step before these words gets sent as
+
+00:01:54.984 --> 00:01:58.239
+input to an RNN and that's the embedding layer,
+
+00:01:58.239 --> 00:02:03.745
+which transform each word in a caption into a vector of a desired consistent shape.
+
+00:02:03.745 --> 00:02:05.510
+After this embedding step,
+
+00:02:05.510 --> 00:02:08.140
+we're finally ready to train an RNN that can
+
+00:02:08.139 --> 00:02:11.879
+predict the most likely next word in a sentence.
+

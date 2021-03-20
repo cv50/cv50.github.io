@@ -1,0 +1,49 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.339
+There are a couple of ways you can connect the output of the CNN to the following RNN.
+
+00:00:05.339 --> 00:00:09.060
+But in all cases the feature vector that's extracted
+
+00:00:09.060 --> 00:00:12.600
+from the CNN will go through some processing steps,
+
+00:00:12.599 --> 00:00:16.589
+to be used as input to the first cell in the RNN.
+
+00:00:16.589 --> 00:00:20.730
+It can sometimes prove useful to parse a CNN output through
+
+00:00:20.730 --> 00:00:27.655
+a additional fully-connected or linear layer before using it as an input to the RNN.
+
+00:00:27.655 --> 00:00:31.810
+This is similar to what you've seen in other transfer learning example.
+
+00:00:31.809 --> 00:00:34.460
+The CNN we're using is pretrain.
+
+00:00:34.460 --> 00:00:38.160
+Adding an untrained linearly or at the end of it allow us to tweak
+
+00:00:38.159 --> 00:00:43.559
+only this final layer as we train the entire model to generate captions.
+
+00:00:43.560 --> 00:00:48.090
+After we extract a feature vector from the CNN and process it,
+
+00:00:48.090 --> 00:00:52.770
+we can then use this as the initial input into our RNN and the job of
+
+00:00:52.770 --> 00:00:58.210
+the RNN is to decode the process feature vector and turn it into natural language.
+
+00:00:58.210 --> 00:01:01.698
+This portion of the network is often called the decoder,
+
+00:01:01.698 --> 00:01:07.090
+and we'll learn more about the Caption Generation and training this decoder next.
+

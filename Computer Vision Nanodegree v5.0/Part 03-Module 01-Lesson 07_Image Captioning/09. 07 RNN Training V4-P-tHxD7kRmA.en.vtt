@@ -1,0 +1,151 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.589
+Let's take a closer look at how the decoder trains on a given caption.
+
+00:00:04.589 --> 00:00:08.269
+The decoder will be made of LSTM cells,
+
+00:00:08.269 --> 00:00:11.679
+which are good at remembering lengthy sequence of words.
+
+00:00:11.679 --> 00:00:18.015
+Each LSTM cell is expecting to see the same shape of the input vector at each time-step.
+
+00:00:18.015 --> 00:00:23.625
+The very first cell is connected to the output feature vector of the CNN encoder.
+
+00:00:23.625 --> 00:00:28.600
+Previously, I mentioned an embedding layer that transformed each input word
+
+00:00:28.600 --> 00:00:34.340
+into a vector of a certain shape before being fed as input to the RNN.
+
+00:00:34.340 --> 00:00:40.445
+We need to apply the same transformation to the output feature vector of the CNN.
+
+00:00:40.445 --> 00:00:44.869
+Once this feature vector is embedded into expected input shape,
+
+00:00:44.869 --> 00:00:50.169
+we can begin that RNN training process with this as the first input.
+
+00:00:50.170 --> 00:00:53.870
+The input to the RNN for all future time steps,
+
+00:00:53.869 --> 00:00:57.134
+will be the individual words of the training caption.
+
+00:00:57.134 --> 00:00:59.199
+So at the start of training,
+
+00:00:59.200 --> 00:01:01.549
+we have some input from our CNN,
+
+00:01:01.548 --> 00:01:04.875
+and LSTM cell with the initial state.
+
+00:01:04.875 --> 00:01:08.135
+Now the R-net has two responsibilities.
+
+00:01:08.135 --> 00:01:12.830
+One, remember spatial information from the input feature vector.
+
+00:01:12.829 --> 00:01:15.924
+And two, predict the next word.
+
+00:01:15.924 --> 00:01:21.489
+We know that the very first word it produces should always be the start token,
+
+00:01:21.489 --> 00:01:24.924
+and the next word should be those in the training caption.
+
+00:01:24.924 --> 00:01:29.229
+For our caption, a man holding a slice of pizza.
+
+00:01:29.230 --> 00:01:33.125
+We know that after the start token comes a,
+
+00:01:33.125 --> 00:01:37.385
+and after a comes man, and so on.
+
+00:01:37.385 --> 00:01:39.450
+At every time step,
+
+00:01:39.450 --> 00:01:42.115
+we look at the current caption word as input,
+
+00:01:42.114 --> 00:01:47.689
+and combine it with the hidden state of the LSTM cell to produce an output.
+
+00:01:47.689 --> 00:01:52.274
+This output is then passed through a fully connected layer that produces
+
+00:01:52.275 --> 00:01:57.115
+a distribution that represents the most likely next word.
+
+00:01:57.114 --> 00:02:02.274
+This is like how we've seen softmax apply to classification task.
+
+00:02:02.275 --> 00:02:03.605
+But in this case,
+
+00:02:03.605 --> 00:02:08.594
+it produces a list of next words scores instead of a list of class scores.
+
+00:02:08.594 --> 00:02:11.579
+We feed the next word in the caption to the network,
+
+00:02:11.579 --> 00:02:15.085
+and so on, until we reach the end token.
+
+00:02:15.085 --> 00:02:20.465
+The hidden state of an LSTM is a function of the input token to the LSTM,
+
+00:02:20.465 --> 00:02:21.884
+and the previous state.
+
+00:02:21.884 --> 00:02:25.174
+I'll refer to this function as the recurrence function.
+
+00:02:25.175 --> 00:02:28.775
+The recurrence function is defined by weights,
+
+00:02:28.775 --> 00:02:31.890
+and during the training process this model uses
+
+00:02:31.889 --> 00:02:35.069
+back propagation to update these weights until
+
+00:02:35.069 --> 00:02:38.099
+the LSTM cells learn to produce the correct
+
+00:02:38.099 --> 00:02:42.685
+next word in the caption given the current input word.
+
+00:02:42.685 --> 00:02:44.634
+As with most models,
+
+00:02:44.634 --> 00:02:47.979
+you can also take advantage of batching the training data.
+
+00:02:47.979 --> 00:02:53.009
+The model update its weights after each training batch with the batch size is
+
+00:02:53.009 --> 00:02:55.349
+the number of image caption pairs
+
+00:02:55.349 --> 00:02:59.234
+sent through that network during a single training step.
+
+00:02:59.235 --> 00:03:01.410
+Once the model is trained,
+
+00:03:01.409 --> 00:03:04.859
+it will have learned from many image caption pairs and should
+
+00:03:04.860 --> 00:03:08.800
+be able to generate captions for new image data.
+

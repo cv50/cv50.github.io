@@ -1,0 +1,85 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.020 --> 00:00:06.429
+We looked at Convolutional Neural Networks that are
+
+00:00:06.429 --> 00:00:09.539
+used for image classification and object localization.
+
+00:00:09.539 --> 00:00:14.933
+And we looked at Recurrent Neural Networks mostly in the context of text generation.
+
+00:00:14.933 --> 00:00:19.268
+You've seen how networks like LSTMs can learn from sequential data,
+
+00:00:19.268 --> 00:00:21.504
+like a series of words or characters.
+
+00:00:21.504 --> 00:00:24.519
+These networks use hidden layers that over time
+
+00:00:24.519 --> 00:00:27.789
+link the output of one layer to the input of the next.
+
+00:00:27.789 --> 00:00:30.160
+This creates a kind of memory loop that allows
+
+00:00:30.160 --> 00:00:32.814
+the network to learn from previous information.
+
+00:00:32.814 --> 00:00:35.949
+In this section, we'll see how we can put these two types of networks
+
+00:00:35.950 --> 00:00:38.760
+together to create an automatic image captioning
+
+00:00:38.759 --> 00:00:41.504
+model that takes in an image as input and
+
+00:00:41.505 --> 00:00:44.825
+outputs a sequence of text that describes the image.
+
+00:00:44.825 --> 00:00:48.190
+Image captions are used in a variety of applications.
+
+00:00:48.189 --> 00:00:52.349
+For example, image captions can be used to describe images to people who are
+
+00:00:52.350 --> 00:00:56.975
+blind or have low vision and who rely on sounds and texts to describe a scene.
+
+00:00:56.975 --> 00:01:01.380
+In web development, it's good practice to provide a description for any image that
+
+00:01:01.380 --> 00:01:06.085
+appears on the page so that an image can be read or heard as opposed to just seen.
+
+00:01:06.084 --> 00:01:08.375
+This makes web content accessible.
+
+00:01:08.375 --> 00:01:12.879
+Similarly, captions can be used to describe video in real time.
+
+00:01:12.879 --> 00:01:15.289
+You can imagine a lot of use cases for which
+
+00:01:15.290 --> 00:01:18.455
+automatically generated captions will be really useful.
+
+00:01:18.454 --> 00:01:21.739
+This lesson and the following project will be all about creating
+
+00:01:21.739 --> 00:01:25.494
+a model that can produce descriptive captions for an image.
+
+00:01:25.495 --> 00:01:29.094
+To help us learn about the architecture of an image captioning model,
+
+00:01:29.094 --> 00:01:31.849
+next you'll be introduced to Kelvin Lwin,
+
+00:01:31.849 --> 00:01:36.000
+an industry expert who works for the Deep Learning Institute at Nvidia.
+

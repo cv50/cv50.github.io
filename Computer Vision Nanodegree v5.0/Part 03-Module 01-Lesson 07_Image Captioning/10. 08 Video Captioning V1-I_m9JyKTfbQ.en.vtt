@@ -1,0 +1,58 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.805
+This captioning network can also be applied to video,
+
+00:00:03.805 --> 00:00:05.890
+not just single images.
+
+00:00:05.889 --> 00:00:08.105
+In the case of video captioning,
+
+00:00:08.105 --> 00:00:12.089
+the only thing that has to change about this network architecture is
+
+00:00:12.089 --> 00:00:17.490
+the feature extraction step that occurs between the CNN and the RNN.
+
+00:00:17.489 --> 00:00:20.489
+The input to the pre-trained CNN will be
+
+00:00:20.489 --> 00:00:25.244
+a short video clip which can be thought of as a series of image frames.
+
+00:00:25.245 --> 00:00:27.075
+For each image frame,
+
+00:00:27.074 --> 00:00:29.769
+the CNN will produce a feature vector.
+
+00:00:29.769 --> 00:00:34.950
+But our RNN cannot accept multiple feature vectors as input,
+
+00:00:34.950 --> 00:00:38.835
+so we have to merge all of these feature vectors
+
+00:00:38.835 --> 00:00:43.179
+into one that is representative of all image frames.
+
+00:00:43.179 --> 00:00:46.679
+One way of doing that is to take an average over
+
+00:00:46.679 --> 00:00:50.984
+all of the feature vectors created by the set of image frames.
+
+00:00:50.984 --> 00:00:57.600
+This produces a single average feature vector that represents the entire video clip.
+
+00:00:57.600 --> 00:01:01.179
+Then we can proceed as usual, training the RNN,
+
+00:01:01.179 --> 00:01:04.155
+and then using the single vector as the initial input
+
+00:01:04.155 --> 00:01:08.049
+and training on a set of tokenized video captions.
+
