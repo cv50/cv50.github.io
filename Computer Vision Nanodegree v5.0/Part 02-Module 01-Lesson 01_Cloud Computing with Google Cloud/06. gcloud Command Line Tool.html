@@ -1,0 +1,491 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   gcloud Command Line Tool
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Cloud Computing with Google Cloud
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Overview.html">
+       01. Overview
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Login and Redeem Credits.html">
+       02. Login and Redeem Credits
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Create a Project.html">
+       03. Create a Project
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Access GPUs.html">
+       04. Access GPUs
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Define a Quota.html">
+       05. Define a Quota
+      </a>
+     </li>
+     <li class="">
+      <a href="06. gcloud Command Line Tool.html">
+       06. gcloud Command Line Tool
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Launch an Instance.html">
+       07. Launch an Instance
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Login to the Instance.html">
+       08. Login to the Instance
+      </a>
+     </li>
+     <li class="">
+      <a href="09. [IMPORTANT] Shutdown your Instance.html">
+       09. [IMPORTANT] Shutdown your Instance
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          06. gcloud Command Line Tool
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="gcloud">
+          gcloud
+         </h1>
+         <p>
+          In order to start the GPU instance first you need to install
+          <code>
+           gcloud
+          </code>
+          command line tool.
+         </p>
+         <p>
+          It's recommended that you use the
+          <a href="https://cloud.google.com/sdk/docs/downloads-interactive" rel="noopener noreferrer" target="_blank">
+           provided, interactive installer
+          </a>
+          to install the latest version of Cloud SDK. You may also choose to use a specific version or method, described
+          <a href="https://cloud.google.com/sdk/install" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          , if you do not have a standard OS.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="interactive-install">
+          Interactive Install
+         </h3>
+         <p>
+          I followed the instructions for
+          <a href="https://cloud.google.com/sdk/docs/downloads-interactive" rel="noopener noreferrer" target="_blank">
+           interactive install
+          </a>
+          for Mac OSX. First I opened my terminal and ran the download command.
+         </p>
+         <pre><code class="bash language-bash">curl https://sdk.cloud.google.com | bash</code></pre>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Mac terminal icon." class="img img-fluid" src="img/terminal.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Mac terminal icon.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          This command prompted me for an installation directory, which I called
+          <code>
+           cloud-install
+          </code>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Initial installation commands." class="img img-fluid" src="img/install-1.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Initial installation commands.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          After this step, you should see some text print out, indicating the packages being installed. When prompted to continue, type
+          <code>
+           Y
+          </code>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Enable install." class="img img-fluid" src="img/install-2.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Enable install.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          At this point, you may be prompted to enter an
+          <code>
+           rc
+          </code>
+          file; you should leave this blank and press enter for the default behavior. You may also be prompted to leave feedback for Google Cloud; this is up to you!
+         </p>
+         <p>
+          The next step is to restart your shell for the installation to take effect. Use the command:
+          <br/>
+          <code>
+           bash 
+exec -l $SHELL
+          </code>
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Restart your shell." class="img img-fluid" src="img/new-shell-3.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Restart your shell.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          FInally, run gcloud init to initialize the gcloud environment:
+         </p>
+         <pre><code class="bash language-bash">gcloud init</code></pre>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Initialize gcloud." class="img img-fluid" src="img/gcloud-init-4.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Initialize gcloud.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          This should then ask you to login to your gmail account; this will take you to an authentication page. Once you complete this step, you're almost done!
+         </p>
+         <p>
+          If you want, you can set the default project from a list of your defined projects in your terminal. We can also specify the project in gcloud in a moment.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Selecting a project via Terminal window." class="img img-fluid" src="img/screen-shot-2018-07-24-at-5.33.17-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Selecting a project via Terminal window.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="use-gcloud">
+          Use gcloud
+         </h2>
+         <p>
+          Now, if you go back to your GPU project window, you can use gcloud shell by clicking the icon and selecting
+          <code>
+           start cloud shell
+          </code>
+          !
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="gcloud icon." class="img img-fluid" src="img/screen-shot-2018-07-24-at-5.34.49-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            gcloud icon.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Shell interface." class="img img-fluid" src="img/screen-shot-2018-07-24-at-5.35.27-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Shell interface.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Next, you'll see how to launch an instance via cloud shell.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="07. Launch an Instance.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('06. gcloud Command Line Tool')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

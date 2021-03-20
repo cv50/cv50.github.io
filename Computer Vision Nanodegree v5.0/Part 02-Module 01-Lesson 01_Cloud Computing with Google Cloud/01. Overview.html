@@ -1,0 +1,317 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Overview
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Cloud Computing with Google Cloud
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Overview.html">
+       01. Overview
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Login and Redeem Credits.html">
+       02. Login and Redeem Credits
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Create a Project.html">
+       03. Create a Project
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Access GPUs.html">
+       04. Access GPUs
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Define a Quota.html">
+       05. Define a Quota
+      </a>
+     </li>
+     <li class="">
+      <a href="06. gcloud Command Line Tool.html">
+       06. gcloud Command Line Tool
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Launch an Instance.html">
+       07. Launch an Instance
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Login to the Instance.html">
+       08. Login to the Instance
+      </a>
+     </li>
+     <li class="">
+      <a href="09. [IMPORTANT] Shutdown your Instance.html">
+       09. [IMPORTANT] Shutdown your Instance
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          01. Overview
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="why-use-gpus">
+          Why Use GPUs?
+         </h1>
+         <p>
+          Training and evaluating deep neural networks is a computationally intensive task. For modestly sized problems and datasets it may be possible to train your network on the CPU in your local machine, but it could take anywhere from 15 minutes to several hours depending on the number of epochs, the size of the neural networks, and other factors. A faster alternative is to train on a GPU (Graphics Processing Unit), which is a type of processor that supports greater parallelism.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="An NVIDIA GPU." class="img img-fluid" src="img/screen-shot-2018-07-24-at-12.27.11-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            An NVIDIA GPU.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="cloud-service-provider">
+          Cloud Service Provider
+         </h2>
+         <p>
+          If you do not already have a computer with a built-in NVIDIA GPU, we suggest you use a cloud service provider. As a student, you have the option to claim either Amazon Web Services (AWS) credits or Google Compute Engine (GCE) credits. In the next few sections, we’ll go over the step you need to take to get a neural network running on the cloud using both AWS and GCE. You can choose whichever service you prefer; you can read about the capabilities of
+          <a href="https://cloud.google.com/products/machine-learning/" rel="noopener noreferrer" target="_blank">
+           Google Cloud Platform
+          </a>
+          and
+          <a href="https://aws.amazon.com/ec2/?nc2=h_m1" rel="noopener noreferrer" target="_blank">
+           Amazon Elastic Compute Cloud
+          </a>
+          at the provided links. The credits for each service are separate, so you can try out both!
+         </p>
+         <p>
+          We recommend starting with Google Cloud and moving to AWS should you need more time or find that you prefer it's interface.
+         </p>
+         <p>
+          <strong>
+           Note:
+          </strong>
+          Please skip this section if you are planning to use your own GPU or CPU (or otherwise not planning to use a cloud platform).
+         </p>
+         <p>
+          <strong>
+           Note:
+          </strong>
+          Please contact student support for Google Compute Engine credits.
+         </p>
+         <p>
+          <strong>
+           Note:
+          </strong>
+          You may not use the services to engage in mining cryptocurrency.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <hr/>
+         <h1 id="outline">
+          Outline
+         </h1>
+         <p>
+          In this lesson, we'll go through the typical steps to setup, use, and shutdown a GPU instance.
+         </p>
+         <ol>
+          <li>
+           Setting up an account to redeem cloud credits
+          </li>
+          <li>
+           Defining and requesting a GPU instance
+          </li>
+          <li>
+           Launching an Instance
+          </li>
+          <li>
+           Logging into an Instance
+          </li>
+          <li>
+           <strong>
+            Shutting Down an Instance
+           </strong>
+          </li>
+         </ol>
+         <p>
+          This last step is important to ensure that you do not accrue additional charges.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="02. Login and Redeem Credits.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('01. Overview')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

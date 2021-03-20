@@ -1,0 +1,442 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Define a Quota
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Cloud Computing with Google Cloud
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Overview.html">
+       01. Overview
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Login and Redeem Credits.html">
+       02. Login and Redeem Credits
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Create a Project.html">
+       03. Create a Project
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Access GPUs.html">
+       04. Access GPUs
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Define a Quota.html">
+       05. Define a Quota
+      </a>
+     </li>
+     <li class="">
+      <a href="06. gcloud Command Line Tool.html">
+       06. gcloud Command Line Tool
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Launch an Instance.html">
+       07. Launch an Instance
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Login to the Instance.html">
+       08. Login to the Instance
+      </a>
+     </li>
+     <li class="">
+      <a href="09. [IMPORTANT] Shutdown your Instance.html">
+       09. [IMPORTANT] Shutdown your Instance
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          05. Define a Quota
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="define-a-quota">
+          Define a Quota
+         </h1>
+         <p>
+          After navigating to the Quotas page, you should see a large list of options. We recommend selecting a specific GPU to start.
+         </p>
+         <p>
+          From the drop-down menus, select:
+         </p>
+         <ul>
+          <li>
+           Service =
+           <code>
+            Compute Engine API
+           </code>
+          </li>
+          <li>
+           Metric =
+           <code>
+            NVIDIA K80 GPU
+           </code>
+          </li>
+          <li>
+           Location = Whichever of these
+           <em>
+            three
+           </em>
+           regions is closest to you:
+           <code>
+            asia-east1
+           </code>
+           ,
+           <code>
+            europe-west1
+           </code>
+           , or
+           <code>
+            us-west1
+           </code>
+          </li>
+         </ul>
+         <p>
+          It may be easiest to first select
+          <code>
+           None
+          </code>
+          for all options and then search for the Metric and Location yu want.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Select None to narrow your search." class="img img-fluid" src="img/select-none.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Select None to narrow your search.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Search for the GPU you want." class="img img-fluid" src="img/search-select.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Search for the GPU you want.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h4 id="location">
+          Location
+         </h4>
+         <p>
+          Location is for data collection and GPU pricing. If you are not sure of your location, it may be helpful to look at
+          <a href="https://cloud.google.com/about/locations/" rel="noopener noreferrer" target="_blank">
+           this guide
+          </a>
+          .
+         </p>
+         <p>
+          <strong>
+           Remember this location code as you will need to use to later to run a GPU-enabled environment.
+          </strong>
+          We suggest that you write it down on a piece of paper or as a note.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <hr/>
+         <h2 id="optional-increasing-your-gpu-usage">
+          (Optional) Increasing your GPU Usage
+         </h2>
+         <p>
+          It's okay to leave this instance as is, with a default of 8 GPUs.
+          <em>
+           If
+          </em>
+          you want to slightly increase your GPU usage, you may request access to one more by editing your quota.
+         </p>
+         <p>
+          Check the box next to your defined quota and click
+          <code>
+           Edit Quotas
+          </code>
+          (the
+          <code>
+           +
+          </code>
+          at the top of the screen). Enter your email, when prompted, and click
+          <code>
+           Next
+          </code>
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Edit a quota." class="img img-fluid" src="img/screen-shot-2018-07-24-at-4.46.38-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Edit a quota.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="new-limit">
+          New Limit
+         </h3>
+         <p>
+          When prompted for a
+          <code>
+           New quota limit
+          </code>
+          , you may find that you 1. have a default quota,
+          <strong>
+           if this value is equalt to or greater than 1
+          </strong>
+          , you can leave this as is and do not need to request any additional GPUs or 2. have a default of
+          <code>
+           0
+          </code>
+          in which case, you may ask for
+          <code>
+           1
+          </code>
+          GPU. In the second case, follow these instructions: in the
+          <code>
+           Request description
+          </code>
+          text box, write the following text:
+         </p>
+         <blockquote>
+          <p>
+           I request a quota increase for one GPU. I am a student in Udacity's Computer Vision nanodegree.
+          </p>
+         </blockquote>
+         <p>
+          (You may copy-paste from this page.)
+         </p>
+         <p>
+          <em>
+           Note: One GPU should be sufficient for the work in this course.
+          </em>
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          If you submit a request, you may see a pop-up, confirming the request.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          <strong>
+           Your quota request should be approved within 10 minutes.
+          </strong>
+         </p>
+         <p>
+          You will receive notification via your gmail account that you are logged in with. The new quota will be visible on the quotas page.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="06. gcloud Command Line Tool.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('05. Define a Quota')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>
