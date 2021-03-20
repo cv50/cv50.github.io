@@ -1,0 +1,79 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.290
+On your journey to becoming an expert in computer vision,
+
+00:00:03.290 --> 00:00:07.370
+it will often be up to you to think about how humans reason and interpret information.
+
+00:00:07.370 --> 00:00:11.254
+And then learn techniques to translate that reasoning into code.
+
+00:00:11.255 --> 00:00:15.480
+In this course, we focus on three main areas of computer vision techniques,
+
+00:00:15.480 --> 00:00:17.580
+that are modeled on human understanding.
+
+00:00:17.579 --> 00:00:21.014
+First, we look at the foundational math and programming concepts
+
+00:00:21.015 --> 00:00:24.164
+behind pattern recognition in classification tasks.
+
+00:00:24.164 --> 00:00:27.809
+This section will be all about creating algorithms that can one,
+
+00:00:27.809 --> 00:00:31.754
+isolate important distinguishing information about an object in an image,
+
+00:00:31.754 --> 00:00:34.289
+things like an objects unique shape or color.
+
+00:00:34.289 --> 00:00:37.530
+And two, how do you ignore irrelevant parts of an image,
+
+00:00:37.530 --> 00:00:39.914
+things like a plane background or noise.
+
+00:00:39.914 --> 00:00:43.019
+Second, we'll learn about deep learning algorithms that have
+
+00:00:43.020 --> 00:00:46.170
+led to state of the art advances in computer vision technology.
+
+00:00:46.170 --> 00:00:50.460
+We'll cover architectures like region based convolutional neural networks,
+
+00:00:50.460 --> 00:00:53.090
+that identify where an object is in an image.
+
+00:00:53.090 --> 00:00:56.025
+And we'll talk about models that use recurrent neural networks.
+
+00:00:56.024 --> 00:00:58.454
+This section will be all about applications that
+
+00:00:58.454 --> 00:01:01.379
+aim to reach human levels of scene understanding.
+
+00:01:01.380 --> 00:01:04.390
+Third, we'll discuss object tracking techniques.
+
+00:01:04.390 --> 00:01:06.739
+Using spatial information gathered over time,
+
+00:01:06.739 --> 00:01:10.964
+you'll learn about predicting the location of an object and determining its movement.
+
+00:01:10.965 --> 00:01:12.990
+This is an ongoing area of research,
+
+00:01:12.989 --> 00:01:17.189
+especially in the field of autonomous vehicles like self driving cars and drones.
+
+00:01:17.189 --> 00:01:21.159
+I'm really looking forward to covering such a variety of computer vision techniques.
+

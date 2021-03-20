@@ -1,0 +1,73 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.250 --> 00:00:08.089
+Welcome to the computer vision nanodegree program.
+
+00:00:08.089 --> 00:00:10.949
+I'm Suzanne Camacho, an expert in computer vision,
+
+00:00:10.949 --> 00:00:12.854
+and the curriculum lead for this program.
+
+00:00:12.855 --> 00:00:14.919
+Computer vision is how machines,
+
+00:00:14.919 --> 00:00:17.309
+like smartphones or robotic systems,
+
+00:00:17.309 --> 00:00:19.664
+visually perceive the world and respond to it.
+
+00:00:19.664 --> 00:00:21.919
+It's modeled after human vision.
+
+00:00:21.920 --> 00:00:25.710
+For example, I can look around this room and observe my surroundings.
+
+00:00:25.710 --> 00:00:27.464
+I noticed this desk in front of me,
+
+00:00:27.464 --> 00:00:28.800
+the mug on the desk,
+
+00:00:28.800 --> 00:00:31.679
+and the floor beneath me and I can describe what's in this room
+
+00:00:31.679 --> 00:00:35.085
+and even where I am in relation to all these objects.
+
+00:00:35.085 --> 00:00:37.995
+This is similar to how a robot might see the world.
+
+00:00:37.994 --> 00:00:41.429
+A robot can gather data through cameras and other sensors,
+
+00:00:41.429 --> 00:00:43.109
+and then use that input to identify
+
+00:00:43.109 --> 00:00:46.310
+different objects and safely move through its environment.
+
+00:00:46.310 --> 00:00:48.450
+In this course, will learn all about
+
+00:00:48.450 --> 00:00:52.905
+computer vision techniques that are used to analyze images and spatial information.
+
+00:00:52.905 --> 00:00:56.939
+We'll also talk about deep learning and how it's used in computer vision tasks
+
+00:00:56.939 --> 00:01:01.229
+to give machines a way to learn from data and recognize patterns in images.
+
+00:01:01.229 --> 00:01:03.719
+Before we jump into learning encoding,
+
+00:01:03.719 --> 00:01:07.799
+I'll first go over some details about where computer vision is used in industry,
+
+00:01:07.799 --> 00:01:11.299
+and what specific skills you'll be learning in this course.
+

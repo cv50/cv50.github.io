@@ -1,0 +1,79 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.669
+You might be wondering where computer vision fits in the world of AI.
+
+00:00:03.669 --> 00:00:06.330
+What kind of applications use computer vision?
+
+00:00:06.330 --> 00:00:08.759
+Well, computer vision is all about recognizing
+
+00:00:08.759 --> 00:00:11.379
+visual patterns and these patterns are everywhere.
+
+00:00:11.380 --> 00:00:13.320
+In fact, many of us have phones or
+
+00:00:13.320 --> 00:00:16.745
+other devices that use computer vision on a daily basis.
+
+00:00:16.745 --> 00:00:20.880
+Computer vision is used to focus a camera and apply filters to images.
+
+00:00:20.879 --> 00:00:23.640
+And deep learning models can even identify faces and
+
+00:00:23.640 --> 00:00:26.925
+images and categorize personal images and video.
+
+00:00:26.925 --> 00:00:31.484
+Computer vision is also widely used in state of the art medical technology.
+
+00:00:31.484 --> 00:00:36.195
+Some applications can even learn to recognize cancerous tissue by looking at lots of
+
+00:00:36.195 --> 00:00:38.039
+image data and learning the patterns that
+
+00:00:38.039 --> 00:00:40.964
+distinguish cancerous tissue from healthy tissue.
+
+00:00:40.965 --> 00:00:46.085
+Another example of an AI system is when we're working on at Udacity, a self-driving car.
+
+00:00:46.085 --> 00:00:48.990
+The car sees the world through cameras and sensors,
+
+00:00:48.990 --> 00:00:52.440
+and then uses that input to safely navigate roads by itself.
+
+00:00:52.439 --> 00:00:55.229
+Computer vision is used to analyze camera images
+
+00:00:55.229 --> 00:00:58.244
+and to identify objects like other cars or pedestrians.
+
+00:00:58.244 --> 00:01:00.719
+It's also used to recognize where the car is on
+
+00:01:00.719 --> 00:01:03.600
+the road and in the world based on the car's surroundings.
+
+00:01:03.600 --> 00:01:07.349
+So, here computer vision is not only used to identify objects,
+
+00:01:07.349 --> 00:01:10.364
+it's also used to build up a physical model of the world.
+
+00:01:10.364 --> 00:01:13.709
+These are just a few impact for applications of computer vision.
+
+00:01:13.709 --> 00:01:16.890
+Next, I'll talk about the skills you'll be learning in this course that
+
+00:01:16.890 --> 00:01:20.129
+will allow you to build computer vision applications of your own.
+

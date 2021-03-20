@@ -1,0 +1,148 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.270
+In this program, you'll learn from a variety of materials.
+
+00:00:03.270 --> 00:00:07.619
+instructional videos, quizzes, Python Code Notebooks, and projects.
+
+00:00:07.620 --> 00:00:08.820
+To get the most out of this course,
+
+00:00:08.820 --> 00:00:12.015
+it will be helpful to know what to expect from each of these sources.
+
+00:00:12.015 --> 00:00:15.825
+Videos, like you've already seen are short informational lectures.
+
+00:00:15.824 --> 00:00:17.879
+Some videos explain the theory behind
+
+00:00:17.879 --> 00:00:20.759
+a computer vision concept like image transformation,
+
+00:00:20.760 --> 00:00:23.700
+and others show a practical code implementation.
+
+00:00:23.699 --> 00:00:25.259
+We make the video short,
+
+00:00:25.260 --> 00:00:27.240
+to isolate individual concepts,
+
+00:00:27.239 --> 00:00:28.409
+and make it easy to review.
+
+00:00:28.410 --> 00:00:30.719
+So, feel free to pause and write notes,
+
+00:00:30.719 --> 00:00:33.359
+or watch a video multiple times, if that helps you.
+
+00:00:33.359 --> 00:00:34.979
+The program is self-paced,
+
+00:00:34.979 --> 00:00:37.049
+so you can decide for yourself how many videos to
+
+00:00:37.049 --> 00:00:39.479
+watch in one sitting and when to take a break.
+
+00:00:39.479 --> 00:00:42.479
+Now, it's hard to know if you've gained knowledge from these videos,
+
+00:00:42.479 --> 00:00:44.654
+unless you can apply that knowledge later on.
+
+00:00:44.655 --> 00:00:47.355
+That's why we built in three types of practice.
+
+00:00:47.354 --> 00:00:49.559
+First, in-between some of the videos,
+
+00:00:49.560 --> 00:00:51.255
+you'll find what we call quizzes.
+
+00:00:51.255 --> 00:00:53.370
+A quiz is typically a question that gets you
+
+00:00:53.369 --> 00:00:56.204
+actively thinking about the material you've been taking in.
+
+00:00:56.204 --> 00:01:00.224
+Quizzes are meant to give you a quick indication of your own skill level and progress.
+
+00:01:00.225 --> 00:01:01.440
+If you struggle with a quiz,
+
+00:01:01.439 --> 00:01:03.509
+it could mean that you should spend a little more time,
+
+00:01:03.509 --> 00:01:05.519
+reviewing the concept it's asking about.
+
+00:01:05.519 --> 00:01:07.694
+And if a quiz seems relatively easy,
+
+00:01:07.694 --> 00:01:09.434
+it should encourage you to move on.
+
+00:01:09.435 --> 00:01:11.700
+Second, in addition to quizzes,
+
+00:01:11.700 --> 00:01:14.650
+this course includes Python Notebooks for coding practice.
+
+00:01:14.650 --> 00:01:16.680
+Notebooks give you a chance to try out code,
+
+00:01:16.680 --> 00:01:19.305
+in a programming environment right in this classroom.
+
+00:01:19.305 --> 00:01:23.130
+These Notebooks are my preferred way of writing and testing out Python code,
+
+00:01:23.129 --> 00:01:24.689
+and they're a great way to get used to running
+
+00:01:24.689 --> 00:01:28.605
+computer vision Code and testing out your own functions and applications.
+
+00:01:28.605 --> 00:01:31.770
+Finally, you'll complete three Projects in this course.
+
+00:01:31.769 --> 00:01:34.049
+These are applications that are larger in scope than
+
+00:01:34.049 --> 00:01:36.629
+the Notebook Code examples and they give you practice,
+
+00:01:36.629 --> 00:01:38.744
+putting together multiple ideas.
+
+00:01:38.745 --> 00:01:41.975
+Projects will be Code reviewed by one of our technical reviewers.
+
+00:01:41.974 --> 00:01:45.179
+Meaning you'll get line by line feedback on what you're doing well,
+
+00:01:45.180 --> 00:01:46.920
+and what can be improved in your code.
+
+00:01:46.920 --> 00:01:49.379
+The project will really showcase your ability to
+
+00:01:49.379 --> 00:01:51.929
+apply the skills you've learned throughout this course.
+
+00:01:51.930 --> 00:01:53.610
+As you progress with this program,
+
+00:01:53.609 --> 00:01:56.859
+there are also several resources to help you keep moving forward,
+
+00:01:56.859 --> 00:01:58.679
+and you can read about those next.
+
