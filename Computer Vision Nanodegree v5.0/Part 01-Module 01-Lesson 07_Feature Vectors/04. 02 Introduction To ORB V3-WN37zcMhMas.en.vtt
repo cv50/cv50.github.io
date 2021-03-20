@@ -1,0 +1,76 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.495
+Orb, stands for Oriented Fast and Rotated Brief.
+
+00:00:03.495 --> 00:00:08.175
+Fast and brief, are a feature detection in a vector creation algorithm respectively.
+
+00:00:08.175 --> 00:00:11.970
+And we'll get into the math behind each of these algorithms in the next couple of videos.
+
+00:00:11.970 --> 00:00:16.350
+Orb, starts by finding special regions in an image called key points.
+
+00:00:16.350 --> 00:00:18.705
+In general, you can think of a key point as
+
+00:00:18.704 --> 00:00:22.439
+a small region in an image that's particularly distinctive.
+
+00:00:22.440 --> 00:00:23.885
+An example is Corners,
+
+00:00:23.885 --> 00:00:26.620
+where the pixel values sharply change from light to dark.
+
+00:00:26.620 --> 00:00:30.950
+Here we see an example of orb generated key points in this image of a cat.
+
+00:00:30.949 --> 00:00:34.994
+We see points around the cat's eyes and at the edges of its facial features.
+
+00:00:34.994 --> 00:00:37.659
+Once the key points in the image had been located,
+
+00:00:37.659 --> 00:00:42.194
+orb then calculates a corresponding feature vector for each key point.
+
+00:00:42.195 --> 00:00:47.005
+The orb algorithm creates feature vectors that only contain ones and zeros.
+
+00:00:47.005 --> 00:00:50.195
+For this reason, they're called the binary feature vectors.
+
+00:00:50.195 --> 00:00:53.079
+The sequence of ones and zeros varies according to
+
+00:00:53.079 --> 00:00:56.769
+what a specific key point and its surrounding pixel area look like.
+
+00:00:56.770 --> 00:01:00.270
+The vector represents the patterns of intensity around a key point.
+
+00:01:00.270 --> 00:01:04.380
+So, multiple feature vectors can be used to identify a larger area,
+
+00:01:04.379 --> 00:01:06.689
+and even a specific object in an image.
+
+00:01:06.689 --> 00:01:09.209
+Orb, is not only incredibly fast,
+
+00:01:09.209 --> 00:01:11.949
+but it's also impervious to noise illumination,
+
+00:01:11.950 --> 00:01:14.865
+and image transformations such as rotations.
+
+00:01:14.864 --> 00:01:18.329
+I mentioned that orb, stands for Oriented fast and Rotated Brief.
+
+00:01:18.329 --> 00:01:24.679
+Next, we'll take a closer look at how the fast and brief algorithms work.
+

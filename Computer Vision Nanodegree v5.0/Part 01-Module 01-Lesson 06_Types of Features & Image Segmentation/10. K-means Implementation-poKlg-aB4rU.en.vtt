@@ -1,0 +1,181 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.509
+Here I've read in an image of a monarch butterfly.
+
+00:00:03.509 --> 00:00:06.585
+And I want to segment this image into a few pieces,
+
+00:00:06.585 --> 00:00:11.190
+just enough to separate the background green scenery and the orange and black butterfly.
+
+00:00:11.189 --> 00:00:13.472
+To perform K-means segmentation,
+
+00:00:13.473 --> 00:00:16.140
+I'm going to focus on one distinguishing feature,
+
+00:00:16.140 --> 00:00:17.964
+the color of each pixel.
+
+00:00:17.964 --> 00:00:20.574
+I'll need to reshape this image so that I'm
+
+00:00:20.574 --> 00:00:23.714
+feeding in a 2D array to the K-means algorithm.
+
+00:00:23.714 --> 00:00:25.995
+It should be m by three in dimension,
+
+00:00:25.995 --> 00:00:30.359
+where m is the number of pixels and three is the number of color channels.
+
+00:00:30.359 --> 00:00:33.409
+I'll also convert these values to a float type.
+
+00:00:33.409 --> 00:00:36.778
+This is all done to prepare the data for K-means clustering.
+
+00:00:36.779 --> 00:00:40.710
+OpenCvs K-means function will expect this kind of data.
+
+00:00:40.710 --> 00:00:42.509
+Then to perform K-means,
+
+00:00:42.509 --> 00:00:45.449
+I just use cv2.Kmeans function.
+
+00:00:45.450 --> 00:00:49.515
+This takes in our m by three array of pixel values that we just created.
+
+00:00:49.515 --> 00:00:52.814
+Then a value for K which I've initially set as two.
+
+00:00:52.814 --> 00:00:54.629
+Then any labels we want,
+
+00:00:54.630 --> 00:00:56.100
+none in this case.
+
+00:00:56.100 --> 00:00:57.615
+Then our stop criteria,
+
+00:00:57.615 --> 00:00:59.070
+which I'll have to define.
+
+00:00:59.070 --> 00:01:01.859
+Then a number of attempts and finally how we
+
+00:01:01.859 --> 00:01:04.759
+choose our initial center points, which is randomly.
+
+00:01:04.759 --> 00:01:07.650
+But let's go back to our criteria for a moment.
+
+00:01:07.650 --> 00:01:10.855
+I'm actually going to define this above this function call.
+
+00:01:10.855 --> 00:01:13.685
+The criteria tells this algorithm when to stop.
+
+00:01:13.685 --> 00:01:19.424
+Here, I'm making that criteria a value of epsilon or a max number of iterations.
+
+00:01:19.424 --> 00:01:24.060
+The max number of iterations are 10 and epsilon is a value we briefly
+
+00:01:24.060 --> 00:01:28.500
+talked about earlier where if the clusters move less than this after some iteration,
+
+00:01:28.500 --> 00:01:31.620
+the algorithm stops, it's reached convergence.
+
+00:01:31.620 --> 00:01:33.540
+Now I'm choosing a low value of k at
+
+00:01:33.540 --> 00:01:36.515
+first because it will take a shorter time to process.
+
+00:01:36.515 --> 00:01:38.954
+And a K equal to two should produce
+
+00:01:38.954 --> 00:01:42.939
+a binary image of the two most prevalent colors in the image.
+
+00:01:42.939 --> 00:01:45.840
+Then K-means produces an output that results in
+
+00:01:45.840 --> 00:01:51.295
+the cluster labels 0 and 1 in this binary case and the center points.
+
+00:01:51.295 --> 00:01:53.655
+Next, you'll want to display this result.
+
+00:01:53.655 --> 00:01:55.195
+To display the segments,
+
+00:01:55.194 --> 00:01:58.879
+I'll need to convert the data back into an 8-bit image.
+
+00:01:58.879 --> 00:02:03.989
+I'll also reshape this segmented data into the original shape of the image copy.
+
+00:02:03.989 --> 00:02:09.365
+Now I'll be able to plot the segmented image as I would any other image.
+
+00:02:09.365 --> 00:02:12.159
+It takes a short amount of time and you can see that this image
+
+00:02:12.159 --> 00:02:15.424
+is now broken down into two distinct segments.
+
+00:02:15.425 --> 00:02:20.135
+One cluster is this orange value and one a sort of dark swampy green background.
+
+00:02:20.134 --> 00:02:22.944
+And I can actually visualize the cluster labels
+
+00:02:22.944 --> 00:02:26.044
+by displaying them one at a time like a mask.
+
+00:02:26.044 --> 00:02:28.964
+Let's see the label equal to one.
+
+00:02:28.965 --> 00:02:33.870
+So here we can see that cluster one contains the colorful butterfly and flower pixels.
+
+00:02:33.870 --> 00:02:35.715
+This is our orange cluster.
+
+00:02:35.715 --> 00:02:41.319
+I can even go so far as using this information to mask the image at this segment.
+
+00:02:41.319 --> 00:02:45.329
+Here you can see I blocked out that whole segment.
+
+00:02:45.330 --> 00:02:50.080
+But let's go back to our K-means step up here and instead of having an equal to
+
+00:02:50.080 --> 00:02:56.030
+two let's up this K to six and run it again.
+
+00:02:56.030 --> 00:03:01.219
+This took longer to process but now you can see six distinct colors segments.
+
+00:03:01.219 --> 00:03:02.629
+There is a brighter orange for
+
+00:03:02.629 --> 00:03:07.218
+the butterfly's wings and colors for the flowers and different green background.
+
+00:03:07.218 --> 00:03:11.219
+And I can do anything I want with each of these segments like masking
+
+00:03:11.219 --> 00:03:15.530
+or performing some analysis just on the wings of the butterfly or background.
+
+00:03:15.530 --> 00:03:18.000
+So segmentation can be a powerful tool.
+

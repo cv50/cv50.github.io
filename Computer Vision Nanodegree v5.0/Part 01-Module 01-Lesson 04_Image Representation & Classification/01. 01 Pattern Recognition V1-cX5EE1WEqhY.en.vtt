@@ -1,0 +1,52 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.250
+The first step in recognizing patterns in
+
+00:00:02.250 --> 00:00:05.910
+images is learning how images are seen by computers.
+
+00:00:05.910 --> 00:00:09.150
+For example, say you want to find the boundary of an object.
+
+00:00:09.150 --> 00:00:13.919
+A common task is separating an object like a human from a background.
+
+00:00:13.919 --> 00:00:17.684
+For us, it's easy to see where the background ends and the human begins.
+
+00:00:17.684 --> 00:00:20.129
+But how do we formalize this in code?
+
+00:00:20.129 --> 00:00:22.289
+That's what this first lesson is all about.
+
+00:00:22.289 --> 00:00:25.289
+First, we'll talk about how images are represented as
+
+00:00:25.289 --> 00:00:29.250
+numerical data and learn some foundational image processing techniques.
+
+00:00:29.250 --> 00:00:31.454
+Then, we'll learn how to extract
+
+00:00:31.454 --> 00:00:36.500
+distinguishing features about certain objects in an image like their color or shape.
+
+00:00:36.500 --> 00:00:38.250
+Near the end of this lesson,
+
+00:00:38.250 --> 00:00:40.380
+we'll get into deep learning techniques and
+
+00:00:40.380 --> 00:00:43.500
+convolutional neural network structures that can learn how to
+
+00:00:43.500 --> 00:00:46.320
+extract these distinguishing features and can be
+
+00:00:46.320 --> 00:00:50.000
+used in complex classification tasks. Let's dive in.
+

@@ -1,0 +1,214 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.250
+So let's see how to create our own high pass filter.
+
+00:00:04.250 --> 00:00:07.820
+First I'll show you how to define your own custom kernel and later
+
+00:00:07.820 --> 00:00:12.490
+we'll use openCV functions to help us build commonly used filters.
+
+00:00:12.490 --> 00:00:14.515
+Here's an image of a building.
+
+00:00:14.515 --> 00:00:17.199
+It's actually San Francisco City Hall.
+
+00:00:17.199 --> 00:00:22.149
+I read it in and as usual I've made an RGB copy for image processing.
+
+00:00:22.149 --> 00:00:25.274
+The first thing I'll do is to convert this to grayscale
+
+00:00:25.274 --> 00:00:29.279
+using CVT color and the code RGB to gray.
+
+00:00:29.280 --> 00:00:34.070
+This way a filter will be able to detect changes in image intensity.
+
+00:00:34.070 --> 00:00:37.643
+Next, I'll create a custom edge detection filter.
+
+00:00:37.643 --> 00:00:42.719
+I want to build one that detects vertical edges and ignores horizontal edges.
+
+00:00:42.719 --> 00:00:46.560
+I'll do this by making a three by three matrix and using values that will
+
+00:00:46.560 --> 00:00:51.920
+calculate the difference between the left and right sides of this pixel area in an image.
+
+00:00:51.920 --> 00:00:55.160
+I'm starting with an empty three by three kernel.
+
+00:00:55.159 --> 00:00:57.929
+I'll put negative values on the left side,
+
+00:00:57.929 --> 00:00:59.520
+weighty in the corners,
+
+00:00:59.520 --> 00:01:02.325
+less in the edges right next to the center pixel.
+
+00:01:02.325 --> 00:01:08.484
+I'll put zeros in the center column and then positive values on the right side.
+
+00:01:08.484 --> 00:01:12.750
+This kernel one centered on an image pixel will calculate the difference
+
+00:01:12.750 --> 00:01:17.995
+between pixels on the right side and the left thereby detecting vertical edges.
+
+00:01:17.995 --> 00:01:22.150
+This is actually a really common filter called the sobel filter.
+
+00:01:22.150 --> 00:01:28.755
+The sobel filter detects abrupt intensity changes in the x and y direction separately.
+
+00:01:28.754 --> 00:01:32.849
+This one is an approximation of the gradient or change in intensity over
+
+00:01:32.849 --> 00:01:37.530
+space in the x direction and I'll actually name it sobel X.
+
+00:01:37.530 --> 00:01:41.689
+Then, to convolve this filter with the input image,
+
+00:01:41.689 --> 00:01:45.370
+I'll use an openCV function called Filter2D.
+
+00:01:45.370 --> 00:01:47.840
+This function takes in an input image,
+
+00:01:47.840 --> 00:01:49.760
+the type of output image,
+
+00:01:49.760 --> 00:01:54.052
+a negative one just means the output will have the same type as the input image,
+
+00:01:54.052 --> 00:01:56.190
+and finally the kernel we just created,
+
+00:01:56.189 --> 00:02:00.789
+sobel X, and it produces a filtered image.
+
+00:02:00.790 --> 00:02:03.829
+Let's display it and see what it looks like.
+
+00:02:03.828 --> 00:02:05.884
+I see basically what I expected.
+
+00:02:05.885 --> 00:02:09.599
+All the vertical edges are highlighted and this kind of filter
+
+00:02:09.599 --> 00:02:14.629
+helps me detect the vertical edges of the building and the structures that surround it.
+
+00:02:14.629 --> 00:02:17.069
+My last step which is a useful thing to learn in
+
+00:02:17.069 --> 00:02:20.840
+computer vision is turning this image into a binary image.
+
+00:02:20.840 --> 00:02:22.469
+That is, I want to turn this into
+
+00:02:22.469 --> 00:02:27.629
+a purely black and white image with the strongest edges clearly visible.
+
+00:02:27.629 --> 00:02:31.564
+To do that I can use the openCV function threshold.
+
+00:02:31.564 --> 00:02:35.490
+This takes in our filtered image that we want to perform the threshold on,
+
+00:02:35.490 --> 00:02:38.280
+a low value for the pixel values to pass through
+
+00:02:38.280 --> 00:02:43.055
+and I'll set this at a medium high level at 100.
+
+00:02:43.055 --> 00:02:48.230
+Then it takes in the pixel value to turn these all into which I'll set as white or 255.
+
+00:02:48.230 --> 00:02:50.340
+And finally the type of threshold,
+
+00:02:50.340 --> 00:02:53.819
+a binary threshold and I'll display this image.
+
+00:02:53.819 --> 00:02:57.719
+Here we can see the stronger edges clearly and if I
+
+00:02:57.719 --> 00:03:02.039
+lower this threshold to say 50 and run this code again,
+
+00:03:02.039 --> 00:03:04.590
+I'll detect more edges.
+
+00:03:04.590 --> 00:03:08.164
+In fact too many edges to really be helpful.
+
+00:03:08.164 --> 00:03:11.340
+So let's go back to a 100 threshold.
+
+00:03:11.340 --> 00:03:13.740
+So here I am zooming in to see the difference between
+
+00:03:13.740 --> 00:03:17.439
+this first filtered image and this second binary image.
+
+00:03:17.439 --> 00:03:19.800
+We can see that in addition to the edges of
+
+00:03:19.800 --> 00:03:22.204
+the building and windows and other structures,
+
+00:03:22.204 --> 00:03:25.110
+there are a lot of other smaller detected edges.
+
+00:03:25.110 --> 00:03:27.265
+These dots on the grass for example.
+
+00:03:27.264 --> 00:03:31.864
+These don't provide any extra information about the building or scenery.
+
+00:03:31.865 --> 00:03:34.080
+They're really just bloody noise.
+
+00:03:34.080 --> 00:03:37.455
+Noise is usually represented as dots or fuzzy details.
+
+00:03:37.455 --> 00:03:39.465
+By detecting edges like this
+
+00:03:39.465 --> 00:03:43.094
+a high pass filter can actually exaggerate noise in an image.
+
+00:03:43.094 --> 00:03:45.629
+So we have to be cautious when we apply these filters.
+
+00:03:45.629 --> 00:03:51.759
+Often we have to take an additional step to make sure we don't enhance undesirable noise.
+
+00:03:51.759 --> 00:03:54.269
+Soon we'll see that we can use a low pass filter
+
+00:03:54.270 --> 00:03:56.969
+to blur an image and reduce unwanted noise.
+
+00:03:56.969 --> 00:03:59.039
+We'll often do this before applying
+
+00:03:59.039 --> 00:04:02.474
+a high pass filter like this and we'll get into the applications
+
+00:04:02.474 --> 00:04:04.620
+of low pass filters after you get
+
+00:04:04.620 --> 00:04:08.159
+a little more practice applying high pass edge detection and filters.
+

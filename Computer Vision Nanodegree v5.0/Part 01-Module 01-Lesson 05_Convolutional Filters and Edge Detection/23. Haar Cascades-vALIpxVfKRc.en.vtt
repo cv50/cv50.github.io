@@ -1,0 +1,133 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.460 --> 00:00:06.110
+Let's build on top of our knowledge about feature extraction and object recognition,
+
+00:00:06.110 --> 00:00:10.760
+and think about how we might be able to simplify and speed up this whole pipeline.
+
+00:00:10.759 --> 00:00:12.605
+In this example, we'll be building
+
+00:00:12.605 --> 00:00:16.695
+a face detector working with an algorithm called Haar cascades.
+
+00:00:16.695 --> 00:00:20.120
+This algorithm works by training on many positive images
+
+00:00:20.120 --> 00:00:24.440
+(images of faces) and negative images (images without faces).
+
+00:00:24.440 --> 00:00:26.520
+First, from each image,
+
+00:00:26.519 --> 00:00:28.995
+it detects so-called Haar features.
+
+00:00:28.995 --> 00:00:33.140
+Haar features are gradient measurements that look at rectangular regions around
+
+00:00:33.140 --> 00:00:38.329
+a certain pixel area and somewhat subtract these areas to calculate a pixel difference.
+
+00:00:38.329 --> 00:00:40.729
+This is similar to how convolution kernels work,
+
+00:00:40.729 --> 00:00:42.607
+only at a larger scale.
+
+00:00:42.607 --> 00:00:45.164
+Haar features detect patterns like edges,
+
+00:00:45.164 --> 00:00:48.159
+lines, and more complex rectangular patterns.
+
+00:00:48.159 --> 00:00:50.014
+In the case of face detection,
+
+00:00:50.015 --> 00:00:54.335
+lines and rectangles are especially useful features because patterns
+
+00:00:54.335 --> 00:00:59.109
+of alternating bright and dark areas define a lot of features on a face.
+
+00:00:59.109 --> 00:01:02.795
+For example, our pupils are typically a very dark feature,
+
+00:01:02.795 --> 00:01:07.278
+and cheeks and chins define a high gradient outline for a face.
+
+00:01:07.278 --> 00:01:10.039
+So far, Haar features are looking pretty similar
+
+00:01:10.040 --> 00:01:12.965
+to the beginning steps of a convolutional neural network,
+
+00:01:12.965 --> 00:01:15.200
+or even HOG feature extraction,
+
+00:01:15.200 --> 00:01:16.832
+but the next step is different,
+
+00:01:16.832 --> 00:01:18.530
+it's a series of cascades.
+
+00:01:18.530 --> 00:01:20.519
+For any image of a face,
+
+00:01:20.519 --> 00:01:24.420
+a large portion of this image will be a non-face region.
+
+00:01:24.420 --> 00:01:26.614
+So what a Haar cascade does is,
+
+00:01:26.614 --> 00:01:28.864
+it looks at an image and applies
+
+00:01:28.864 --> 00:01:32.284
+a Haar feature detector like this vertical line detector,
+
+00:01:32.284 --> 00:01:35.939
+and then performs classification on the entire image.
+
+00:01:35.939 --> 00:01:39.379
+If it doesn't get enough of a feature detection response,
+
+00:01:39.379 --> 00:01:44.509
+it classifies an area of an image as "not face" and discards this information.
+
+00:01:44.510 --> 00:01:47.300
+Then, it feeds this reduced image area to
+
+00:01:47.299 --> 00:01:50.704
+the next feature detector and classifies the image again,
+
+00:01:50.704 --> 00:01:54.769
+discarding irrelevant non-face areas at every step.
+
+00:01:54.769 --> 00:01:57.334
+This is called a "cascade of classifiers."
+
+00:01:57.334 --> 00:02:00.379
+In this way, Haar cascades focus on processing
+
+00:02:00.379 --> 00:02:03.530
+and recognizing only the area in an image that's been
+
+00:02:03.530 --> 00:02:07.040
+classified as part of a face already and quickly throwing
+
+00:02:07.040 --> 00:02:10.760
+out irrelevant image data makes this algorithm very fast,
+
+00:02:10.759 --> 00:02:15.259
+fast enough for processing a video stream in real time on a laptop computer.
+
+00:02:15.259 --> 00:02:19.250
+Haar cascades may also be used in selecting an area of
+
+00:02:19.250 --> 00:02:24.000
+interest for further processing so let's get more practice with Haar cascades.
+

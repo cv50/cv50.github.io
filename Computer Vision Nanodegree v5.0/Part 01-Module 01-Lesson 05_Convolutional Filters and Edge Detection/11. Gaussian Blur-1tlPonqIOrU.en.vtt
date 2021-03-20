@@ -1,0 +1,142 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.569 --> 00:00:07.519
+Instead of using an all around averaging filter,
+
+00:00:07.519 --> 00:00:12.660
+we may want to filter that both blurs and image and better preserves the edges in it.
+
+00:00:12.660 --> 00:00:15.345
+And for that we use gaussian blur.
+
+00:00:15.345 --> 00:00:20.830
+This is perhaps the most frequently used low-pass filter in computer vision applications.
+
+00:00:20.829 --> 00:00:24.939
+It's essentially a weighted average that gives the most weight to the center pixel,
+
+00:00:24.940 --> 00:00:26.320
+but also takes into account
+
+00:00:26.320 --> 00:00:30.984
+the surrounding pixels more so depending on how close they are to the center.
+
+00:00:30.984 --> 00:00:34.119
+This is similar to the first edge detection filter we went through,
+
+00:00:34.119 --> 00:00:36.265
+only these components are all positive,
+
+00:00:36.265 --> 00:00:38.520
+normalized, and summed to one.
+
+00:00:38.520 --> 00:00:44.410
+Here, I read in the same image of a brain that you've seen before with speckle noise.
+
+00:00:44.409 --> 00:00:45.649
+And we can see that noise better,
+
+00:00:45.649 --> 00:00:47.339
+if we zoom in a little bit.
+
+00:00:47.340 --> 00:00:52.220
+And I'm going to go through applying a Gaussian blur filter to reduce this noise.
+
+00:00:52.219 --> 00:00:54.079
+Before I filter the image,
+
+00:00:54.079 --> 00:00:56.539
+I first have to convert it to grayscale.
+
+00:00:56.539 --> 00:00:59.755
+Then, because this filter is so commonly used,
+
+00:00:59.755 --> 00:01:04.225
+openCV provides a function to use it called Gaussian blur.
+
+00:01:04.224 --> 00:01:06.684
+This function takes in our grayscale image,
+
+00:01:06.685 --> 00:01:08.879
+the size we want our kernel to be,
+
+00:01:08.879 --> 00:01:10.655
+which I'll put as five by five,
+
+00:01:10.655 --> 00:01:13.765
+which is slightly bigger than our usual three by three.
+
+00:01:13.765 --> 00:01:16.049
+And lastly, our standard deviation which will
+
+00:01:16.049 --> 00:01:18.879
+automatically be calculated if I set this to zero,
+
+00:01:18.879 --> 00:01:21.774
+and you can learn more about this math in text.
+
+00:01:21.775 --> 00:01:26.710
+For now, know that creating a bigger filter will create a slightly bigger blur.
+
+00:01:26.709 --> 00:01:29.414
+We still need the filter it to be of odd dimensions
+
+00:01:29.415 --> 00:01:33.070
+that we can center each pixel of our image in this kernel.
+
+00:01:33.069 --> 00:01:36.574
+Then I'll plot these images side by side.
+
+00:01:36.575 --> 00:01:38.719
+Here's our original grayscale image,
+
+00:01:38.719 --> 00:01:41.674
+and next to it is this blurred version.
+
+00:01:41.674 --> 00:01:44.149
+If we zoom in, we can see that the speckle in
+
+00:01:44.150 --> 00:01:48.330
+this original image is significantly reduced in this blurred image.
+
+00:01:48.329 --> 00:01:51.640
+Lastly, I'll apply a sobel edge detector to
+
+00:01:51.640 --> 00:01:56.590
+both the unblurred grayscale image and the blurred version to compare their performance.
+
+00:01:56.590 --> 00:02:02.350
+Using filter2D, I'm creating both high pass filtered images: One,
+
+00:02:02.349 --> 00:02:06.189
+using our original grayscale and one using our blurred version.
+
+00:02:06.189 --> 00:02:09.734
+And again I'll plot both side by side.
+
+00:02:09.735 --> 00:02:11.680
+You can see that the non-blurred image is
+
+00:02:11.680 --> 00:02:15.610
+much noisier and the blurred image has more accurate edge detection,
+
+00:02:15.610 --> 00:02:19.405
+especially in the brain tissue region that we care most about.
+
+00:02:19.405 --> 00:02:21.844
+For this and many other images,
+
+00:02:21.844 --> 00:02:24.189
+it's very common to first pass an image through
+
+00:02:24.189 --> 00:02:28.150
+a small low pass filter like a Gaussian blur to get rid of noise,
+
+00:02:28.150 --> 00:02:31.784
+and then apply a high pass filter for edge detection.
+
+00:02:31.784 --> 00:02:35.000
+So keep this ordering in mind as you filter images.
+

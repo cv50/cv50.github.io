@@ -1,0 +1,136 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.400 --> 00:00:04.339
+The simplest boundary you can detect is a line,
+
+00:00:04.339 --> 00:00:08.419
+and more complex boundaries are often made up of several lines.
+
+00:00:08.419 --> 00:00:11.134
+For example, in document or photo scanning,
+
+00:00:11.134 --> 00:00:13.115
+documents are typically rectangular,
+
+00:00:13.115 --> 00:00:16.829
+and so their boundary can be thought of as four lines placed together.
+
+00:00:16.829 --> 00:00:18.980
+And when you do edge detection,
+
+00:00:18.980 --> 00:00:23.839
+you'll find that edges when pieced together form longer line segments and shapes.
+
+00:00:23.839 --> 00:00:28.039
+We can think of representing any line as a function of space.
+
+00:00:28.039 --> 00:00:33.810
+In image space, the equation that represents a line is y=m x + b,
+
+00:00:33.810 --> 00:00:39.130
+where m is the slope of the line and B is how far it shifted up or down.
+
+00:00:39.130 --> 00:00:44.000
+And here M_0 and B_0 are just specific constant values.
+
+00:00:44.000 --> 00:00:45.945
+A useful transformation is moving
+
+00:00:45.945 --> 00:00:49.534
+this line representation from image space to Hough space,
+
+00:00:49.534 --> 00:00:51.849
+also called parameter space.
+
+00:00:51.850 --> 00:00:56.030
+The Hough transform converts data points from image space to Hough space,
+
+00:00:56.030 --> 00:00:58.670
+and represents a line in the simplest way.
+
+00:00:58.670 --> 00:01:01.864
+As a point at the coordinate m_0 b_0,
+
+00:01:01.863 --> 00:01:06.409
+which are the same M and B from the line equation y=m x + b.
+
+00:01:06.409 --> 00:01:09.079
+Multiple lines in image space can be
+
+00:01:09.079 --> 00:01:12.635
+represented by multiple m and b coordinates in Hough space.
+
+00:01:12.635 --> 00:01:16.880
+And patterns in Hough space can help us identify lines or other shapes.
+
+00:01:16.879 --> 00:01:19.625
+You can think about this the other way round too.
+
+00:01:19.625 --> 00:01:25.614
+For example, look at these two lines in Hough space that intersect at the point m_0, b_0.
+
+00:01:25.614 --> 00:01:30.098
+What do you think this intersection point looks like in image space?
+
+00:01:30.099 --> 00:01:34.609
+It's the line with the equation y = m_0 x + b_0.
+
+00:01:34.608 --> 00:01:37.219
+And if we have a line made of mini segments or
+
+00:01:37.219 --> 00:01:40.549
+points close to the same line equation in image space,
+
+00:01:40.549 --> 00:01:44.539
+this turns into many intersecting lines in Hough space.
+
+00:01:44.540 --> 00:01:47.060
+Imagine this line as part of an edge detected
+
+00:01:47.060 --> 00:01:51.165
+image where a line just has some small discontinuities in it.
+
+00:01:51.165 --> 00:01:54.020
+Our strategy then for finding continuous lines in
+
+00:01:54.019 --> 00:01:58.125
+an image is to look at intersection points in Hough space.
+
+00:01:58.125 --> 00:01:59.944
+This is a simplified example,
+
+00:01:59.944 --> 00:02:02.869
+and you may have thought about the case of a line straight up and
+
+00:02:02.870 --> 00:02:06.060
+down which technically has an infinite slope.
+
+00:02:06.060 --> 00:02:08.344
+So a better way to transform image space
+
+00:02:08.344 --> 00:02:11.305
+is by turning Hough space into polar coordinates.
+
+00:02:11.305 --> 00:02:13.713
+So instead of m and b, we have rho,
+
+00:02:13.713 --> 00:02:17.194
+which is the distance of the line from the origin and theta,
+
+00:02:17.194 --> 00:02:20.375
+which is the angle from the horizontal axis.
+
+00:02:20.375 --> 00:02:23.990
+Now, a fragmented line or points that fall in a line can be
+
+00:02:23.990 --> 00:02:28.070
+identified in Hough space as the intersection of sinusoids.
+
+00:02:28.069 --> 00:02:30.680
+Now, let's test your knowledge of Hough space then walk
+
+00:02:30.680 --> 00:02:33.689
+through how to use this transform to identify lines.
+

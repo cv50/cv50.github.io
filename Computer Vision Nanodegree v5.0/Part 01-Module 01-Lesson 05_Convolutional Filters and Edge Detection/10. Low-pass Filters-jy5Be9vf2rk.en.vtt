@@ -1,0 +1,166 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.520 --> 00:00:09.224
+Earlier you saw an example of noise in an image of San Francisco City Hall.
+
+00:00:09.224 --> 00:00:12.469
+This noise is generally seen as speckles or discoloration in
+
+00:00:12.470 --> 00:00:16.195
+an image and it doesn't contain any useful information.
+
+00:00:16.195 --> 00:00:19.370
+It might even mess with processing steps such as
+
+00:00:19.370 --> 00:00:24.199
+an edge detection when high pass filters can amplify noise if it's not removed first.
+
+00:00:24.199 --> 00:00:29.210
+The most common way to remove noise is by using a low pass filter.
+
+00:00:29.210 --> 00:00:32.329
+These filters block certain high frequency content and
+
+00:00:32.329 --> 00:00:35.839
+effectively blur or smooth the appearance of an image,
+
+00:00:35.840 --> 00:00:38.750
+and this reduces high frequency noise.
+
+00:00:38.750 --> 00:00:43.189
+An example where this is very useful is in medical images which typically have
+
+00:00:43.189 --> 00:00:49.000
+noise that's produced either by the imagery machinery or by a moving human subject.
+
+00:00:49.000 --> 00:00:53.155
+Let's take a closer look at this cross-sectional image of a human brain.
+
+00:00:53.155 --> 00:00:56.179
+We can clearly see the outline of a skull and brain but
+
+00:00:56.179 --> 00:00:59.448
+we also see a lot of sort of salt and pepper speckle,
+
+00:00:59.448 --> 00:01:02.000
+and this is high frequency noise.
+
+00:01:02.000 --> 00:01:06.605
+You can imagine if we applied a high pass filter with the goal of detecting edges,
+
+00:01:06.605 --> 00:01:10.814
+we would detect and amplify a lot of this spotty noise.
+
+00:01:10.814 --> 00:01:15.530
+We can reduce this noise by taking a kind of average between neighboring pixels so
+
+00:01:15.530 --> 00:01:20.448
+that there are not such big jumps in intensity especially in small areas.
+
+00:01:20.448 --> 00:01:23.149
+This averaging of pixels in space is equivalent to
+
+00:01:23.150 --> 00:01:27.560
+implementing a low pass filter that blocks high frequency noise.
+
+00:01:27.560 --> 00:01:31.060
+Let's see an example of a common kernel that does this.
+
+00:01:31.060 --> 00:01:33.920
+The first and simplest is the averaging filter.
+
+00:01:33.920 --> 00:01:36.195
+It's a three by three kernel that weights are sent to
+
+00:01:36.194 --> 00:01:39.419
+pixel and its surrounding pixels all the same.
+
+00:01:39.420 --> 00:01:44.325
+Low pass filters typically take an average and not a difference as high pass filters do.
+
+00:01:44.325 --> 00:01:47.125
+So their components should all add up to one.
+
+00:01:47.125 --> 00:01:49.280
+This will preserve the image brightness and make sure
+
+00:01:49.280 --> 00:01:52.155
+that it doesn't get brighter or darker overall.
+
+00:01:52.155 --> 00:01:55.590
+But we can see that the components of this kernel add up to nine.
+
+00:01:55.590 --> 00:02:00.195
+So we need to normalize by dividing the total value of the kernel by nine.
+
+00:02:00.194 --> 00:02:03.169
+Then our total sum becomes one.
+
+00:02:03.170 --> 00:02:07.189
+Now let's go back to our main image and see what a convolution looks like between
+
+00:02:07.189 --> 00:02:12.620
+the image F of XY and the kernel K. Here's a zoomed in portion of the image.
+
+00:02:12.620 --> 00:02:14.390
+To perform convolution we put
+
+00:02:14.389 --> 00:02:17.824
+our three by three kernel on top of each pixel in our image.
+
+00:02:17.824 --> 00:02:21.734
+I'll choose this dark one with a value of 40 as our center pixel.
+
+00:02:21.735 --> 00:02:24.740
+Then looking at all the values in this three by three square,
+
+00:02:24.740 --> 00:02:27.860
+we perform multiplication in pairs using the weights in
+
+00:02:27.860 --> 00:02:31.310
+our kernel to multiply all the pixel values.
+
+00:02:31.310 --> 00:02:36.129
+In this case, we're multiplying all the values by one and summing them up.
+
+00:02:36.129 --> 00:02:39.514
+Our last step will be dividing by nine to normalize the image
+
+00:02:39.514 --> 00:02:43.759
+and get a corresponding output pixel value, 85.
+
+00:02:43.759 --> 00:02:45.739
+We can see that this is just an average of
+
+00:02:45.740 --> 00:02:48.780
+the center pixel and its surrounding neighbor pixels.
+
+00:02:48.780 --> 00:02:52.324
+Since the surrounding pixels are mostly brighter than the center pixel,
+
+00:02:52.324 --> 00:02:55.489
+the new output pixel value is brighter too.
+
+00:02:55.490 --> 00:02:58.585
+If we do this with all the pixels in this image,
+
+00:02:58.585 --> 00:03:04.010
+we'll get an average to smoothed out image with fewer abrupt changes in intensity.
+
+00:03:04.009 --> 00:03:06.870
+This can be useful for blowing out noise or making
+
+00:03:06.870 --> 00:03:11.175
+a background area within a certain intensity range look more uniform.
+
+00:03:11.175 --> 00:03:13.560
+In fact, this sort of filter is even used in
+
+00:03:13.560 --> 00:03:16.789
+Photoshop to soften and blur parts of an image.
+
+00:03:16.789 --> 00:03:19.000
+Next, let's see how to do this in code.
+

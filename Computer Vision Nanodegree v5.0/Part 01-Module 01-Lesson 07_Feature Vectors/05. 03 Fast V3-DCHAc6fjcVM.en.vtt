@@ -1,0 +1,151 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.785
+The first step in ORB feature detection is to find the key points in an image,
+
+00:00:04.785 --> 00:00:06.839
+which is done by the FAST Algorithm.
+
+00:00:06.839 --> 00:00:10.259
+FAST stands for Features from Accelerated Segments Test,
+
+00:00:10.259 --> 00:00:12.209
+and it quickly select key points by
+
+00:00:12.210 --> 00:00:15.135
+comparing the brightness levels in a given pixel area.
+
+00:00:15.134 --> 00:00:18.390
+Given a pixel, which I'll call p in an image,
+
+00:00:18.390 --> 00:00:23.219
+FAST compares the brightness of p to a set of 16 surrounding pixels that are in
+
+00:00:23.219 --> 00:00:29.009
+a small circle around p. Each pixel in this circle is then sorted into three classes,
+
+00:00:29.009 --> 00:00:31.125
+brighter than p, darker than p,
+
+00:00:31.125 --> 00:00:35.590
+or similar to p. I refer to the brightness of a pixel as Ip,
+
+00:00:35.590 --> 00:00:39.220
+which you can think of as the intensity of pixel p. So,
+
+00:00:39.219 --> 00:00:41.564
+if the brightness of a pixel is Ip,
+
+00:00:41.564 --> 00:00:43.579
+then for a given threshold h,
+
+00:00:43.579 --> 00:00:47.125
+brighter pixels will be those whose brightness exceeds Ip plus
+
+00:00:47.125 --> 00:00:52.299
+h. Darker pixels will be those whose brightness is below Ip minus h,
+
+00:00:52.299 --> 00:00:56.244
+and similar pixels will be those whose brightness lie in-between those values.
+
+00:00:56.244 --> 00:00:58.089
+Once the pixels are classified,
+
+00:00:58.090 --> 00:01:02.530
+pixel p is selected as a key point if more than eight connected pixels on the circle
+
+00:01:02.530 --> 00:01:07.325
+are either darker or brighter than p. The reason FAST is so efficient,
+
+00:01:07.325 --> 00:01:11.010
+is that it takes advantage of the fact that the same result can be achieved by
+
+00:01:11.010 --> 00:01:15.180
+comparing p to only four equidistant pixels in the circle,
+
+00:01:15.180 --> 00:01:17.490
+instead of all 16 surrounding pixels.
+
+00:01:17.489 --> 00:01:20.909
+For example, we only have to compare p to pixels 1,
+
+00:01:20.909 --> 00:01:23.129
+5, 9, and 13.
+
+00:01:23.129 --> 00:01:25.739
+In this case, p is selected as a key point if there are
+
+00:01:25.739 --> 00:01:29.924
+at least a pair of consecutive pixels that are either brighter or darker than
+
+00:01:29.924 --> 00:01:33.299
+p. This optimization reduces the time required
+
+00:01:33.299 --> 00:01:37.079
+to search an entire image for key points by a factor of four.
+
+00:01:37.079 --> 00:01:40.769
+But what type of information are these key points providing us?
+
+00:01:40.769 --> 00:01:44.579
+What's so meaningful about comparing the brightness of neighboring pixels?
+
+00:01:44.579 --> 00:01:48.719
+Well, let's look at some of the key points found by FAST on this image of a cat.
+
+00:01:48.719 --> 00:01:51.450
+There are key points at the edge of the eye,
+
+00:01:51.450 --> 00:01:53.850
+there's another group of key points at the edge of the nose.
+
+00:01:53.849 --> 00:01:58.319
+As we can see the key points are located in regions where there is a change in intensity.
+
+00:01:58.319 --> 00:02:01.454
+Such regions, usually determined an edge of some kind,
+
+00:02:01.454 --> 00:02:03.209
+like in the cat's paws.
+
+00:02:03.209 --> 00:02:05.609
+Edges define the boundaries of the cat,
+
+00:02:05.609 --> 00:02:07.799
+and the boundaries of its facial components.
+
+00:02:07.799 --> 00:02:11.069
+And so these key points give us a way to identify this cat,
+
+00:02:11.069 --> 00:02:14.879
+as opposed to any other object or background in the image.
+
+00:02:14.879 --> 00:02:17.370
+So, the key points found by FAST,
+
+00:02:17.370 --> 00:02:21.895
+give us information about the location of object defining edges in an image.
+
+00:02:21.895 --> 00:02:27.159
+However, one thing to note is that these key points only give us the location of an edge,
+
+00:02:27.159 --> 00:02:31.000
+and don't include any information about the direction of the change of intensity.
+
+00:02:31.000 --> 00:02:35.680
+So, we can now distinguish between horizontal and vertical edges, for example.
+
+00:02:35.680 --> 00:02:39.415
+And we'll see later that this directionality can be useful in some cases.
+
+00:02:39.414 --> 00:02:43.989
+Now that we know how ORB uses FAST to locate the key points in an image,
+
+00:02:43.990 --> 00:02:46.885
+let's take a look at how ORB uses the brief algorithm
+
+00:02:46.884 --> 00:02:49.879
+to convert these key points into feature vectors.
+

@@ -1,0 +1,181 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.480 --> 00:00:05.589
+In computer vision there are many algorithms that are designed to extract
+
+00:00:05.589 --> 00:00:10.419
+spatial features and identify objects using information about image gradients.
+
+00:00:10.419 --> 00:00:15.745
+One illustrative technique is called HOG or Histogram of Oriented Gradients.
+
+00:00:15.744 --> 00:00:19.589
+Histogram of Oriented Gradients may sound a little intimidating.
+
+00:00:19.589 --> 00:00:22.565
+So let's go through what these terms actually mean.
+
+00:00:22.565 --> 00:00:27.120
+A histogram is a graphical representation of the distribution of data.
+
+00:00:27.120 --> 00:00:30.535
+It looks a bit like a bar graph with bars of different heights.
+
+00:00:30.535 --> 00:00:35.240
+Each bar represents a group of data that falls in a certain range of values,
+
+00:00:35.240 --> 00:00:41.070
+also called bins, and taller bars indicate that more data falls into a certain bin.
+
+00:00:41.070 --> 00:00:43.649
+For example, say, you took a grayscale image.
+
+00:00:43.649 --> 00:00:48.810
+Say, this image of pancakes and wanted to display a histogram of intensity data.
+
+00:00:48.810 --> 00:00:51.760
+We know that all these pixel values range from 0 to
+
+00:00:51.759 --> 00:00:56.920
+255 and we can create bins to partition these values into ranges.
+
+00:00:56.920 --> 00:01:02.275
+I'll create 32 bins each holding a range of 8 pixel values 0 to 7,
+
+00:01:02.274 --> 00:01:06.769
+8 to 15, and so on up to 248 to 255.
+
+00:01:06.769 --> 00:01:09.129
+Then to create a histogram we look at
+
+00:01:09.129 --> 00:01:13.869
+every pixel value in this image and put each one in its correct bin.
+
+00:01:13.870 --> 00:01:16.585
+This image has a lot of bright values in the pancakes,
+
+00:01:16.584 --> 00:01:18.184
+but a very dark background.
+
+00:01:18.185 --> 00:01:20.754
+So we get a histogram that looks like this.
+
+00:01:20.754 --> 00:01:22.280
+This histogram shows that there's
+
+00:01:22.280 --> 00:01:25.480
+a distinct dark grouping of pixels- the background pixels,
+
+00:01:25.480 --> 00:01:27.340
+that fall in these low ranges.
+
+00:01:27.340 --> 00:01:29.859
+And there's another bright grouping of pixels
+
+00:01:29.859 --> 00:01:32.635
+that are often around a grayscale value of 200,
+
+00:01:32.635 --> 00:01:35.680
+which must be the majority of the pancake pixel values.
+
+00:01:35.680 --> 00:01:39.280
+So now we know what a histogram of grayscale values looks like.
+
+00:01:39.280 --> 00:01:42.400
+The next words we see are oriented gradients.
+
+00:01:42.400 --> 00:01:47.075
+Oriented just means the direction or orientation of an image gradient.
+
+00:01:47.075 --> 00:01:49.810
+And we've already discussed how both the magnitude and
+
+00:01:49.810 --> 00:01:54.040
+the direction of a gradient can be calculated using an sobel operators.
+
+00:01:54.040 --> 00:01:55.829
+So let's put this all together.
+
+00:01:55.828 --> 00:01:59.904
+HOG should produce a histogram of gradient directions in an image.
+
+00:01:59.905 --> 00:02:02.650
+As a first step, HOG takes in an image like
+
+00:02:02.650 --> 00:02:04.780
+this pancake image and calculates
+
+00:02:04.780 --> 00:02:08.349
+the magnitude and direction of the gradient at each pixel.
+
+00:02:08.349 --> 00:02:10.194
+This can be a lot of information.
+
+00:02:10.194 --> 00:02:12.189
+So it actually groups these pixels into
+
+00:02:12.189 --> 00:02:17.859
+larger square cells typically eight by eight or smaller grids for smaller pictures.
+
+00:02:17.859 --> 00:02:19.554
+For the eight by eight case,
+
+00:02:19.554 --> 00:02:22.210
+it will have 64 gradient values,
+
+00:02:22.210 --> 00:02:26.710
+then for each of these cells it counts up how many of these gradients are in
+
+00:02:26.710 --> 00:02:29.230
+a certain direction and sums the magnitude of
+
+00:02:29.229 --> 00:02:32.935
+these gradients so that the strength of the gradients are accounted for.
+
+00:02:32.935 --> 00:02:37.210
+Then HOG places all that directional data into a histogram.
+
+00:02:37.210 --> 00:02:40.355
+Here I'm showing you nine bins or ranges of values,
+
+00:02:40.354 --> 00:02:43.935
+but you can choose to use more bins to further divide your data.
+
+00:02:43.935 --> 00:02:48.354
+And this is the histogram of oriented gradients that the pancake edge turns into,
+
+00:02:48.354 --> 00:02:51.245
+and HOG does this for every cell in the image.
+
+00:02:51.245 --> 00:02:55.719
+This histogram of oriented gradients is actually a feature vector.
+
+00:02:55.719 --> 00:03:00.425
+The next step will be to actually use these HOG features to train a classifier.
+
+00:03:00.425 --> 00:03:06.090
+The idea is that among images of the same object at different scales and orientations,
+
+00:03:06.090 --> 00:03:08.830
+the same pattern of HOG features can be used to
+
+00:03:08.830 --> 00:03:12.490
+detect the object wherever and however it appears.
+
+00:03:12.490 --> 00:03:15.820
+But first let's see how to implement HOG in code.
+
+00:03:15.819 --> 00:03:17.620
+This will be a multi-step process.
+
+00:03:17.620 --> 00:03:19.715
+So in this and the next few examples,
+
+00:03:19.715 --> 00:03:22.854
+I'll explain the algorithm in a video and then you can expect
+
+00:03:22.854 --> 00:03:26.319
+a code and text explanation to follow for further learning.
+

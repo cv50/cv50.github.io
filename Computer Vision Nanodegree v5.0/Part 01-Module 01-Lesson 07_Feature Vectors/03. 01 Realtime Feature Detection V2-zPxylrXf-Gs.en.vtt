@@ -1,0 +1,58 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:06.019 --> 00:00:09.509
+Having a fast Object Recognition Algorithm
+
+00:00:09.509 --> 00:00:12.195
+is essential for many computer vision applications,
+
+00:00:12.195 --> 00:00:13.945
+such as an augmented reality,
+
+00:00:13.945 --> 00:00:16.289
+robotics and self-driving cars.
+
+00:00:16.289 --> 00:00:20.980
+These kinds of applications need to respond to input video streams in real time,
+
+00:00:20.980 --> 00:00:22.615
+and so time is critical.
+
+00:00:22.614 --> 00:00:24.349
+A self-driving car for example,
+
+00:00:24.350 --> 00:00:27.400
+needs to constantly check whether another cars in front of it,
+
+00:00:27.399 --> 00:00:30.964
+so that it can decide whether to slow down, brake, or accelerate.
+
+00:00:30.964 --> 00:00:35.049
+Similarly, augmented reality applications rely on a live view of
+
+00:00:35.049 --> 00:00:39.174
+the real world to decide where to place virtual elements in a given scene.
+
+00:00:39.174 --> 00:00:41.489
+For these real-time applications to work,
+
+00:00:41.490 --> 00:00:44.920
+they need to be able to identify the objects in their field of view,
+
+00:00:44.920 --> 00:00:46.954
+in a fast and efficient manner.
+
+00:00:46.954 --> 00:00:48.960
+This is where ORB comes in.
+
+00:00:48.960 --> 00:00:53.880
+The ORB algorithm is used to quickly create feature vectors of key points in an image.
+
+00:00:53.880 --> 00:00:58.310
+These feature vectors can then be used to identify objects in images.
+
+00:00:58.310 --> 00:01:02.600
+In this lesson, we'll look at the details of how the ORB algorithm works.
+

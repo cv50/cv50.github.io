@@ -1,0 +1,106 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.740
+One common use for ORB,
+
+00:00:01.740 --> 00:00:05.775
+is in tracking and identifying objects in real time video streams.
+
+00:00:05.775 --> 00:00:10.760
+In this case, we compute the ORB descriptors for any images or objects we want to detect,
+
+00:00:10.759 --> 00:00:13.980
+before seeing a video stream and save those descriptors.
+
+00:00:13.980 --> 00:00:17.160
+Then, for each frame in an incoming video stream,
+
+00:00:17.160 --> 00:00:20.760
+we calculate ORB descriptors and use a matching function to compare
+
+00:00:20.760 --> 00:00:24.570
+the key points in the current video frame with the saved descriptors.
+
+00:00:24.570 --> 00:00:27.105
+For any object descriptor that we've saved.
+
+00:00:27.105 --> 00:00:29.219
+If we find that the matching function returns
+
+00:00:29.219 --> 00:00:31.799
+a number of matches above some match threshold,
+
+00:00:31.800 --> 00:00:34.560
+we can conclude that the object is in the frame.
+
+00:00:34.560 --> 00:00:38.460
+The mesh threshold is a free parameter that you can set.
+
+00:00:38.460 --> 00:00:43.210
+For example, if the ORB descriptor for a particular object has 100 key points,
+
+00:00:43.210 --> 00:00:46.265
+then you could set the threshold to be 35 percent,
+
+00:00:46.265 --> 00:00:51.030
+50 percent, or 90 percent of the number of key points for that particular object.
+
+00:00:51.030 --> 00:00:53.730
+If you set the threshold to 35 percent,
+
+00:00:53.729 --> 00:00:58.739
+then that means that at least 35 key points out of the 100 that describe that object,
+
+00:00:58.740 --> 00:01:02.160
+must match in order to say that the object is in the frame.
+
+00:01:02.159 --> 00:01:06.869
+All these steps can be done in near real time because ORBs binary descriptors,
+
+00:01:06.870 --> 00:01:08.910
+are extremely fast to compute and compare.
+
+00:01:08.909 --> 00:01:12.899
+The ORB algorithm works best when you want to detect objects that have
+
+00:01:12.900 --> 00:01:17.359
+a lot of consistent features that are not affected by the background of an image.
+
+00:01:17.359 --> 00:01:20.370
+For example, ORB works well for facial detection,
+
+00:01:20.370 --> 00:01:24.435
+because faces have a lot of features such as the corner of the eyes and the mouth,
+
+00:01:24.435 --> 00:01:27.885
+that don't appear to change no matter where a person is.
+
+00:01:27.885 --> 00:01:30.795
+These features are consistent from image to image.
+
+00:01:30.795 --> 00:01:36.015
+However, ORB does not work so well when attempting to do more general object recognition.
+
+00:01:36.015 --> 00:01:38.760
+Say pedestrian detection in images,
+
+00:01:38.760 --> 00:01:41.085
+in which the shape and features of a person's body
+
+00:01:41.084 --> 00:01:43.859
+vary depending on clothing and movement.
+
+00:01:43.859 --> 00:01:46.665
+For this type of general object recognition,
+
+00:01:46.665 --> 00:01:48.810
+other algorithms work much better.
+
+00:01:48.810 --> 00:01:50.129
+In the next section,
+
+00:01:50.129 --> 00:01:54.159
+we'll learn about methods that can be used to do more general object recognition.
+

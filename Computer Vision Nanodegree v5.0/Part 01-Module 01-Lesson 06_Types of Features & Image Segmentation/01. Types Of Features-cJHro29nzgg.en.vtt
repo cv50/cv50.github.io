@@ -1,0 +1,109 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.460 --> 00:00:03.690
+Let's look at this image of a mountain.
+
+00:00:03.690 --> 00:00:06.154
+This is Mt. Rainier in Washington state.
+
+00:00:06.155 --> 00:00:10.175
+Most features on this and any other image fall into one
+
+00:00:10.175 --> 00:00:14.420
+of three categories: edges, corners, and blobs.
+
+00:00:14.419 --> 00:00:17.012
+Edges we're already very familiar with,
+
+00:00:17.013 --> 00:00:21.175
+they're are just areas in an image where the intensity abruptly changes.
+
+00:00:21.175 --> 00:00:24.469
+Also known as areas that have a high intensity gradient.
+
+00:00:24.469 --> 00:00:26.629
+Corners are at the intersection of
+
+00:00:26.629 --> 00:00:30.890
+two edges and form what looks like a corner or a sharp point.
+
+00:00:30.890 --> 00:00:34.369
+And the blobs are region based features that may include areas of
+
+00:00:34.369 --> 00:00:39.084
+extreme highs or lows in intensity or areas of a unique texture.
+
+00:00:39.085 --> 00:00:43.125
+We'll be most interested in detecting corners because they're
+
+00:00:43.125 --> 00:00:46.174
+the most repeatable feature which means that they're
+
+00:00:46.174 --> 00:00:50.449
+easy to recognize given two or more images of the same scene.
+
+00:00:50.450 --> 00:00:53.480
+As a simple example let's look at this image of
+
+00:00:53.479 --> 00:00:58.279
+a Mondrian painting and let's look at these three patches: patch A,
+
+00:00:58.280 --> 00:01:01.820
+B, and C. Given these three patches
+
+00:01:01.820 --> 00:01:06.344
+can you tell me what rectangular area they match with on this image?
+
+00:01:06.344 --> 00:01:10.370
+Patch A is just a single patch of color and it
+
+00:01:10.370 --> 00:01:14.475
+matches with a lot of areas like this all around the rectangle.
+
+00:01:14.474 --> 00:01:18.394
+So this is a bad feature because it isn't unique.
+
+00:01:18.394 --> 00:01:21.259
+Patch B is an edge we know because of
+
+00:01:21.260 --> 00:01:25.855
+its orientation that it matches with an edge at the bottom of the red rectangle.
+
+00:01:25.855 --> 00:01:31.540
+But we can still move this edge to the left and right and it would still be a match.
+
+00:01:31.540 --> 00:01:35.120
+We can only approximate where this edge appears on this image.
+
+00:01:35.120 --> 00:01:38.125
+It's very hard to get the exact location.
+
+00:01:38.125 --> 00:01:40.340
+Patch C is a corner.
+
+00:01:40.340 --> 00:01:43.609
+It actually contains two corners and
+
+00:01:43.609 --> 00:01:48.170
+its location is easily identified as the bottom right.
+
+00:01:48.170 --> 00:01:52.230
+This is because a corner represents a point where two edges change.
+
+00:01:52.230 --> 00:01:54.665
+And if we move either of those up or down
+
+00:01:54.665 --> 00:01:58.070
+the corner patch will not match exactly with that area.
+
+00:01:58.069 --> 00:02:04.319
+So corners are easiest to match and make good features because they are so unique.
+
+00:02:04.319 --> 00:02:08.299
+Next let's see a more complex example of where corners are useful for
+
+00:02:08.300 --> 00:02:13.000
+identifying points on an object and get some practice coding a corner detector.
+

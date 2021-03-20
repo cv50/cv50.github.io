@@ -1,0 +1,88 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.540 --> 00:00:04.735
+So how does a computer actually see image data?
+
+00:00:04.735 --> 00:00:08.734
+Images or just 2D representations of 3D world scenes.
+
+00:00:08.734 --> 00:00:14.064
+For example, if you take a picture of an apple which we know is a 3-D object,
+
+00:00:14.064 --> 00:00:17.379
+you'll get a 2D image that represents that apple.
+
+00:00:17.379 --> 00:00:20.765
+The image contains detail about the color and the shape of the apple.
+
+00:00:20.765 --> 00:00:23.545
+It also has shading that varies based on lighting conditions,
+
+00:00:23.545 --> 00:00:25.570
+and an apparent size that varies based on how
+
+00:00:25.570 --> 00:00:28.600
+close or far away the picture has been taken.
+
+00:00:28.600 --> 00:00:33.004
+For example, the apple will appear bigger the closer the camera is to it.
+
+00:00:33.003 --> 00:00:35.679
+When a camera forms an image like this,
+
+00:00:35.679 --> 00:00:38.350
+it's looking at the world similar to how our eyes do,
+
+00:00:38.350 --> 00:00:42.219
+by focusing the light that's reflected off of objects in the world.
+
+00:00:42.219 --> 00:00:47.274
+Let's see an example. Here is a simple model of a camera called a pinhole camera model.
+
+00:00:47.274 --> 00:00:49.464
+In this case, through a small pinhole,
+
+00:00:49.465 --> 00:00:53.230
+the camera focuses the light that's reflected off of an apple and forms
+
+00:00:53.229 --> 00:00:57.964
+a 2D image at the back of the camera where a sensor or some film would be placed.
+
+00:00:57.965 --> 00:01:00.580
+In fact, the image it forms here will be upside down and
+
+00:01:00.579 --> 00:01:03.429
+reversed because rays of light that enter from the top of
+
+00:01:03.429 --> 00:01:06.129
+an object will continue on that angled path
+
+00:01:06.129 --> 00:01:10.060
+through the pinhole and end up at the bottom of the formed image.
+
+00:01:10.060 --> 00:01:12.640
+Similarly, light that reflects off the right side of
+
+00:01:12.640 --> 00:01:16.099
+an object will travel to the left of the formed image.
+
+00:01:16.099 --> 00:01:19.299
+A digital camera will record this image and flip it to give us
+
+00:01:19.299 --> 00:01:23.284
+a familiar 2D image of an apple or any other object.
+
+00:01:23.284 --> 00:01:26.129
+This is the start of how a computer sees an image.
+
+00:01:26.129 --> 00:01:28.959
+Next, we'll see how a digital image can be broken down into
+
+00:01:28.959 --> 00:01:32.984
+a grid of small units of color and intensity called pixels.
+
+00:01:32.984 --> 00:01:38.000
+And this grid is paramount to how we can programmatically process and interpret images.
+

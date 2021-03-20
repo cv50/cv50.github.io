@@ -1,0 +1,184 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.440 --> 00:00:06.525
+Edge detection algorithms are often used to detect the boundaries of objects.
+
+00:00:06.525 --> 00:00:10.890
+But, after performing edge detection you'll often be left with sets of edges that
+
+00:00:10.890 --> 00:00:15.605
+highlight not only object boundaries but also interesting features and lines.
+
+00:00:15.605 --> 00:00:17.550
+And to do image segmentation,
+
+00:00:17.550 --> 00:00:20.550
+you'll want only complete closed boundaries
+
+00:00:20.550 --> 00:00:23.839
+that marked distinct areas and objects in an image.
+
+00:00:23.839 --> 00:00:27.583
+One technique that's useful for this is called, Image Contouring.
+
+00:00:27.583 --> 00:00:32.945
+Image contours, are continuous curves that follow the edges along a perceived boundary.
+
+00:00:32.945 --> 00:00:36.539
+So contours can be used for image segmentation and they can
+
+00:00:36.539 --> 00:00:40.515
+also provide a lot of information about the shape of an object boundary.
+
+00:00:40.515 --> 00:00:43.304
+In OpenCV contours are best detected
+
+00:00:43.304 --> 00:00:46.500
+when there's a white object against a black background.
+
+00:00:46.500 --> 00:00:49.604
+So before we can identify contours in an image,
+
+00:00:49.604 --> 00:00:52.500
+we'll first need to create a binary threshold that image,
+
+00:00:52.500 --> 00:00:56.554
+that has black and white pixels that distinguish different objects in an image.
+
+00:00:56.554 --> 00:01:00.780
+We'll then use the edges of these objects to form contours.
+
+00:01:00.780 --> 00:01:05.129
+This binary image is often produced by a simple threshold as shown here,
+
+00:01:05.129 --> 00:01:07.594
+or by a Canny edge detector.
+
+00:01:07.594 --> 00:01:10.599
+Let's go through this simple image contour an example.
+
+00:01:10.599 --> 00:01:14.294
+Here, I've read in the image of a hand that you've already seen.
+
+00:01:14.295 --> 00:01:16.260
+Hand recognition is actually
+
+00:01:16.260 --> 00:01:19.844
+an ongoing computer vision challenge where it's useful for example,
+
+00:01:19.844 --> 00:01:25.500
+to recognize and interpret sign language and in recognizing a variety of other gestures.
+
+00:01:25.500 --> 00:01:28.640
+So let's perform image contouring on this hand.
+
+00:01:28.640 --> 00:01:31.108
+First, I'll convert this image to grayscale.
+
+00:01:31.108 --> 00:01:34.814
+Then, I'll use a binary threshold inverted to show the hand
+
+00:01:34.814 --> 00:01:38.834
+as way instead of the background to produce a binary image.
+
+00:01:38.834 --> 00:01:41.849
+This threshold takes in our grayscale image and isolates
+
+00:01:41.849 --> 00:01:45.819
+the white pixel values and it turns them black with an inverse threshold.
+
+00:01:45.819 --> 00:01:49.419
+Then I'll display this binary image.
+
+00:01:49.420 --> 00:01:52.359
+Our next step will be to find and draw the contours.
+
+00:01:52.359 --> 00:01:53.634
+To find the contours,
+
+00:01:53.634 --> 00:01:57.064
+I'll be using the CV function, findContours.
+
+00:01:57.064 --> 00:01:59.355
+This takes in our binary image,
+
+00:01:59.355 --> 00:02:03.659
+then a contour retrieval mode which I'll have as a tree,
+
+00:02:03.659 --> 00:02:06.679
+and third, is our contour approximation method which I'll put as
+
+00:02:06.680 --> 00:02:11.340
+a simple chain and the outputs are list of contours in the hierarchy.
+
+00:02:11.340 --> 00:02:15.705
+The hierarchy is useful if you have many contours nested within one another.
+
+00:02:15.705 --> 00:02:17.790
+The hierarchy defines their relationship to one
+
+00:02:17.789 --> 00:02:20.734
+another and you can learn more about this in text.
+
+00:02:20.735 --> 00:02:25.740
+Then once we have a list of detected contours I'll display them on a copy of our image.
+
+00:02:25.740 --> 00:02:27.209
+To draw the contours,
+
+00:02:27.209 --> 00:02:30.844
+I'll use an OpenCV function called, drawContours.
+
+00:02:30.844 --> 00:02:33.479
+This takes in the copy over image followed by
+
+00:02:33.479 --> 00:02:36.938
+our list of contours then which contours to display.
+
+00:02:36.938 --> 00:02:39.419
+Negative one means all of the contours.
+
+00:02:39.419 --> 00:02:43.889
+And finally the color and size I want the contours to be or have them be
+
+00:02:43.889 --> 00:02:49.404
+a thin green line and I'll display the output.
+
+00:02:49.405 --> 00:02:51.189
+You can see there's one contour that
+
+00:02:51.189 --> 00:02:54.534
+nicely defines the boundaries an outline of the hand.
+
+00:02:54.534 --> 00:02:57.998
+You can also see that it creates a complete closed boundary.
+
+00:02:57.998 --> 00:02:59.949
+And in this case it also separates
+
+00:02:59.949 --> 00:03:02.979
+the image into this foreground object and a background.
+
+00:03:02.979 --> 00:03:04.629
+And from this contour,
+
+00:03:04.629 --> 00:03:09.354
+I can extract lots of information about the shape of the hand including its area,
+
+00:03:09.354 --> 00:03:10.764
+the center of the shape,
+
+00:03:10.764 --> 00:03:14.364
+its perimeter, and its bounding rectangle.
+
+00:03:14.365 --> 00:03:18.094
+All of these shape traits are called, Contour Features.
+
+00:03:18.094 --> 00:03:20.800
+Next, you'll get a chance to practice coding and learn a
+
+00:03:20.800 --> 00:03:24.000
+little more about contour features and why they are useful.
+

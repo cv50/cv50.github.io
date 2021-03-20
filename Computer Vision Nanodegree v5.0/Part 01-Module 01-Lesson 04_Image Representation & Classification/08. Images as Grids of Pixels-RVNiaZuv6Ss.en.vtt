@@ -1,0 +1,271 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.009
+One of your first tasks will be to classify a binary set of data;
+
+00:00:05.009 --> 00:00:07.664
+images taken during the day or night.
+
+00:00:07.665 --> 00:00:09.730
+But before you can complete this task,
+
+00:00:09.730 --> 00:00:13.695
+you first have to learn about how images are seen by machines.
+
+00:00:13.695 --> 00:00:15.570
+Let's take this image of a car.
+
+00:00:15.570 --> 00:00:18.120
+This is actually a self-driving car on the road.
+
+00:00:18.120 --> 00:00:20.670
+And look at how a computer understands it.
+
+00:00:20.670 --> 00:00:23.429
+We'll be working with a grayscale image like this first,
+
+00:00:23.429 --> 00:00:26.233
+because color adds another layer of complexity,
+
+00:00:26.234 --> 00:00:29.550
+but the same general principles will apply as we'll see soon.
+
+00:00:29.550 --> 00:00:31.289
+So, when I show you this image,
+
+00:00:31.289 --> 00:00:33.719
+you might say, "Oh, it's a picture of a car."
+
+00:00:33.719 --> 00:00:37.338
+And it is, but it's also a 2D grid of values,
+
+00:00:37.338 --> 00:00:40.699
+also known as an array with some width and height.
+
+00:00:40.700 --> 00:00:42.455
+Let me show you what I mean.
+
+00:00:42.454 --> 00:00:44.629
+This and all digital images,
+
+00:00:44.630 --> 00:00:46.429
+are all made of a grid of pixels,
+
+00:00:46.429 --> 00:00:49.759
+which are very small units of a single color or intensity.
+
+00:00:49.759 --> 00:00:54.079
+And if we zoom in on the image of the car like this area around the wheel,
+
+00:00:54.079 --> 00:00:56.375
+we can get a better look at these pixels.
+
+00:00:56.375 --> 00:00:59.450
+Now you can see it's really starting to look more like a grid.
+
+00:00:59.450 --> 00:01:01.520
+Each pixel color in this grid,
+
+00:01:01.520 --> 00:01:04.015
+has a corresponding numerical value.
+
+00:01:04.015 --> 00:01:06.140
+For grayscale images like this,
+
+00:01:06.140 --> 00:01:09.920
+the value of each pixel ranges from zero to 255.
+
+00:01:09.920 --> 00:01:12.439
+Zero is black, 255 is white,
+
+00:01:12.439 --> 00:01:14.304
+and grey is anywhere in between.
+
+00:01:14.305 --> 00:01:17.630
+So, a value of around 120 is a medium grey,
+
+00:01:17.629 --> 00:01:19.159
+in between black and white.
+
+00:01:19.159 --> 00:01:20.869
+And a value of around 20,
+
+00:01:20.870 --> 00:01:23.439
+will be a very very dark grey, close to black.
+
+00:01:23.439 --> 00:01:24.980
+And each of these pixels,
+
+00:01:24.980 --> 00:01:26.870
+in addition to having a color value,
+
+00:01:26.870 --> 00:01:30.094
+also has a location xy in this image grid.
+
+00:01:30.094 --> 00:01:32.944
+These axes are a lot like axes for a graph,
+
+00:01:32.944 --> 00:01:34.429
+only for digital images,
+
+00:01:34.430 --> 00:01:39.870
+the top left coordinate is at the origin or the point x equals zero, y equals zero.
+
+00:01:39.870 --> 00:01:45.255
+Now, our image of a car is 427 pixels in height and 640 in width.
+
+00:01:45.254 --> 00:01:49.019
+And the pixel locations are on a grid that starts at index zero.
+
+00:01:49.019 --> 00:01:51.780
+From zero to 369 columns,
+
+00:01:51.780 --> 00:01:54.165
+and from zero to 426 rows.
+
+00:01:54.165 --> 00:01:59.955
+As an example, at the location x equals 190 and y equals 375,
+
+00:01:59.954 --> 00:02:03.314
+we have a pixel on this wheel at the bottom left of the image.
+
+00:02:03.314 --> 00:02:05.609
+The pixel value is 28,
+
+00:02:05.609 --> 00:02:07.109
+a dark dark grey.
+
+00:02:07.109 --> 00:02:09.000
+And you might ask how I know this.
+
+00:02:09.000 --> 00:02:13.139
+Well, in code we can actually find any single pixel value by location.
+
+00:02:13.139 --> 00:02:16.864
+So let's do that. We'll read in our image of a car,
+
+00:02:16.865 --> 00:02:19.295
+but first, I'll import the libraries I need.
+
+00:02:19.294 --> 00:02:23.794
+This includes matplotlib.image, which let's us read in any image.
+
+00:02:23.794 --> 00:02:25.684
+You'll also see cv2,
+
+00:02:25.685 --> 00:02:29.224
+which is a computer vision library and you'll learn more about that soon.
+
+00:02:29.224 --> 00:02:31.859
+I'll also be using matplotlib qt,
+
+00:02:31.860 --> 00:02:36.350
+qt makes us image pop up in an interactive window when I display it.
+
+00:02:36.349 --> 00:02:38.709
+So I'll read in the image of a car,
+
+00:02:38.709 --> 00:02:41.319
+using matplotlib's imread function.
+
+00:02:41.319 --> 00:02:44.014
+And I'll pass in the name of our image file.
+
+00:02:44.014 --> 00:02:48.829
+I have the image of a car and in images directory in the same location as this notebook.
+
+00:02:48.830 --> 00:02:52.785
+Next, I'll actually print out some information about this image.
+
+00:02:52.784 --> 00:02:57.060
+I want to print out its dimensions by referencing image.shape.
+
+00:02:57.060 --> 00:03:00.224
+Now we can see its height and width in pixels.
+
+00:03:00.224 --> 00:03:02.120
+And we see another value three,
+
+00:03:02.120 --> 00:03:05.550
+which corresponds to the number of color channels this images has.
+
+00:03:05.550 --> 00:03:07.860
+And we'll learn more about this value soon.
+
+00:03:07.860 --> 00:03:10.635
+For now, we'll convert our image to be grayscale.
+
+00:03:10.634 --> 00:03:14.280
+And I'll convert it to grayscale using a computer vision library.
+
+00:03:14.280 --> 00:03:17.669
+For now, know that this has built-in color conversion code,
+
+00:03:17.669 --> 00:03:21.405
+like changing an image from red-green-blue color to grayscale.
+
+00:03:21.405 --> 00:03:24.180
+Then I'll display this grayscale image.
+
+00:03:24.180 --> 00:03:26.564
+This opens our interactive window.
+
+00:03:26.564 --> 00:03:29.020
+And as I pass over this image with my mouse,
+
+00:03:29.020 --> 00:03:33.085
+you can see the xy location displayed on the bottom left of the screen,
+
+00:03:33.085 --> 00:03:35.585
+as well as the corresponding pixel value.
+
+00:03:35.585 --> 00:03:36.930
+Down here by the wheel,
+
+00:03:36.930 --> 00:03:40.215
+we have dark pixel values, around 28, 29.
+
+00:03:40.215 --> 00:03:42.969
+And up here in the sky, we have some light pixel values.
+
+00:03:42.969 --> 00:03:45.425
+You can see around 220 or even higher.
+
+00:03:45.425 --> 00:03:47.255
+And if we go back to our notebook,
+
+00:03:47.254 --> 00:03:51.338
+we can print out the value of a single pixel by accessing it by location.
+
+00:03:51.338 --> 00:03:55.579
+I'll say x equals 190 and y equals 375.
+
+00:03:55.580 --> 00:04:01.890
+And I can access that pixel value by looking at that location in our great image y, x.
+
+00:04:01.889 --> 00:04:06.794
+Finally, I'll print out that value and we can see that it's 28.
+
+00:04:06.794 --> 00:04:10.394
+Every pixel in an image is just a numerical value.
+
+00:04:10.395 --> 00:04:13.034
+And we can also change these pixel values.
+
+00:04:13.034 --> 00:04:17.279
+We can multiply every single one by a scalar to change how bright the image is.
+
+00:04:17.279 --> 00:04:21.944
+We can shift each pixel value to the right or left and many more operations.
+
+00:04:21.944 --> 00:04:27.180
+Treating images as grids of numbers is the basis for many image processing techniques.
+
+00:04:27.180 --> 00:04:32.040
+Most color and shape transformations are done just by mathematically operating on image,
+
+00:04:32.040 --> 00:04:34.520
+and changing it pixel by pixel.
+

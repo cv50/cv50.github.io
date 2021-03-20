@@ -1,0 +1,67 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.480 --> 00:00:03.759
+So now that we've seen how to treat images as
+
+00:00:03.759 --> 00:00:06.459
+grids of pixels and as functions of x and y,
+
+00:00:06.459 --> 00:00:09.009
+let's see how to use this information.
+
+00:00:09.009 --> 00:00:11.289
+We'll start by learning how to use information about
+
+00:00:11.289 --> 00:00:15.089
+the colors in an image to isolate a particular area.
+
+00:00:15.089 --> 00:00:20.634
+This is an example of the computer vision pipeline step selecting areas of interest.
+
+00:00:20.635 --> 00:00:23.630
+This is easiest to understand in an example.
+
+00:00:23.629 --> 00:00:27.204
+We'll be selecting an area of interest using a color threshold.
+
+00:00:27.204 --> 00:00:29.469
+Color thresholds are used in a number of
+
+00:00:29.469 --> 00:00:34.179
+applications including extensively in computer graphics and video.
+
+00:00:34.179 --> 00:00:36.579
+A common use is with a blue screen.
+
+00:00:36.579 --> 00:00:40.509
+A blue screen similar to a green screen is used to layer two images or
+
+00:00:40.509 --> 00:00:45.554
+video streams based on identifying and replacing a large blue area.
+
+00:00:45.554 --> 00:00:48.340
+We're using a blue screen to film right now and
+
+00:00:48.340 --> 00:00:52.398
+the blue background can be replaced so that it looks like I'm in a different room,
+
+00:00:52.398 --> 00:00:59.702
+underwater- I'm swimming, or even in outer space.
+
+00:00:59.701 --> 00:01:02.070
+So, how does all this work?
+
+00:01:02.070 --> 00:01:03.969
+Well, the first step is to isolate
+
+00:01:03.969 --> 00:01:08.980
+the blue background and then replace that blue area with an image of your choosing.
+
+00:01:08.980 --> 00:01:10.704
+This task seems simple enough,
+
+00:01:10.703 --> 00:01:14.000
+so let's see how to do this in code with our own image.
+

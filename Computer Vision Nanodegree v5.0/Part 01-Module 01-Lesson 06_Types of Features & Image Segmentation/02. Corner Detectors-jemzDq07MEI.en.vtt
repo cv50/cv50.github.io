@@ -1,0 +1,316 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.470 --> 00:00:03.089
+When we built an edge detector,
+
+00:00:03.089 --> 00:00:06.705
+we looked at the difference in intensity between neighboring pixels,
+
+00:00:06.705 --> 00:00:10.019
+and an edge was detected if there was a big and abrupt change
+
+00:00:10.019 --> 00:00:13.154
+in intensity in any one direction- up or down,
+
+00:00:13.154 --> 00:00:15.699
+or left or right, or diagonal.
+
+00:00:15.699 --> 00:00:19.589
+Recall that the change in intensity in an image is also referred to as
+
+00:00:19.589 --> 00:00:22.199
+the image gradient and we can also detect
+
+00:00:22.199 --> 00:00:25.239
+corners by relying on these gradient measurements.
+
+00:00:25.239 --> 00:00:27.599
+We know that corners are the intersection of
+
+00:00:27.600 --> 00:00:31.530
+two edges and we can detect them by taking a window which is
+
+00:00:31.530 --> 00:00:34.050
+generally a square area that contains a group of
+
+00:00:34.049 --> 00:00:38.329
+pixels and looking at where the gradient is high in all directions.
+
+00:00:38.329 --> 00:00:40.170
+Each of these gradient measurements has
+
+00:00:40.170 --> 00:00:44.310
+an associated magnitude which is a measurement of the strength of the gradient,
+
+00:00:44.310 --> 00:00:48.115
+and a direction which is the direction of the change in intensity.
+
+00:00:48.115 --> 00:00:51.975
+And both of these values can be calculated by Sobel operators.
+
+00:00:51.975 --> 00:00:54.899
+Sobel operators take the intensity change or
+
+00:00:54.899 --> 00:00:58.625
+gradient of an image in the x and y direction separately.
+
+00:00:58.625 --> 00:01:01.875
+Here I've pictured those gradients for our mountain image.
+
+00:01:01.875 --> 00:01:05.325
+I'll call these G_x and G_y, G for gradient.
+
+00:01:05.325 --> 00:01:09.000
+You may notice that these look a little different than our curl convolution
+
+00:01:09.000 --> 00:01:13.120
+before because they haven't been turned into binary threshold of images,
+
+00:01:13.120 --> 00:01:14.805
+and in this case that's what we want.
+
+00:01:14.805 --> 00:01:16.860
+Then we need to get the magnitude and
+
+00:01:16.859 --> 00:01:19.859
+direction of the total gradient from these two values,
+
+00:01:19.859 --> 00:01:23.879
+and to do that we actually convert these values from image space X Y
+
+00:01:23.879 --> 00:01:28.914
+coordinates to polar coordinates with a magnitude rho and direction theta.
+
+00:01:28.915 --> 00:01:31.605
+This may seem familiar from the Hough transformation.
+
+00:01:31.605 --> 00:01:33.353
+At any pixel location,
+
+00:01:33.353 --> 00:01:38.304
+you can think of G_x and G_y as the lengths of two sides of a gradient triangle.
+
+00:01:38.304 --> 00:01:43.000
+G_x is the length of the bottom side and G_y the length of the right side.
+
+00:01:43.000 --> 00:01:47.129
+Then the total magnitude row of this gradient is the diagonal on
+
+00:01:47.129 --> 00:01:51.238
+this triangle or the square root of the sum of these two gradients,
+
+00:01:51.239 --> 00:01:54.120
+and the direction theta of the gradient is
+
+00:01:54.120 --> 00:01:57.900
+calculated as the inverse tangent of G_y over G_x.
+
+00:01:57.900 --> 00:02:01.995
+The resulting gradient magnitude image should look something like this,
+
+00:02:01.995 --> 00:02:05.930
+with the biggest gradients corresponding to the brightest lines.
+
+00:02:05.930 --> 00:02:10.230
+Now, what mini corner detectors do is to take a window and shift it
+
+00:02:10.229 --> 00:02:15.465
+over areas in a gradient image moving the small window up and down and left and right.
+
+00:02:15.465 --> 00:02:18.840
+When there is a corner and we shift this window slightly,
+
+00:02:18.840 --> 00:02:22.050
+there's a big variation in the direction and magnitude of
+
+00:02:22.050 --> 00:02:26.910
+the calculated gradients and this large variation identifies a corner.
+
+00:02:26.909 --> 00:02:28.530
+I'll be walking through coding
+
+00:02:28.530 --> 00:02:32.039
+a simple corner detector that takes advantage of this knowledge and
+
+00:02:32.039 --> 00:02:34.769
+finds corner's based on identifying locations with
+
+00:02:34.770 --> 00:02:38.140
+the largest variation in gradient for a shifting window.
+
+00:02:38.139 --> 00:02:41.354
+Here I read in an image of a chessboard at an angle,
+
+00:02:41.354 --> 00:02:45.244
+copying it and converting it to RGB color space as usual.
+
+00:02:45.245 --> 00:02:48.000
+I've chosen this example because it will make it easy to
+
+00:02:48.000 --> 00:02:51.014
+see if we've implemented corner detection accurately.
+
+00:02:51.014 --> 00:02:54.275
+Corner detection relies on changes in intensity,
+
+00:02:54.275 --> 00:02:56.890
+so I'll first convert this image to grayscale,
+
+00:02:56.889 --> 00:02:59.339
+I'll then convert these to floating point values
+
+00:02:59.340 --> 00:03:01.795
+that the Harris corner detector will use.
+
+00:03:01.794 --> 00:03:04.034
+Next, I'll create a corner detector called
+
+00:03:04.034 --> 00:03:08.905
+a Harris corner detector using the OpenCV function cornerHarris.
+
+00:03:08.905 --> 00:03:12.270
+This takes in the grayscale float values followed by
+
+00:03:12.270 --> 00:03:16.010
+the size of the neighborhood to look at when identifying potential corners.
+
+00:03:16.009 --> 00:03:18.449
+Two means a two by two pixel Square,
+
+00:03:18.449 --> 00:03:21.119
+and since the corners are well marked in this example,
+
+00:03:21.120 --> 00:03:23.700
+a small window like this will work well.
+
+00:03:23.699 --> 00:03:26.353
+Then it takes in the size of the Sobel operator,
+
+00:03:26.354 --> 00:03:29.210
+three which is our typical kernel size.
+
+00:03:29.210 --> 00:03:33.810
+And lastly, a constant value that helps determine which points are considered corners.
+
+00:03:33.810 --> 00:03:36.854
+A value of 0.04 Is typical.
+
+00:03:36.854 --> 00:03:40.769
+A slightly lower value for this constant will result in more corners
+
+00:03:40.770 --> 00:03:46.439
+detected and this produces an output image I'll call dst for destination.
+
+00:03:46.439 --> 00:03:48.375
+This image should have the corners marked
+
+00:03:48.375 --> 00:03:51.930
+as bright points and non-corners as darker pixels.
+
+00:03:51.930 --> 00:03:53.745
+Let's plot what this looks like.
+
+00:03:53.745 --> 00:03:58.080
+In this image, it's actually very hard to see the bright corner points.
+
+00:03:58.080 --> 00:04:00.765
+So I'll perform one more operation on these corners,
+
+00:04:00.764 --> 00:04:02.639
+which will be to dilate them.
+
+00:04:02.639 --> 00:04:08.879
+To do this I'll use OpenCV's dilate function and apply it to our detected corners.
+
+00:04:08.879 --> 00:04:12.479
+In computer vision dilation enlarges bright regions or
+
+00:04:12.479 --> 00:04:16.663
+regions in the foreground like these corners so that we'll be able to see them better,
+
+00:04:16.663 --> 00:04:19.219
+and I'll display this dilated result.
+
+00:04:19.220 --> 00:04:23.450
+And now you can see the corners fairly well as these bright points in the image.
+
+00:04:23.449 --> 00:04:27.779
+The last couple of steps will be to select and display the strongest corners.
+
+00:04:27.779 --> 00:04:32.654
+To select the strongest corners I'll define a threshold value for them to pass.
+
+00:04:32.654 --> 00:04:35.649
+This threshold will vary depending on the image.
+
+00:04:35.649 --> 00:04:38.064
+But in this case I'll use a lower threshold that's
+
+00:04:38.064 --> 00:04:41.685
+at least one tenth of the maximum corner detection value.
+
+00:04:41.685 --> 00:04:44.139
+Next, code to display the corners.
+
+00:04:44.139 --> 00:04:47.596
+I'll first create a copy of our image to draw our corners on
+
+00:04:47.596 --> 00:04:51.224
+and if a corner is larger than our defined threshold,
+
+00:04:51.225 --> 00:04:52.900
+I'll draw it on our image.
+
+00:04:52.899 --> 00:04:55.139
+Here I'm using OpenCV to draw
+
+00:04:55.139 --> 00:04:58.634
+a small green circle on our strong corners on our image copy,
+
+00:04:58.634 --> 00:05:00.899
+and I'll display the result.
+
+00:05:00.899 --> 00:05:05.589
+And here if we zoom in you can see that most of our corners were detected.
+
+00:05:05.589 --> 00:05:08.000
+We're actually missing a couple right here and here,
+
+00:05:08.000 --> 00:05:11.009
+so we might want to change our threshold value.
+
+00:05:11.009 --> 00:05:17.139
+Let's lower this to just 1 percent of the maximum value of our corners and plot it again.
+
+00:05:17.139 --> 00:05:20.620
+Now you can see that all the corners on the chess board are detected.
+
+00:05:20.620 --> 00:05:24.350
+It's actually pretty interesting to see where these green circles appear.
+
+00:05:24.350 --> 00:05:26.870
+For example, there's no corner detected at
+
+00:05:26.870 --> 00:05:31.185
+the very bottom right corner of the board because there's no change in intensity.
+
+00:05:31.185 --> 00:05:33.764
+Both the board and the background are white.
+
+00:05:33.764 --> 00:05:37.473
+But at every black and white intersection point we detect a corner.
+
+00:05:37.473 --> 00:05:41.060
+You could imagine using these corner points to get information about
+
+00:05:41.060 --> 00:05:43.280
+the chessboard dimensions or using
+
+00:05:43.279 --> 00:05:47.049
+a subset of these points to perform a perspective transformation.
+
+00:05:47.050 --> 00:05:52.160
+Corners alone can be useful for many types of analysis and geometric transformations.
+

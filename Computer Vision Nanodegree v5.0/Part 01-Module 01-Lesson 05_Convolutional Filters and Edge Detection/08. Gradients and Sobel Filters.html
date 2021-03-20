@@ -1,0 +1,512 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Gradients and Sobel Filters
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Convolutional Filters and Edge Detection
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Filters and Finding Edges.html">
+       01. Filters and Finding Edges
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Frequency in Images.html">
+       02. Frequency in Images
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Notebook Fourier Transforms.html">
+       03. Notebook: Fourier Transforms
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Quiz Fourier Tranform Image.html">
+       04. Quiz: Fourier Tranform Image
+      </a>
+     </li>
+     <li class="">
+      <a href="05. High-pass Filters.html">
+       05. High-pass Filters
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Quiz Kernels.html">
+       06. Quiz: Kernels
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Creating a Filter.html">
+       07. Creating a Filter
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Gradients and Sobel Filters.html">
+       08. Gradients and Sobel Filters
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Notebook Finding Edges.html">
+       09. Notebook: Finding Edges
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Low-pass Filters.html">
+       10. Low-pass Filters
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Gaussian Blur.html">
+       11. Gaussian Blur
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Notebook Gaussian Blur.html">
+       12. Notebook: Gaussian Blur
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Notebook Fourier Transforms of Filters.html">
+       13. Notebook: Fourier Transforms of Filters
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Convolutional Layer.html">
+       14. Convolutional Layer
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Canny Edge Detector.html">
+       15. Canny Edge Detector
+      </a>
+     </li>
+     <li class="">
+      <a href="16. Notebook Canny Edge Detection.html">
+       16. Notebook: Canny Edge Detection
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Shape Detection.html">
+       17. Shape Detection
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Hough Transform.html">
+       18. Hough Transform
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Quiz Hough Space.html">
+       19. Quiz: Hough Space
+      </a>
+     </li>
+     <li class="">
+      <a href="20. Hough Line Detection.html">
+       20. Hough Line Detection
+      </a>
+     </li>
+     <li class="">
+      <a href="21. Notebook Hough Detections.html">
+       21. Notebook: Hough Detections
+      </a>
+     </li>
+     <li class="">
+      <a href="22. Object Recognition &amp; Introducing Haar Cascades.html">
+       22. Object Recognition &amp; Introducing Haar Cascades
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Haar Cascades.html">
+       23. Haar Cascades
+      </a>
+     </li>
+     <li class="">
+      <a href="24. Notebook Haar Cascade Face Detection.html">
+       24. Notebook: Haar Cascade Face Detection
+      </a>
+     </li>
+     <li class="">
+      <a href="25. Face Recognition and the Dangers of Bias.html">
+       25. Face Recognition and the Dangers of Bias
+      </a>
+     </li>
+     <li class="">
+      <a href="26. Beyond Edges, Selecting Different Features.html">
+       26. Beyond Edges, Selecting Different Features
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          08. Gradients and Sobel Filters
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="gradients">
+          Gradients
+         </h2>
+         <p>
+          Gradients are a measure of intensity change in an image, and they generally mark object boundaries and changing area of light and dark. If we think back to treating images as functions,
+          <em>
+           F(x, y)
+          </em>
+          , we can think of the gradient as a derivative operation
+          <em>
+           F
+           <strong>
+            ’
+           </strong>
+           (x, y)
+          </em>
+          . Where the derivative is a measurement of intensity change.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="sobel-filters">
+          Sobel filters
+         </h2>
+         <p>
+          The Sobel filter is very commonly used in edge detection and in finding patterns in intensity in an image.  Applying a Sobel filter to an image is a way of
+          <strong>
+           taking (an approximation) of the derivative of the image
+          </strong>
+          in the
+          <span class="mathquill ud-math">
+           x
+          </span>
+          or
+          <span class="mathquill ud-math">
+           y
+          </span>
+          direction.  The operators for
+          <span class="mathquill ud-math">
+           Sobel_x
+          </span>
+          and
+          <span class="mathquill ud-math">
+           Sobel_y
+          </span>
+          , respectively, look like this:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Sobel filters" class="img img-fluid" src="img/screen-shot-2017-06-26-at-2.35.11-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Sobel filters
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Next, let's see an example of these two filters applied to an image of the brain.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Sobel x and y filters (left and right) applied to an image of a brain" class="img img-fluid" src="img/screen-shot-2017-06-26-at-3.11.58-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Sobel x and y filters (left and right) applied to an image of a brain
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="span-classmathquill-ud-mathxspan-vs-span-classmathquill-ud-mathyspan">
+          <span class="mathquill ud-math">
+           x
+          </span>
+          vs.
+          <span class="mathquill ud-math">
+           y
+          </span>
+         </h3>
+         <p>
+          In the above images, you can see that the gradients taken in both the
+          <span class="mathquill ud-math">
+           x
+          </span>
+          and the
+          <span class="mathquill ud-math">
+           y
+          </span>
+          directions detect the edges of the brain and pick up other edges.  Taking the gradient in the
+          <span class="mathquill ud-math">
+           x
+          </span>
+          direction emphasizes edges closer to vertical. Alternatively, taking the gradient in the
+          <span class="mathquill ud-math">
+           y
+          </span>
+          direction emphasizes edges closer to horizontal.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="magnitude">
+          Magnitude
+         </h3>
+         <p>
+          Sobel also detects which edges are
+          <em>
+           strongest
+          </em>
+          . This is encapsulated by the
+          <strong>
+           magnitude
+          </strong>
+          of the gradient; the greater the magnitude, the stronger the edge is. The magnitude, or absolute value, of the gradient is just the square root of the squares of the individual x and y gradients. For a gradient in both the
+          <span class="mathquill ud-math">
+           x
+          </span>
+          <strong>
+           and
+          </strong>
+          <span class="mathquill ud-math">
+           y
+          </span>
+          directions, the magnitude is the square root of the sum of the squares.
+         </p>
+         <p>
+          abs_sobelx
+          <span class="mathquill ud-math">
+           = \sqrt{(sobel_x)^2}
+          </span>
+         </p>
+         <p>
+          abs_sobely
+          <span class="mathquill ud-math">
+           = \sqrt{(sobel_y)^2}
+          </span>
+         </p>
+         <p>
+          abs_sobelxy
+          <span class="mathquill ud-math">
+           = \sqrt{(sobel_x)^2+(sobel_y)^2}
+          </span>
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="direction">
+          Direction
+         </h3>
+         <p>
+          In many cases, it will be useful to look for edges in a particular orientation. For example, we may want to find lines that only angle upwards or point left. By calculating the direction of the image gradient in the x and y directions separately, we can determine the direction of that gradient!
+         </p>
+         <p>
+          The direction of the gradient is simply the inverse tangent (arctangent) of the
+          <span class="mathquill ud-math">
+           y
+          </span>
+          gradient divided by the
+          <span class="mathquill ud-math">
+           x
+          </span>
+          gradient:
+         </p>
+         <p>
+          <span class="mathquill ud-math">
+           tan^{-1}{(sobel_y/sobel_x)}
+          </span>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="09. Notebook Finding Edges.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('08. Gradients and Sobel Filters')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

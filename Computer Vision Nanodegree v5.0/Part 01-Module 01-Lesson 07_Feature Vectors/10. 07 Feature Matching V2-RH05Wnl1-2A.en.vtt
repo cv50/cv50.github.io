@@ -1,0 +1,157 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.524
+Now that you know how the algorithm works you may be wondering
+
+00:00:03.524 --> 00:00:07.515
+how exactly can we use ORB descriptors to perform object recognition?
+
+00:00:07.514 --> 00:00:10.830
+Let's look at an example that displays how ORB can detect
+
+00:00:10.830 --> 00:00:14.310
+the same object at different scales and orientations.
+
+00:00:14.310 --> 00:00:18.329
+Suppose I want to be able to detect this person's face in other images,
+
+00:00:18.329 --> 00:00:20.729
+say in this image of multiple people.
+
+00:00:20.730 --> 00:00:23.594
+We'll call this first image the training image.
+
+00:00:23.594 --> 00:00:26.070
+This second image in which I want to perform
+
+00:00:26.070 --> 00:00:28.890
+face detection will be called the query image.
+
+00:00:28.890 --> 00:00:30.929
+So, given this training image,
+
+00:00:30.929 --> 00:00:34.079
+I want to find similar features in this query image.
+
+00:00:34.079 --> 00:00:35.909
+The first step will be to calculate
+
+00:00:35.909 --> 00:00:39.149
+the ORB descriptor for the training image and save it in memory.
+
+00:00:39.149 --> 00:00:42.060
+The ORB descriptor will contain the binary feature vectors
+
+00:00:42.060 --> 00:00:45.045
+that describe each key point in this training image.
+
+00:00:45.045 --> 00:00:49.725
+The second step will be to compute and save the ORB descriptor for the query image.
+
+00:00:49.725 --> 00:00:53.939
+Once we have the descriptors for both the training and query images,
+
+00:00:53.939 --> 00:00:56.549
+the final step is to perform key point matching
+
+00:00:56.549 --> 00:01:00.074
+between the two images using their corresponding descriptors.
+
+00:01:00.075 --> 00:01:03.420
+This matching is usually performed by a matching function,
+
+00:01:03.420 --> 00:01:06.900
+whose aim is to match key points in two different images by
+
+00:01:06.900 --> 00:01:08.880
+comparing their descriptors and seeing if
+
+00:01:08.879 --> 00:01:11.295
+they're close enough together to make for a match.
+
+00:01:11.295 --> 00:01:14.310
+When a matching function compares two key points
+
+00:01:14.310 --> 00:01:17.355
+it reached the quality of the match according to some metric,
+
+00:01:17.355 --> 00:01:21.280
+something that represents the similarity of the key point feature vectors.
+
+00:01:21.280 --> 00:01:23.670
+You can think of this metric as being similar to
+
+00:01:23.670 --> 00:01:26.790
+the standard Euclidean distance between two key points.
+
+00:01:26.790 --> 00:01:28.440
+Some metric simply ask,
+
+00:01:28.439 --> 00:01:32.609
+do the feature vectors contain a similar order of ones and zeros?
+
+00:01:32.609 --> 00:01:35.519
+It's important to keep in mind that different matching functions
+
+00:01:35.519 --> 00:01:38.700
+will have different metrics for determining the quality of the match.
+
+00:01:38.700 --> 00:01:42.030
+For binary descriptors like the ones used by ORB
+
+00:01:42.030 --> 00:01:46.454
+the hamming metric is usually used because it can be performed extremely fast.
+
+00:01:46.454 --> 00:01:50.250
+The hamming metric determines the quality of the match between two key points
+
+00:01:50.250 --> 00:01:54.388
+by counting the number of disimilar bits between their binary descriptors.
+
+00:01:54.388 --> 00:01:58.829
+When comparing the key points in the training image with the ones in the query image,
+
+00:01:58.829 --> 00:02:02.954
+the pair with the smallest number of differences is considered to be the best match.
+
+00:02:02.954 --> 00:02:05.745
+Once the matching function has finished comparing
+
+00:02:05.745 --> 00:02:09.000
+all the key points in the training and query images,
+
+00:02:09.000 --> 00:02:11.745
+it returns the best matching pairs of key points.
+
+00:02:11.745 --> 00:02:13.530
+The best matching points between
+
+00:02:13.530 --> 00:02:16.620
+our training image and our query image are displayed here.
+
+00:02:16.620 --> 00:02:20.480
+We can clearly see that the best matching points between our training image and
+
+00:02:20.479 --> 00:02:24.629
+our query image mostly all correspond to the face in the training image.
+
+00:02:24.629 --> 00:02:27.900
+There are one or two features that don't quite match up,
+
+00:02:27.900 --> 00:02:29.400
+but may have been chosen because of
+
+00:02:29.400 --> 00:02:32.580
+similar patterns of intensity in that area of the image.
+
+00:02:32.580 --> 00:02:35.800
+Since most points correspond to the face in the training image,
+
+00:02:35.800 --> 00:02:38.340
+we can say that the matching function has been able to
+
+00:02:38.340 --> 00:02:41.599
+recognize this face in the query image correctly.
+

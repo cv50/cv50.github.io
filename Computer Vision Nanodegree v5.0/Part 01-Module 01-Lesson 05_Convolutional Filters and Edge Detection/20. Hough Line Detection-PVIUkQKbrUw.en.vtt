@@ -1,0 +1,145 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.835
+In this notebook, I've read in and made a copy
+
+00:00:02.835 --> 00:00:05.719
+of an image of a hand holding a mobile phone.
+
+00:00:05.719 --> 00:00:08.969
+Now, let's say we want to isolate this screen area.
+
+00:00:08.970 --> 00:00:10.665
+By using the Hough transform,
+
+00:00:10.664 --> 00:00:14.533
+we should be able to detect the lines that form the screen boundary.
+
+00:00:14.534 --> 00:00:16.710
+To perform Hough line detection,
+
+00:00:16.710 --> 00:00:19.416
+I'll first have to detect the edges in the image.
+
+00:00:19.416 --> 00:00:22.170
+That means that I'll convert this image to grayscale,
+
+00:00:22.170 --> 00:00:25.885
+then I'll define thresholds and apply a Canny edge detector.
+
+00:00:25.885 --> 00:00:27.239
+And it'll display the output.
+
+00:00:27.239 --> 00:00:29.070
+As you can see,
+
+00:00:29.070 --> 00:00:32.520
+we've detected a lot of smaller sort of discontinuous edges.
+
+00:00:32.520 --> 00:00:36.675
+And I'll use a Hough transform to piece these together and form continuous lines.
+
+00:00:36.674 --> 00:00:39.239
+To find lines using a Hough transform,
+
+00:00:39.240 --> 00:00:42.728
+I'll use the OpenCV function Hough lines
+
+00:00:42.728 --> 00:00:47.354
+P. This first takes in our binary image and then many other variables,
+
+00:00:47.354 --> 00:00:50.533
+and I'll define all those parameters above the function.
+
+00:00:50.533 --> 00:00:52.994
+Rho and theta are our Hough variables,
+
+00:00:52.994 --> 00:00:55.549
+which define the resolution of the detection.
+
+00:00:55.549 --> 00:00:58.519
+I'll set this as one pixel and one degree.
+
+00:00:58.520 --> 00:01:01.965
+Then we have a minimum threshold to detect a line.
+
+00:01:01.965 --> 00:01:06.704
+It's the minimum number of Hough space intersections it takes to find a line.
+
+00:01:06.704 --> 00:01:08.069
+Then we have variables for
+
+00:01:08.069 --> 00:01:12.524
+the minimum line length and the gap between discontinuous line segments.
+
+00:01:12.525 --> 00:01:15.930
+And you'll get a chance to play around with these values soon too.
+
+00:01:15.930 --> 00:01:19.980
+Then I pass these values in order to our Hough lines P function.
+
+00:01:19.980 --> 00:01:21.450
+It also takes in this empty array,
+
+00:01:21.450 --> 00:01:23.549
+which you can learn more about in-text.
+
+00:01:23.549 --> 00:01:27.364
+Now this function returns all the detected Hough lines.
+
+00:01:27.364 --> 00:01:30.079
+Each line is actually an array of four points,
+
+00:01:30.079 --> 00:01:32.719
+x1 y1 and x2 y2.
+
+00:01:32.719 --> 00:01:35.390
+These are just the two endpoints of each line.
+
+00:01:35.390 --> 00:01:38.340
+And our next step will be to make a copy of our image,
+
+00:01:38.340 --> 00:01:42.495
+and then iterate over our lines and plot each one on our image.
+
+00:01:42.495 --> 00:01:45.285
+Here I'm passing in the points that make a line,
+
+00:01:45.284 --> 00:01:47.219
+the color and the size.
+
+00:01:47.219 --> 00:01:49.170
+So let's run this and plot our image.
+
+00:01:49.170 --> 00:01:54.349
+Here you can see it creates a number of lines around the screen and on the hand.
+
+00:01:54.349 --> 00:01:57.304
+And they actually might want to filter out some of these shorter lines.
+
+00:01:57.305 --> 00:02:02.980
+So I'll go back up and increase our minimum line length to 100. And I'll run this again.
+
+00:02:02.980 --> 00:02:06.650
+These lines better identify the phone screen exclusively.
+
+00:02:06.650 --> 00:02:09.920
+Finding continuous lines like this can be useful in helping
+
+00:02:09.919 --> 00:02:14.149
+form boundaries and in noticing details about object structure.
+
+00:02:14.150 --> 00:02:16.569
+In many cases, you'll have to decide between using
+
+00:02:16.569 --> 00:02:20.479
+image contours or Hough space to find object boundaries.
+
+00:02:20.479 --> 00:02:22.280
+Next you'll get some more practice with
+
+00:02:22.280 --> 00:02:25.509
+Hough space and learn about other segmentation techniques.
+

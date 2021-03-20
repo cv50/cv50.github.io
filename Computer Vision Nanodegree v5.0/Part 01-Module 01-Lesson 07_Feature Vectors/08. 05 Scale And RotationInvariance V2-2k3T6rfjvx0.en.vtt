@@ -1,0 +1,226 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.569
+ORB uses fast to detect key points in an image.
+
+00:00:03.569 --> 00:00:06.089
+And it goes to a couple of extra steps to make
+
+00:00:06.089 --> 00:00:08.699
+sure that it can detect objects no matter their size,
+
+00:00:08.699 --> 00:00:10.574
+or location in an image.
+
+00:00:10.574 --> 00:00:14.980
+Given an image, the ORB algorithm starts by building an image pyramid.
+
+00:00:14.980 --> 00:00:20.070
+An image pyramid is a multi-scale representation of a single image that consists of
+
+00:00:20.070 --> 00:00:22.350
+a sequence of images all of which are
+
+00:00:22.350 --> 00:00:25.685
+versions of the original image at different resolutions.
+
+00:00:25.684 --> 00:00:28.229
+Each level in the pyramid consists of
+
+00:00:28.230 --> 00:00:31.304
+a down sampled version of the image in the previous level.
+
+00:00:31.304 --> 00:00:34.695
+Down sampled means that the image resolution has been reduced.
+
+00:00:34.695 --> 00:00:38.359
+In this example, the image was down sampled by a factor of two,
+
+00:00:38.359 --> 00:00:40.560
+and so a portion that was initially a four by
+
+00:00:40.560 --> 00:00:44.010
+four square area is now a two by two square area.
+
+00:00:44.009 --> 00:00:46.649
+A down sampled version of an image contains
+
+00:00:46.649 --> 00:00:50.820
+fewer pixels and has been reduced in size by this factor of two.
+
+00:00:50.820 --> 00:00:54.630
+Here we see an example of an image pyramid with five levels.
+
+00:00:54.630 --> 00:00:58.200
+At each level, the image is down sampled by a factor of two,
+
+00:00:58.200 --> 00:01:00.330
+and by level four we have an image that is
+
+00:01:00.329 --> 00:01:03.585
+one-sixteenth the resolution of the original image.
+
+00:01:03.585 --> 00:01:06.060
+Once ORB has created the image pyramid,
+
+00:01:06.060 --> 00:01:08.700
+it uses the fast algorithm to quickly locate
+
+00:01:08.700 --> 00:01:12.825
+the key points in the differently sized images at each of these levels.
+
+00:01:12.825 --> 00:01:18.120
+Since each level of the pyramid consists of a smaller version of the original image,
+
+00:01:18.120 --> 00:01:20.490
+any objects in the original image are also
+
+00:01:20.489 --> 00:01:23.219
+going to be reduced in size at each level of the pyramid.
+
+00:01:23.219 --> 00:01:26.670
+So, by locating key points at each level,
+
+00:01:26.670 --> 00:01:30.674
+ORB is effectively locating key points for the objects at different scales.
+
+00:01:30.674 --> 00:01:33.759
+In this way ORB is partially scale invariant.
+
+00:01:33.760 --> 00:01:36.750
+This is of great importance because objects are unlikely
+
+00:01:36.750 --> 00:01:39.599
+to appear at the exact same size in every image.
+
+00:01:39.599 --> 00:01:43.649
+Especially something like a cat that may be at one time close to a camera,
+
+00:01:43.650 --> 00:01:46.365
+and another very far away or even hiding.
+
+00:01:46.364 --> 00:01:51.074
+So now, ORB has key points associated with each level of this image pyramid.
+
+00:01:51.075 --> 00:01:55.109
+After the key points in all the levels of the pyramid have been located,
+
+00:01:55.109 --> 00:01:58.459
+ORB now assigns an orientation to each key point.
+
+00:01:58.459 --> 00:02:01.079
+Like left or right facing depending on
+
+00:02:01.079 --> 00:02:04.319
+how the levels of intensity change around that key point.
+
+00:02:04.319 --> 00:02:06.239
+Let's see how this is done in detail.
+
+00:02:06.239 --> 00:02:10.674
+ORB will start by selecting the image in Level zero of the pyramid.
+
+00:02:10.675 --> 00:02:14.820
+For this image, it will now calculate the orientation of it's key points by
+
+00:02:14.819 --> 00:02:19.509
+first computing the intensity centroid inside a box centered at the key point.
+
+00:02:19.509 --> 00:02:21.780
+The intensity centroid can be thought of as
+
+00:02:21.780 --> 00:02:25.469
+the position of the average pixel intensity in a given patch.
+
+00:02:25.469 --> 00:02:30.330
+Once the intensity centroid has been calculated the orientation of the key point
+
+00:02:30.330 --> 00:02:32.535
+is obtained by drawing a vector from
+
+00:02:32.534 --> 00:02:35.835
+the key point to the intensity centroid as shown here.
+
+00:02:35.835 --> 00:02:39.510
+The orientation of this particular key point is down and towards
+
+00:02:39.509 --> 00:02:44.280
+the left because the brightness in this region of the image increases in that direction.
+
+00:02:44.280 --> 00:02:46.919
+Once an orientation has been assigned to
+
+00:02:46.919 --> 00:02:50.039
+each key point in the image at level zero of the pyramid,
+
+00:02:50.039 --> 00:02:54.764
+ORB now repeats the same process for the images at all the other pyramid levels.
+
+00:02:54.764 --> 00:02:57.419
+It's important to note that the patch size is not
+
+00:02:57.419 --> 00:03:00.194
+reduced in size at each level of the image pyramid.
+
+00:03:00.194 --> 00:03:02.280
+Therefore, the image area covered by
+
+00:03:02.280 --> 00:03:05.580
+the same patch at each level of the pyramid will be larger.
+
+00:03:05.580 --> 00:03:09.960
+This results in key points having different sizes. Which can be seen here.
+
+00:03:09.960 --> 00:03:13.230
+In this image the circles represent the size of each key point.
+
+00:03:13.229 --> 00:03:17.609
+Key points with the bigger size were found in higher levels of the pyramid.
+
+00:03:17.610 --> 00:03:21.450
+After having located and assigned an orientation to the key points,
+
+00:03:21.449 --> 00:03:26.039
+ORB now uses a modified version of brief to create the feature vectors.
+
+00:03:26.039 --> 00:03:29.250
+This modified version of brief is called rBRIEF,
+
+00:03:29.250 --> 00:03:32.039
+or Rotation-Aware Brief which can create
+
+00:03:32.039 --> 00:03:35.370
+the same vector for key points no matter the orientation of an object.
+
+00:03:35.370 --> 00:03:38.985
+This makes the ORB algorithm rotation invariant,
+
+00:03:38.985 --> 00:03:43.560
+meaning it can detect the same key points in an image that's rotated at any angle.
+
+00:03:43.560 --> 00:03:48.810
+RBRIEF starts out in the same way as BRIEF by selecting 256 random pairs of
+
+00:03:48.810 --> 00:03:54.585
+pixels inside a defined patch around a given key point to construct a 256 bit vector.
+
+00:03:54.585 --> 00:03:59.849
+It then rotates these random pairs of pixels by the orientation angle of the key point,
+
+00:03:59.849 --> 00:04:03.629
+so as to align the random points with the orientation of the key point.
+
+00:04:03.629 --> 00:04:07.710
+Finally, rBRIEF compares the brightness of the random pairs of pixels,
+
+00:04:07.710 --> 00:04:12.450
+and assigns ones and zeros accordingly creating the corresponding feature vectors.
+
+00:04:12.449 --> 00:04:16.740
+The set of all the feature vectors for all the key points found in an image,
+
+00:04:16.740 --> 00:04:19.000
+is known as the ORB descriptor.
+

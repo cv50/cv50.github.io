@@ -1,0 +1,94 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.440 --> 00:00:04.259
+Now you've seen that corners are good unique features
+
+00:00:04.259 --> 00:00:07.410
+that can help identify certain points on an object.
+
+00:00:07.410 --> 00:00:10.349
+And this is a great example of how object structure and
+
+00:00:10.349 --> 00:00:13.724
+image gradients can be useful in feature recognition.
+
+00:00:13.724 --> 00:00:17.655
+But if we're interested not only in feature points like corners,
+
+00:00:17.655 --> 00:00:19.734
+but in whole object detection,
+
+00:00:19.734 --> 00:00:24.809
+we have to look at distinct sets of features often called "feature vectors."
+
+00:00:24.809 --> 00:00:27.359
+And in fact, if you look at the direction of
+
+00:00:27.359 --> 00:00:30.405
+multiple gradients around the center point in an image,
+
+00:00:30.405 --> 00:00:32.535
+you can get a feature vector that makes for
+
+00:00:32.534 --> 00:00:35.794
+a robust representation of the shape of an object.
+
+00:00:35.795 --> 00:00:40.045
+Let's look at a few simple examples to better understand this idea.
+
+00:00:40.045 --> 00:00:45.660
+Take this trapezoid and its corresponding gradient which is just an edge detected image.
+
+00:00:45.659 --> 00:00:49.109
+If we break this image up into a grid of cells and look at
+
+00:00:49.109 --> 00:00:53.819
+the direction of the gradient in each cell with respect to the center of the trapezoid,
+
+00:00:53.819 --> 00:00:57.685
+we can then flatten this data and create a 1D array.
+
+00:00:57.685 --> 00:00:59.480
+This is a feature vector,
+
+00:00:59.479 --> 00:01:02.929
+and in this case it's a vector of gradient directions.
+
+00:01:02.929 --> 00:01:06.569
+We can do the same thing for other shapes like this circle taking
+
+00:01:06.569 --> 00:01:10.790
+the gradient and calculating the direction of the gradient in each grid cell,
+
+00:01:10.790 --> 00:01:14.189
+and we get a different feature vector for each shape.
+
+00:01:14.189 --> 00:01:18.090
+These two feature vectors exactly represent these two shapes,
+
+00:01:18.090 --> 00:01:21.454
+but ideally to accurately identify any circle or
+
+00:01:21.454 --> 00:01:25.200
+trapezoid at different sizes or from different perspectives,
+
+00:01:25.200 --> 00:01:29.430
+these vectors should allow for enough flexibility to detect some variation
+
+00:01:29.430 --> 00:01:31.500
+in these shapes while remaining distinct
+
+00:01:31.500 --> 00:01:34.680
+enough to be able to distinguish different shapes.
+
+00:01:34.680 --> 00:01:35.790
+Next, we'll talk about
+
+00:01:35.790 --> 00:01:39.450
+some common feature detection methods that allow for this flexibility,
+
+00:01:39.450 --> 00:01:43.228
+and use patterns in image gradients to recognize different objects.
+
