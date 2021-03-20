@@ -1,0 +1,369 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Project Overview
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Project: Facial Keypoint Detection
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Project Overview.html">
+       01. Project Overview
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Workspaces Best Practices.html">
+       02. Workspaces: Best Practices
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Project Facial Keypoint Detection.html">
+       03. Project: Facial Keypoint Detection
+      </a>
+     </li>
+     <li class="">
+      <a href="Project Description - Facial Keypoint Detection.html">
+       Project Description - Facial Keypoint Detection
+      </a>
+     </li>
+     <li class="">
+      <a href="Project Rubric - Facial Keypoint Detection.html">
+       Project Rubric - Facial Keypoint Detection
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          01. Project Overview
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="project-overview">
+          Project Overview
+         </h2>
+         <p>
+          In this project, you’ll combine your knowledge of computer vision techniques and deep learning architectures to build a facial keypoint detection system that takes in any image with faces, and predicts the location of 68 distinguishing keypoints on each face!
+         </p>
+         <p>
+          Facial keypoints include points around the eyes, nose, and mouth on a face and are used in many applications. These applications include: facial tracking, facial pose recognition, facial filters, and emotion recognition. Your completed code should be able to look at any image, detect faces, and predict the locations of facial keypoints on each face. Some examples of these keypoints are pictured below.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Facial keypoints displayed on two images, each of which contains a single face." class="img img-fluid" src="img/screen-shot-2018-04-10-at-8.24.14-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Facial keypoints displayed on two images, each of which contains a single face.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="project-instructions">
+          Project Instructions
+         </h2>
+         <p>
+          The project will be broken up into a few main parts in four Python notebooks,
+          <strong>
+           only Notebooks 2 and 3 (and the
+           <code>
+            models.py
+           </code>
+           file) will be graded
+          </strong>
+          :
+         </p>
+         <p>
+          <strong>
+           Notebook 1
+          </strong>
+          : Loading and Visualizing the Facial Keypoint Data
+         </p>
+         <p>
+          <strong>
+           Notebook 2
+          </strong>
+          : Defining and Training a Convolutional Neural Network (CNN) to Predict Facial Keypoints
+         </p>
+         <p>
+          <strong>
+           Notebook 3
+          </strong>
+          : Facial Keypoint Detection Using Haar Cascades and your Trained CNN
+         </p>
+         <p>
+          <strong>
+           Notebook 4
+          </strong>
+          : Fun Filters and Keypoint Uses
+         </p>
+         <p>
+          You can find these notebooks in the Udacity workspace that appears in the concept titled
+          <strong>
+           Project: Facial Keypoint Detection
+          </strong>
+          .  This workspace provides a Jupyter notebook server directly in your browser.
+         </p>
+         <h3 id="note-this-project-does-not-require-the-use-of-gpu-so-this-project-does-not-include-instructions-for-gpu-setup">
+          Note: This project does not require the use of GPU, so this project does not include instructions for GPU setup.
+         </h3>
+         <p>
+          <br/>
+         </p>
+         <p>
+          You can also choose to complete this project in your own local repository (and may use GPU, there), and you can find all of the project files in this
+          <a href="https://github.com/udacity/P1_Facial_Keypoints" rel="noopener noreferrer" target="_blank">
+           GitHub repository
+          </a>
+          .  Note that while you are
+          <em>
+           allowed
+          </em>
+          to complete this project on your local computer, you are
+          <strong>
+           strongly
+          </strong>
+          encouraged to complete the project from the workspace.
+         </p>
+         <p>
+          <em>
+           Note: There is a final, 5th notebook that is there to guide you once you are ready to submit your project!
+          </em>
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="evaluation">
+          Evaluation
+         </h2>
+         <p>
+          Your project will be reviewed by a Udacity reviewer against the Facial Keypoint Detection project
+          <a href="https://review.udacity.com/#!/rubrics/1426/view" rel="noopener noreferrer" target="_blank">
+           rubric
+          </a>
+          . Review this rubric thoroughly, and self-evaluate your project before submission. All criteria found in the rubric must meet specifications for you to pass.
+         </p>
+         <h2 id="ready-to-submit-your-project">
+          Ready to submit your project?
+         </h2>
+         <p>
+          <strong>
+           Zipping project files, manually
+          </strong>
+         </p>
+         <p>
+          There are instructions in a 5th, final notebook, for compressing your project and work into a zip file, which you can download and submit.
+          <strong>
+           This is the recommended submission approach.
+          </strong>
+         </p>
+         <p>
+          Once you've completed your project, at the end of this lesson you'll see a "Submit Project" button; click it and follow the instructions to submit!
+         </p>
+         <hr/>
+         <p>
+          <strong>
+           If you decide to submit directly from the workspace
+          </strong>
+          please make sure:
+         </p>
+         <ol>
+          <li>
+           You do not have any image files in your Jupyter notebook home directory
+          </li>
+          <li>
+           You have deleted any large model checkpoints in the home directory
+          </li>
+         </ol>
+         <p>
+          When workspaces are submitted, everything in the home directory is compressed and submitted in a zip file. Deleting large files that are not graded, will make sure that your submission will not be too large!
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="the-workspace">
+          The Workspace
+         </h2>
+         <p>
+          Next, you'll load the project workspace and follow detailed instructions there to complete this project! The workspace may take a minute or two to load the facial image/keypoint data.
+         </p>
+         <p>
+          If you want to ask questions about this project or share advice, post in the Study Groups or Knowledge.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="02. Workspaces Best Practices.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('01. Project Overview')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

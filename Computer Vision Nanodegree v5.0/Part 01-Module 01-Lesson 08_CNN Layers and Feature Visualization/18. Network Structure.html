@@ -1,0 +1,405 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Network Structure
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      CNN Layers and Feature Visualization
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Introduction to CNN Layers.html">
+       01. Introduction to CNN Layers
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Review Training a Neural Network.html">
+       02. Review: Training a Neural Network
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Lesson Outline and Data.html">
+       03. Lesson Outline and Data
+      </a>
+     </li>
+     <li class="">
+      <a href="04. CNN Architecture, VGG-16.html">
+       04. CNN Architecture, VGG-16
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Convolutional Layers.html">
+       05. Convolutional Layers
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Defining Layers in PyTorch.html">
+       06. Defining Layers in PyTorch
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Notebook Visualizing a Convolutional Layer.html">
+       07. Notebook: Visualizing a Convolutional Layer
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Pooling, VGG-16 Architecture.html">
+       08. Pooling, VGG-16 Architecture
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Pooling Layers.html">
+       09. Pooling Layers
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Notebook Visualizing a Pooling Layer.html">
+       10. Notebook: Visualizing a Pooling Layer
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Fully-Connected Layers, VGG-16.html">
+       11. Fully-Connected Layers, VGG-16
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Notebook Visualizing FashionMNIST.html">
+       12. Notebook: Visualizing FashionMNIST
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Training in PyTorch.html">
+       13. Training in PyTorch
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Notebook Fashion MNIST Training Exercise.html">
+       14. Notebook: Fashion MNIST Training Exercise
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Notebook FashionMNIST, Solution 1.html">
+       15. Notebook: FashionMNIST, Solution 1
+      </a>
+     </li>
+     <li class="">
+      <a href="16. Review Dropout.html">
+       16. Review: Dropout
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Notebook FashionMNIST, Solution 2.html">
+       17. Notebook: FashionMNIST, Solution 2
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Network Structure.html">
+       18. Network Structure
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Feature Visualization.html">
+       19. Feature Visualization
+      </a>
+     </li>
+     <li class="">
+      <a href="20. Feature Maps.html">
+       20. Feature Maps
+      </a>
+     </li>
+     <li class="">
+      <a href="21. First Convolutional Layer.html">
+       21. First Convolutional Layer
+      </a>
+     </li>
+     <li class="">
+      <a href="22. Visualizing CNNs (Part 2).html">
+       22. Visualizing CNNs (Part 2)
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Visualizing Activations.html">
+       23. Visualizing Activations
+      </a>
+     </li>
+     <li class="">
+      <a href="24. Notebook Feature Viz for FashionMNIST.html">
+       24. Notebook: Feature Viz for FashionMNIST
+      </a>
+     </li>
+     <li class="">
+      <a href="25. Last Feature Vector and t-SNE.html">
+       25. Last Feature Vector and t-SNE
+      </a>
+     </li>
+     <li class="">
+      <a href="26. Occlusion, Saliency, and Guided Backpropagation.html">
+       26. Occlusion, Saliency, and Guided Backpropagation
+      </a>
+     </li>
+     <li class="">
+      <a href="27. Summary of Feature Viz.html">
+       27. Summary of Feature Viz
+      </a>
+     </li>
+     <li class="">
+      <a href="28. Image Classification &amp; Regression Challenges.html">
+       28. Image Classification &amp; Regression Challenges
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          18. Network Structure
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="how-can-you-decide-on-a-network-structure">
+          How can you decide on a network structure?
+         </h1>
+         <p>
+          At this point, deciding on a network structure: how many layers to create, when to include dropout layers, and so on, may seem a bit like guessing, but there is a rationale behind defining a good model.
+         </p>
+         <p>
+          I think a lot of people (myself included) build up an intuition about how to structure a network from existing models. Take AlexNet as an example; linked is a nice,
+          <a href="https://medium.com/@smallfishbigsea/a-walk-through-of-alexnet-6cbd137a5637" rel="noopener noreferrer" target="_blank">
+           concise walkthrough of structure and reasoning
+          </a>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="AlexNet structure." class="img img-fluid" src="img/alexnet-png.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            AlexNet structure.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="preventing-overfitting">
+          Preventing Overfitting
+         </h3>
+         <p>
+          Often we see
+          <a href="https://towardsdatascience.com/batch-normalization-in-neural-networks-1ac91516821c" rel="noopener noreferrer" target="_blank">
+           batch norm
+          </a>
+          applied after early layers in the network, say after a set of conv/pool/activation steps since this normalization step is fairly quick and reduces the amount by which hidden weight values shift around. Dropout layers often come near the end of the network; placing them in between fully-connected layers for example can prevent any node in those layers from overly-dominating.
+         </p>
+         <h3 id="convolutional-and-pooling-layers">
+          Convolutional and Pooling Layers
+         </h3>
+         <p>
+          As far as conv/pool structure, I would again recommend looking at existing architectures, since many people have already done the work of throwing things together and seeing what works. In general, more layers = you can see more complex structures, but you should always consider the size and complexity of your training data (many layers may not be necessary for a simple task).
+         </p>
+         <h3 id="as-you-learn">
+          As You Learn
+         </h3>
+         <p>
+          When you are first learning about CNN's for classification or any other task, you can improve your intuition about model design by approaching a simple task (such as clothing classification) and
+          <em>
+           quickly
+          </em>
+          trying out new approaches. You are encouraged to:
+         </p>
+         <ol>
+          <li>
+           Change the number of convolutional layers and see what happens
+          </li>
+          <li>
+           Increase the size of convolutional kernels for larger images
+          </li>
+          <li>
+           Change loss/optimization functions to see how your model responds (especially change your
+           <strong>
+            hyperparameters
+           </strong>
+           such as learning rate and see what happens -- you will learn more about hyperparameters in the second module of this course)
+          </li>
+          <li>
+           Add layers to prevent overfitting
+          </li>
+          <li>
+           Change the batch_size of your data loader to see how larger batch sizes can affect your training
+          </li>
+         </ol>
+         <p>
+          Always watch how
+          <strong>
+           much
+          </strong>
+          and how
+          <strong>
+           quickly
+          </strong>
+          your model loss decreases, and learn from improvements as well as mistakes!
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="19. Feature Visualization.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('18. Network Structure')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

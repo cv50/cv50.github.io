@@ -1,0 +1,88 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.065
+You've already seen how to extract color and shape features from an image.
+
+00:00:04.065 --> 00:00:05.620
+In the examples you've gone through,
+
+00:00:05.620 --> 00:00:08.970
+it was up to you to decide what features and filters were the most
+
+00:00:08.970 --> 00:00:12.800
+useful for grouping pixel data into similar clusters or classes.
+
+00:00:12.800 --> 00:00:15.620
+This is similar to how Convolutional Neural Networks
+
+00:00:15.619 --> 00:00:18.660
+or CNN's learned to recognize patterns in images.
+
+00:00:18.660 --> 00:00:22.653
+For example, say we're creating a CNN for image classification,
+
+00:00:22.653 --> 00:00:25.489
+this CNN should take in an image as input,
+
+00:00:25.489 --> 00:00:28.079
+and output a distribution of class scores
+
+00:00:28.079 --> 00:00:31.109
+from which we can get the predicted class for that image.
+
+00:00:31.109 --> 00:00:33.719
+This CNN is made up of a series of
+
+00:00:33.719 --> 00:00:37.725
+layers that learn to extract relevant features out of any image.
+
+00:00:37.725 --> 00:00:41.445
+The backbone of a CNN is the convolutional layer.
+
+00:00:41.445 --> 00:00:45.130
+A convolutional layer applies a series of different image filters,
+
+00:00:45.130 --> 00:00:47.240
+also known as convolutional kernels,
+
+00:00:47.240 --> 00:00:48.690
+to an input image.
+
+00:00:48.689 --> 00:00:51.744
+The resulting filtered images have different appearances.
+
+00:00:51.744 --> 00:00:55.099
+The filters may have extracted features like the edges of objects in
+
+00:00:55.100 --> 00:00:59.060
+that image or the colors that distinguish the different classes of images.
+
+00:00:59.060 --> 00:01:00.685
+As the CNN trains,
+
+00:01:00.685 --> 00:01:03.140
+it updates the weights that define the image filters
+
+00:01:03.140 --> 00:01:06.305
+in this convolutional layer using backpropagation.
+
+00:01:06.305 --> 00:01:09.830
+The end result is a classifier with convolutional layers that have
+
+00:01:09.829 --> 00:01:13.730
+learned to filter images to extract distinguishing features.
+
+00:01:13.730 --> 00:01:15.245
+In the next section,
+
+00:01:15.245 --> 00:01:19.660
+we'll learn how convolutional neural networks learn to extract features from images,
+
+00:01:19.659 --> 00:01:23.899
+go over the types of layers that make up a complete convolutional neural network,
+
+00:01:23.900 --> 00:01:28.260
+and learn some techniques for visualizing the inner workings of a CNN.
+
