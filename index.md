@@ -1,1 +1,0 @@
-<a href="Computer Vision Nanodegree v5.0/index.html"><strong>计算机视觉/Computer Vision Nanodegree</a>
